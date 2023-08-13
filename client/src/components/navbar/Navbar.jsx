@@ -8,9 +8,16 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navContainer">
-        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-          <span className="logo">tourzee</span>
-        </Link>
+      <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+  <span className="logo">
+    <img
+      src="/logo.png?v=2"
+      alt="Tourzee Logo"
+      style={{ height: "15%", width: "15%" }}
+    />
+  </span>
+</Link>
+
         {user ? user.username : (
           <div className="navItems">
             <button className="navButton">Register</button>
