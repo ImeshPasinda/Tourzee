@@ -18,10 +18,11 @@
   font-weight: 500;
 }
 
-.navButton{
+.navButton {
   margin-left: 20px;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   color: #003580;
+  border-radius: 5px; /* You can adjust the value to control the amount of rounding */
 }
