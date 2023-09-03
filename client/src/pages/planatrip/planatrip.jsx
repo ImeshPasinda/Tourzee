@@ -38,9 +38,6 @@ const Planatrip = () => {
           <p style={{ color: '#888' }}>
 
             Galle is a charming coastal town nestled along the southern shores of the picturesque island of Sri Lanka. 
-
-             is a charming coastal town nestled along the southern shores of the picturesque island of Sri Lanka. 
-
             This idyllic destination, found in the heart of the Matara District within the Southern Province, beckons travelers with its serene beauty and vibrant culture. Located approximately 150 kilometers to the south of the bustling capital city, Colombo, Mirissa is a tranquil escape that sits at a modest elevation of 4 meters above sea level.
             Renowned for its pristine beaches and lively nightlife, Mirissa has rightfully earned its reputation as a coveted hotspot for tourists seeking both relaxation and adventure. The golden sands of its shoreline stretch as far as the eye can see, offering a perfect setting for sunbathing, beachcombing, and engaging in a variety of water sports.
             As the sun dips below the horizon, Mirissa undergoes a captivating transformation, evolving into a vibrant hub of nightlife and entertainment. Beachfront bars and restaurants come to life with the sounds of live music and the tantalizing aromas of fresh seafood delicacies. 
