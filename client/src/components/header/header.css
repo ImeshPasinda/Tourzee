@@ -133,6 +133,8 @@
   text-decoration: none; /* Remove underline by default */
 }
 
-.iconStyle {
-  margin-right: 8px; /* Adjust the margin as needed for spacing */
+.custom-badge {
+  background-color: white;
+  color: #003580;
 }
+

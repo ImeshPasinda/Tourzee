@@ -9,6 +9,7 @@ import {
   faTruck,
   faTruckMedical,
 } from "@fortawesome/free-solid-svg-icons";
+import Badge from '@mui/material/Badge';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./headerforplanatrip.css";
 import { DateRange } from "react-date-range";
@@ -88,10 +89,12 @@ const Headerforplanatrip = ({ type }) => {
             <FontAwesomeIcon icon={faTruckMedical} />
             <span>Safety</span>
           </div>
+          <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faLocationDot} />
             <span>Start a Trip</span>
           </div>
+          </Badge>
         </div>
         {type !== "list" && (
           <>
