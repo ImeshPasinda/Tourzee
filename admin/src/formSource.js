@@ -146,3 +146,42 @@ export const roomInputs = [
     placeholder: "2",
   },
 ];
+
+export const emergencyInputs = [
+  {
+    id: "name",
+    label: "Facility Name",
+    type: "text",
+    placeholder: "Emergency Facility Name",
+  },
+  {
+    id: "type",
+    label: "Facility Type",
+    type: "text",
+    placeholder: "Hospital, Police Station, etc.",
+  },
+  {
+    id: "city",
+    label: "City",
+    type: "text",
+    placeholder: "City Name",
+  },
+  {
+    id: "address",
+    label: "Address",
+    type: "text",
+    placeholder: "Facility Address",
+  },
+  {
+    id: "coordinates",
+    label: "Coordinates",
+    type: "text",
+    placeholder: "Longitude, Latitude",
+  },
+  {
+    id: "contactNumber",
+    label: "Contact Number",
+    type: "text",
+    placeholder: "Phone Number",
+  },
+];
