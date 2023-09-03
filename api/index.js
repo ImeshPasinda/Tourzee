@@ -5,7 +5,12 @@ import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
+import emergencyRoute from './routes/emergencyRoute.js'; // Import the new route
+import safetyRoute from './routes/safetyRoute.js'; // Import the new route
+import emergencyContactRoute from './routes/emergencyContactRoute.js'; // Import the new route
+
 import cookieParser from "cookie-parser";
+
 import cors from "cors";
 
 const app = express();
@@ -33,6 +38,10 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
+app.use('/api/emergencyfacilities', emergencyRoute); // Add the new route
+app.use('/api/safetytips', safetyRoute); // Add the new route
+app.use('/api/emergencyContacts', emergencyContactRoute); // Add the new route
+
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
