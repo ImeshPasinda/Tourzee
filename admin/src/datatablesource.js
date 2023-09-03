@@ -83,3 +83,37 @@ export const roomColumns = [
     width: 100,
   },
 ];
+
+export const emergencyColumns = [
+  { field: "_id", headerName: "ID", width: 70 },
+  {
+    field: "name",
+    headerName: "Facility Name",
+    width: 230,
+  },
+  {
+    field: "type",
+    headerName: "Facility Type",
+    width: 230,
+  },
+  {
+    field: "city",
+    headerName: "City",
+    width: 100,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    width: 200,
+  },
+  {
+    field: "coordinates",
+    headerName: "Coordinates",
+    width: 200,
+  },
+  {
+    field: "contactNumber",
+    headerName: "Contact Number",
+    width: 150,
+  },
+];
