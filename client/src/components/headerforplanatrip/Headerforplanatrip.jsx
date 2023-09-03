@@ -10,7 +10,7 @@ import {
   faTruckMedical,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./header.css";
+import "./headerforplanatrip.css";
 import { DateRange } from "react-date-range";
 import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
@@ -21,7 +21,7 @@ import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
-const Header = ({ type }) => {
+const Headerforplanatrip = ({ type }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -66,9 +66,11 @@ const Header = ({ type }) => {
         }
       >
         <div className="headerList">
-          <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
+          <div className="headerListItem">
+          <Link to="/" className="linkStyle">
+            <FontAwesomeIcon icon={faBed} className="iconStyle"/>
             <span>Stays</span>
+            </Link>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPerson} />
@@ -86,21 +88,18 @@ const Header = ({ type }) => {
             <FontAwesomeIcon icon={faTruckMedical} />
             <span>Safety</span>
           </div>
-          <div className="headerListItem">
-            <Link to="/planatrip" className="linkStyle">
-              <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
-              <span>Start a Trip</span>
-            </Link>
+          <div className="headerListItem active">
+            <FontAwesomeIcon icon={faLocationDot} />
+            <span>Start a Trip</span>
           </div>
         </div>
-        
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-              Your Ultimate Travel Companion
+            Build a trip in minutes
             </h1>
             <p className="headerDesc">
-              "Discover the Wonders of Sri Lanka with Tourzee "
+            "Get a personalized itinerary just for you, guided by traveler tips and reviews"
             </p>
             {!user && <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
@@ -108,7 +107,7 @@ const Header = ({ type }) => {
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
                 <input
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="Where do you want to go?"
                   className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
                 />
@@ -220,4 +219,4 @@ const Header = ({ type }) => {
   );
 };
 
-export default Header;
+export default Headerforplanatrip;
