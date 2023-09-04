@@ -8,6 +8,7 @@ import Hotel from "./pages/hotel/Hotel";
 import List from "./pages/list/List";
 import Login from "./pages/login/Login";
 import Planatrip from "./pages/planatrip/planatrip";
+import Emergencysafety from "./pages/EmergencySafety/emergencySafetyScreen";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/hotels/:id" element={<Hotel/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/planatrip" element={<Planatrip/>}/>
+        <Route path="/emergencySafety" element={<Emergencysafety/>}/>
+
       </Routes>
     </BrowserRouter>
   );
