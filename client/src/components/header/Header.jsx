@@ -84,19 +84,21 @@ const Header = ({ type }) => {
             <span>Attractions</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faTruckMedical} />
-            <span>Safety</span>
-          </div>
-          <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
-          <div className="headerListItem">
-            <Link to="/planatrip" className="linkStyle">
-              <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
-              <span>Start a Trip</span>
+            <Link to="/emergencySafety" className="linkStyle">
+              <FontAwesomeIcon icon={faTruckMedical} />
+              <span>Safety</span>
             </Link>
           </div>
+          <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
+            <div className="headerListItem">
+              <Link to="/planatrip" className="linkStyle">
+                <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
+                <span>Start a Trip</span>
+              </Link>
+            </div>
           </Badge>
         </div>
-        
+
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
