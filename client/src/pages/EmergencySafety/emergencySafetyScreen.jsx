@@ -7,6 +7,7 @@ import Navbar from "../../components/navbar/Navbar";
 import PropertyList from "../../components/propertyList/PropertyList";
 import "./emergencySafety.css";
 import HeaderForEmergency from "../../components/headerforEmergency/headerforEmergency";
+import { Link } from "react-router-dom";
 
 const Emergencysafety = () => {
   return (
@@ -14,7 +15,7 @@ const Emergencysafety = () => {
       <Navbar />
       <HeaderForEmergency />
       <div className="homeContainer">
-      <h1 className="homeTitle">Ensure Your Security With Us !</h1>
+        <h1 className="homeTitle">Ensure Your Security With Us !</h1>
 
         <div
           style={{
@@ -28,7 +29,11 @@ const Emergencysafety = () => {
             <button className="headerBtn"> Before You Go<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
             <button className="headerBtn">Destinations<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
 
-            <button className="headerBtn" style={{ backgroundColor: 'red', color: 'white' }}>Need Urgent Help <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
+            <Link to="/urgentHelp">
+              <button className="headerBtn" style={{ backgroundColor: 'red', color: 'white' }}>
+                Need Urgent Help <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} />
+              </button>
+            </Link>
           </div>
         </div>
         <div
