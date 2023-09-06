@@ -9,8 +9,8 @@
 }
 
 .siImg {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -30,7 +30,7 @@
   font-size: 12px;
 }
 
-.siTaxiOp {
+.siType {
   font-size: 12px;
   background-color: #008009;
   color: white;
@@ -48,15 +48,15 @@
   font-size: 12px;
 }
 
-.siCancelOp{
+.siNoticeHeader{
   font-size: 12px;
   color: #008009;
   font-weight: bold;
 }
 
-.siCancelOpSubtitle{
+.siNotice{
   font-size: 12px;
-  color: #008009;
+  color: #ff0e0e;
 }
 
 .siDetails {

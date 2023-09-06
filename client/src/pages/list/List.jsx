@@ -31,7 +31,7 @@ const List = () => {
       <Header type="list" />
       <div className="listContainer">
         <div className="listWrapper">
-          <div className="listSearch">
+          {/* <div className="listSearch">
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
@@ -104,7 +104,7 @@ const List = () => {
               </div>
             </div>
             <button onClick={handleClick}>Search</button>
-          </div>
+          </div> */}
           <div className="listResult">
             {loading ? (
               "loading"
