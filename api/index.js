@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
-import hotelsRoute from "./routes/places.js";
+import placesRoute from "./routes/places.js";
 import roomsRoute from "./routes/rooms.js";
 import emergencyRoute from './routes/emergencyRoute.js'; // Import the new route
 import safetyRoute from './routes/safetyRoute.js'; // Import the new route
