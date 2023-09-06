@@ -13,19 +13,19 @@ const SearchItem = ({ item }) => {
         <span className="siFeatures">{item.desc}</span>
         {/* <span className="siNoticeHeader">Free cancellation </span> */}
         <span className="siNotice">
-        Please refrain from damaging any places during your travel!
+          Please refrain from damaging any places during your travel!
         </span>
       </div>
       <div className="siDetails">
         {item.rating && <div className="siRating">
-          <span>Ratings for {item.name}</span>
-          <button>{item.rating}</button>
+        <span>Ratings for {item.name}</span>
+          <button>{item.rating >= 1000 ? '999+' : item.rating}</button>
         </div>}
         <div className="siDetailTexts">
           {/* <span className="siPrice">${item.cheapestPrice}</span>
           <span className="siTaxOp">Includes taxes and fees</span> */}
           <Link to={`/places/${item._id}`}>
-          <button className="siCheckButton">More Info</button>
+            <button className="siCheckButton">More Info</button>
           </Link>
         </div>
       </div>
