@@ -3,7 +3,7 @@ import "./featuredPlanatrip.css";
 
 const FeaturedPlanatrip = () => {
   const { data, loading, error } = useFetch(
-    "/hotels/countByCity?cities=berlin,madrid,london"
+    "/places/countByCity?cities=berlin,madrid,london"
   );
 
   return (
@@ -38,7 +38,7 @@ const FeaturedPlanatrip = () => {
 
           <div className="featuredItem">
             <img
-              src="https://www.orienthotelsl.com/wp-content/uploads/2023/02/Nine-Arches-Bridge-Ella-800x600-1.webp"
+              src="https://www.orientplacesl.com/wp-content/uploads/2023/02/Nine-Arches-Bridge-Ella-800x600-1.webp"
               alt=""
               className="featuredImg"
             />
@@ -49,7 +49,7 @@ const FeaturedPlanatrip = () => {
           </div>
           <div className="featuredItem">
             <img
-              src="https://www.orienthotelsl.com/wp-content/uploads/2023/02/Nine-Arches-Bridge-Ella-800x600-1.webp"
+              src="https://www.orientplacesl.com/wp-content/uploads/2023/02/Nine-Arches-Bridge-Ella-800x600-1.webp"
               alt=""
               className="featuredImg"
             />
@@ -61,7 +61,7 @@ const FeaturedPlanatrip = () => {
 
           <div className="featuredItem">
             <img
-              src="https://www.orienthotelsl.com/wp-content/uploads/2023/02/Nine-Arches-Bridge-Ella-800x600-1.webp"
+              src="https://www.orientplacesl.com/wp-content/uploads/2023/02/Nine-Arches-Bridge-Ella-800x600-1.webp"
               alt=""
               className="featuredImg"
             />

@@ -36,7 +36,7 @@ export const userColumns = [
   },
 ];
 
-export const hotelColumns = [
+export const placeColumns = [
   { field: "_id", headerName: "ID", width: 250 },
   {
     field: "name",

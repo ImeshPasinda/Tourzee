@@ -10,7 +10,7 @@ const Footer = () => {
           <li className="fListItem">Cities</li>
           <li className="fListItem">Districts</li>
           <li className="fListItem">Airports</li>
-          <li className="fListItem">Hotels</li>
+          <li className="fListItem">places</li>
         </ul>
         <ul className="fList">
           <li className="fListItem">Homes </li>

@@ -1,13 +1,13 @@
-import "./newHotel.scss";
+import "./newPlace.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
-import { hotelInputs } from "../../formSource";
+import { placeInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 
-const NewHotel = () => {
+const NewPlace = () => {
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [rooms, setRooms] = useState([]);
@@ -46,13 +46,13 @@ const NewHotel = () => {
         })
       );
 
-      const newhotel = {
+      const newplace = {
         ...info,
         rooms,
         photos: list,
       };
 
-      await axios.post("/hotels", newhotel);
+      await axios.post("/places", newplace);
     } catch (err) {console.log(err)}
   };
   return (
@@ -89,7 +89,7 @@ const NewHotel = () => {
                 />
               </div>
 
-              {hotelInputs.map((input) => (
+              {placeInputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
                   <input
@@ -129,4 +129,4 @@ const NewHotel = () => {
   );
 };
 
-export default NewHotel;
+export default NewPlace;

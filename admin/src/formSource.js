@@ -69,18 +69,18 @@ export const productInputs = [
   },
 ];
 
-export const hotelInputs = [
+export const placeInputs = [
   {
     id: "name",
     label: "Name",
     type: "text",
-    placeholder: "My Hotel",
+    placeholder: "My Place",
   },
   {
     id: "type",
     label: "Type",
     type: "text",
-    placeholder: "hotel",
+    placeholder: "place",
   },
   {
     id: "city",
@@ -104,7 +104,7 @@ export const hotelInputs = [
     id: "title",
     label: "Title",
     type: "text",
-    placeholder: "The best Hotel",
+    placeholder: "The best Place",
   },
   {
     id: "desc",
