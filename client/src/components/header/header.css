@@ -73,6 +73,10 @@
   gap: 10px;
 }
 
+.space {
+  margin-right: 51%; /* Adjust the margin as needed */
+}
+
 .headerSearchInput {
   border: none;
   outline: none;
@@ -138,3 +142,7 @@
   color: #003580;
 }
 
+.headerTitleLine {
+  animation: none; /* Remove any animation */
+  opacity: 1; /* Set opacity to 1 to show the text continuously */
+}

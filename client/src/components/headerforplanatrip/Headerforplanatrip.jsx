@@ -56,7 +56,7 @@ const Headerforplanatrip = ({ type }) => {
 
   const handleSearch = () => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
-    navigate("/hotels", { state: { destination, dates, options } });
+    navigate("/places", { state: { destination, dates, options } });
   };
 
   return (
