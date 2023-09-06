@@ -10,7 +10,8 @@ import Login from "./pages/login/Login";
 import Planatrip from "./pages/planatrip/planatrip";
 import Emergencysafety from "./pages/EmergencySafety/emergencySafetyScreen";
 import UrgentHelp from "./pages/UrgentHelpDesk/urgenthelp";
-
+import Safetybeforego from "./pages/SafetyBeforeGo/safetybeforego";
+import DestinationsEmergency from "./pages/DestinationsInEmergency/destinationsEmergency";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path="/planatrip" element={<Planatrip/>}/>
         <Route path="/emergencySafety" element={<Emergencysafety/>}/>
         <Route path="/urgentHelp" element={<UrgentHelp/>}/>
+        <Route path="/safetybeforego" element={<Safetybeforego/>}/>
+        <Route path="/destinationsemergency" element={<DestinationsEmergency/>}/>
 
 
       </Routes>

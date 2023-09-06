@@ -39,7 +39,7 @@ app.use("/api/users", usersRoute);
 app.use("/api/places", placesRoute);
 app.use("/api/rooms", roomsRoute);
 app.use('/api/emergencyfacilities', emergencyRoute); // Add the new route
-app.use('/api/safetytips', safetyRoute); // Add the new route
+app.use('/api/destinationsafetytips', safetyRoute); // Add the new route
 app.use('/api/emergencyContacts', emergencyContactRoute); // Add the new route
 
 
