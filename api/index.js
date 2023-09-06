@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
-import hotelsRoute from "./routes/hotels.js";
+import hotelsRoute from "./routes/places.js";
 import roomsRoute from "./routes/rooms.js";
 import emergencyRoute from './routes/emergencyRoute.js'; // Import the new route
 import safetyRoute from './routes/safetyRoute.js'; // Import the new route
@@ -36,10 +36,10 @@ app.use(express.json());
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
-app.use("/api/hotels", hotelsRoute);
+app.use("/api/places", placesRoute);
 app.use("/api/rooms", roomsRoute);
 app.use('/api/emergencyfacilities', emergencyRoute); // Add the new route
-app.use('/api/safetytips', safetyRoute); // Add the new route
+app.use('/api/destinationsafetytips', safetyRoute); // Add the new route
 app.use('/api/emergencyContacts', emergencyContactRoute); // Add the new route
 
 

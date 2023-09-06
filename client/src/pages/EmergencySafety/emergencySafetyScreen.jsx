@@ -26,9 +26,12 @@ const Emergencysafety = () => {
         >
           {/* <h1 className="homeTitle">        Ensure Your Security With Us !</h1> */}
           <div style={{ display: 'flex', gap: '20px' }}>
-            <button className="headerBtn"> Before You Go<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
-            <button className="headerBtn">Destinations<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
-
+            <Link to="/safetybeforego">
+              <button className="headerBtn"> Before You Go<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
+            </Link>
+            <Link to="/destinationsemergency">
+              <button className="headerBtn">Destinations<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
+            </Link>
             <Link to="/urgentHelp">
               <button className="headerBtn" style={{ backgroundColor: 'red', color: 'white' }}>
                 Need Urgent Help <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} />

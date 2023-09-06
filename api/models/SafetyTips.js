@@ -1,21 +1,25 @@
 import mongoose from 'mongoose';
 
 const SafetyTipsSchema = new mongoose.Schema({
-  title: {
+  destination: {
     type: String,
     required: true,
   },
-  category: {
+  location: {
     type: String,
     required: true,
   },
-  content: {
+  advicelevel: {
+    type: String,
+    required: true,
+  },
+  timeperiod: {
     type: String,
     required: true,
   },
   // Add any other relevant fields as needed.
 });
 
-const SafetyTips = mongoose.model('SafetyTips', SafetyTipsSchema);
+const SafetyTips = mongoose.model('DestinationSafetyTips', SafetyTipsSchema);
 
 export default SafetyTips;

@@ -4,25 +4,28 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Hotel from "./pages/hotel/Hotel";
+import Place from "./pages/place/Place";
 import List from "./pages/list/List";
 import Login from "./pages/login/Login";
 import Planatrip from "./pages/planatrip/planatrip";
 import Emergencysafety from "./pages/EmergencySafety/emergencySafetyScreen";
 import UrgentHelp from "./pages/UrgentHelpDesk/urgenthelp";
-
+import Safetybeforego from "./pages/SafetyBeforeGo/safetybeforego";
+import DestinationsEmergency from "./pages/DestinationsInEmergency/destinationsEmergency";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/hotels" element={<List/>}/>
-        <Route path="/hotels/:id" element={<Hotel/>}/>
+        <Route path="/places" element={<List/>}/>
+        <Route path="/places/:id" element={<Place/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/planatrip" element={<Planatrip/>}/>
         <Route path="/emergencySafety" element={<Emergencysafety/>}/>
         <Route path="/urgentHelp" element={<UrgentHelp/>}/>
+        <Route path="/safetybeforego" element={<Safetybeforego/>}/>
+        <Route path="/destinationsemergency" element={<DestinationsEmergency/>}/>
 
 
       </Routes>
