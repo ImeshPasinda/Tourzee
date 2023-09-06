@@ -116,27 +116,27 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import axios from 'axios'; // Import axios
 
 const DestinationsEmergency = () => {
   const [tips, setTips] = useState([]);
 
   useEffect(() => {
-    // Fetch data from your API endpoint
+    // Fetch data from your API endpoint using axios
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8070/api/destinationsafetytips'); // Replace with your actual API URL
-        if (!response.ok) {
+        const response = await axios.get('http://localhost:8800/api/destinationsafetytips/'); // Replace with your actual API URL
+        if (response.status !== 200) {
           throw new Error('API request failed');
         }
-        const data = await response.json();
-        setTips(data);
+        setTips(response.data.safetyTips); // Set the 'tips' state with the array of safety tips
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
     fetchData();
   }, []);
-
+  
   return (
     <div>
       <Navbar />
