@@ -1,4 +1,4 @@
-import "./hotel.css";
+import "./place.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import MailList from "../../components/mailList/MailList";
@@ -17,7 +17,7 @@ import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve";
 
-const Hotel = () => {
+const Place = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [slideNumber, setSlideNumber] = useState(0);
@@ -70,7 +70,7 @@ const Hotel = () => {
       {loading ? (
         "loading"
       ) : (
-        <div className="hotelContainer">
+        <div className="placeContainer">
           {open && (
             <div className="slider">
               <FontAwesomeIcon
@@ -97,38 +97,38 @@ const Hotel = () => {
               />
             </div>
           )}
-          <div className="hotelWrapper">
+          <div className="placeWrapper">
             <button className="bookNow">Reserve or Book Now!</button>
-            <h1 className="hotelTitle">{data.name}</h1>
-            <div className="hotelAddress">
+            <h1 className="placeTitle">{data.name}</h1>
+            <div className="placeAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
             </div>
-            <span className="hotelDistance">
+            <span className="placeDistance">
               Excellent location – {data.distance}m from center
             </span>
-            <span className="hotelPriceHighlight">
+            <span className="placePriceHighlight">
               Book a stay over ${data.cheapestPrice} at this property and get a
               free airport taxi
             </span>
-            <div className="hotelImages">
+            <div className="placeImages">
               {data.photos?.map((photo, i) => (
-                <div className="hotelImgWrapper" key={i}>
+                <div className="placeImgWrapper" key={i}>
                   <img
                     onClick={() => handleOpen(i)}
                     src={photo}
                     alt=""
-                    className="hotelImg"
+                    className="placeImg"
                   />
                 </div>
               ))}
             </div>
-            <div className="hotelDetails">
-              <div className="hotelDetailsTexts">
-                <h1 className="hotelTitle">{data.title}</h1>
-                <p className="hotelDesc">{data.desc}</p>
+            <div className="placeDetails">
+              <div className="placeDetailsTexts">
+                <h1 className="placeTitle">{data.title}</h1>
+                <p className="placeDesc">{data.desc}</p>
               </div>
-              <div className="hotelDetailsPrice">
+              <div className="placeDetailsPrice">
                 <h1>Perfect for a {days}-night stay!</h1>
                 <span>
                   Located in the real heart of Krakow, this property has an
@@ -146,9 +146,9 @@ const Hotel = () => {
           <Footer />
         </div>
       )}
-      {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>}
+      {openModal && <Reserve setOpen={setOpenModal} placeId={id}/>}
     </div>
   );
 };
 
-export default Hotel;
+export default Place;
