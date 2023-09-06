@@ -56,6 +56,7 @@ const Place = () => {
       navigate("/login");
     }
   };
+
   return (
     <div>
       <Navbar />
@@ -91,7 +92,7 @@ const Place = () => {
             </div>
           )}
           <div className="placeWrapper">
-            <button className="bookNow">Go to Virtual Tour<FontAwesomeIcon icon= {faVrCardboard} style={{ marginLeft: '5px' }}/></button>
+            <button className="bookNow">Go to Virtual Tour<FontAwesomeIcon icon={faVrCardboard} style={{ marginLeft: '5px' }} /></button>
             <h1 className="placeTitle">{data.name}</h1>
             <div className="placeAddress">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -119,7 +120,8 @@ const Place = () => {
             <div className="placeDetails">
               <div className="placeDetailsTexts">
                 <h1 className="placeTitle">{data.title}</h1>
-                <p className="placeDesc">{data.desc}</p>
+                <p className="placeDesc">{data.desclong}</p>
+                <p className="placeDesc">{data.descsinhala}</p>
               </div>
               <div className="placeDetailsPrice">
                 <h1>Perfect for a night stay!</h1>
@@ -128,17 +130,21 @@ const Place = () => {
                   excellent location score of 9.8!
                 </span>
                 <h2>
-                  <b>$</b> 
+                  <b>$</b>
                 </h2>
                 <button onClick={handleClick}>Reserve or Book Now!</button>
               </div>
             </div>
+
           </div>
-          <MailList />
+         
+          <MailList/>
+          <div className="space"></div>
           <Footer />
+
         </div>
       )}
-      {openModal && <Reserve setOpen={setOpenModal} placeId={id}/>}
+      {openModal && <Reserve setOpen={setOpenModal} placeId={id} />}
     </div>
   );
 };

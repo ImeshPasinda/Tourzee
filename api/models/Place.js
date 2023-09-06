@@ -31,6 +31,10 @@ const Placeschema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  desclong: {
+    type: String,
+    required: true,
+  },
   rating: {
     type: Number,
     min: 0,
