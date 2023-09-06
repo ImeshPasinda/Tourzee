@@ -154,3 +154,5 @@ const Header = ({ type }) => {
 };
 
 export default Header;
+
+

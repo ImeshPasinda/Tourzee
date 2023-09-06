@@ -9,6 +9,9 @@ import {
   faCircleArrowRight,
   faCircleXmark,
   faLocationDot,
+  faArrowRight,
+  faThunderstorm,
+  faVrCardboard
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
 import useFetch from "../../hooks/useFetch";
@@ -28,16 +31,6 @@ const Place = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const { dates, options } = useContext(SearchContext);
-
-  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-  function dayDifference(date1, date2) {
-    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
-    return diffDays;
-  }
-
-  const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -98,19 +91,19 @@ const Place = () => {
             </div>
           )}
           <div className="placeWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
+            <button className="bookNow">Go to Virtual Tour<FontAwesomeIcon icon= {faVrCardboard} style={{ marginLeft: '5px' }}/></button>
             <h1 className="placeTitle">{data.name}</h1>
             <div className="placeAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
             </div>
             <span className="placeDistance">
-              Excellent location – {data.distance}m from center
+              Excellent location – {data.distance}m from {data.city}
             </span>
-            <span className="placePriceHighlight">
+            {/* <span className="placePriceHighlight">
               Book a stay over ${data.cheapestPrice} at this property and get a
               free airport taxi
-            </span>
+            </span> */}
             <div className="placeImages">
               {data.photos?.map((photo, i) => (
                 <div className="placeImgWrapper" key={i}>
@@ -129,14 +122,13 @@ const Place = () => {
                 <p className="placeDesc">{data.desc}</p>
               </div>
               <div className="placeDetailsPrice">
-                <h1>Perfect for a {days}-night stay!</h1>
+                <h1>Perfect for a night stay!</h1>
                 <span>
                   Located in the real heart of Krakow, this property has an
                   excellent location score of 9.8!
                 </span>
                 <h2>
-                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
-                  nights)
+                  <b>$</b> 
                 </h2>
                 <button onClick={handleClick}>Reserve or Book Now!</button>
               </div>

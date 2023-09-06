@@ -35,6 +35,7 @@ const Placeschema = new mongoose.Schema({
     type: Number,
     min: 0,
     max: 5,
+    required: true,
   },
   rooms: {
     type: [String],

@@ -56,13 +56,17 @@
 
 .placeImgWrapper {
   width: 33%;
+  margin-Top: 50px; /* Add space between images by adjusting margin */
 }
-
+/* Add a border radius to your images */
 .placeImg {
-  width: 100%;
+  width: 330px;
+  height: 250px; /* Ensure the aspect ratio is maintained */
   object-fit: cover;
   cursor: pointer;
+  border-radius: 10px; /* Adjust the border radius as needed */ /* Add a border around the image */
 }
+
 
 .placeDetails {
   display: flex;
