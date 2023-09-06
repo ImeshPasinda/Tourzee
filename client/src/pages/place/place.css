@@ -56,7 +56,7 @@
 
 .placeImgWrapper {
   width: 33%;
-  margin-Top: 50px; /* Add space between images by adjusting margin */
+  margin-Top: 10px; /* Add space between images by adjusting margin */
 }
 /* Add a border radius to your images */
 .placeImg {
@@ -86,7 +86,7 @@
 
 .placeDetailsPrice {
   flex: 1;
-  background-color: #ebf3ff;
+  background-color: #ffcfcf;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -95,7 +95,7 @@
 
 .placeDetailsPrice > h1 {
   font-size: 18px;
-  color: #555;
+  color: #ff0e0e;
 }
 .placeDetailsPrice > span {
   font-size: 14px;
@@ -106,7 +106,7 @@
 .placeDetailsPrice > button {
   border: none;
   padding: 10px 20px;
-  background-color: #0071c2;
+  background-color: #ff0e0e;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -152,4 +152,7 @@
   font-size: 50px;
   color: lightgray;
   cursor: pointer;
+}
+.space {
+  margin-top: 50px; /* Adjust the margin as needed */
 }

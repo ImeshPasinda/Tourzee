@@ -7,6 +7,8 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
+import { faLocationDot, faLocationPin, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const List = () => {
   const location = useLocation();
@@ -18,7 +20,7 @@ const List = () => {
   const [max, setMax] = useState(undefined);
 
   const { data, loading, error, reFetch } = useFetch(
-    `/places?city=${destination}&min=${min || 0 }&max=${max || 999}`
+    `/places?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
 
   const handleClick = () => {
@@ -105,7 +107,11 @@ const List = () => {
             </div>
             <button onClick={handleClick}>Search</button>
           </div> */}
+
           <div className="listResult">
+            <p style={{ paddingBottom: "20px",paddingBTop: "20px", fontSize: "16px" }}>
+              <span style={{ color: "gray" }}>Places around,</span> {destination} <FontAwesomeIcon icon={faLocationDot} />
+            </p>
             {loading ? (
               "loading"
             ) : (
