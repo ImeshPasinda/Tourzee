@@ -2,6 +2,7 @@ import {
   faBed,
   faCar,
   faLocationDot,
+  faLocationPin,
   faPerson,
   faTruckMedical,
 } from "@fortawesome/free-solid-svg-icons";
@@ -74,15 +75,15 @@ const Headerforplanatrip = ({ type }) => {
             {!user && <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                <FontAwesomeIcon icon={faLocationPin} className="headerIcon" />
                 <input
                   type="text"
-                  placeholder="Where do you want to go?"
+                  placeholder="Where do you plan to go?"
                   className="headerSearchInput"
                   onChange={(e) => setPlace(e.target.value)}
                 />
               </div>
-              
+              <div className="space"></div>
               <div className="headerSearchItem">
                 <button className="headerBtn" onClick={handleSearch}>
                   Search
