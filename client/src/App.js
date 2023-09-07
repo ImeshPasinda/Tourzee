@@ -12,6 +12,7 @@ import Emergencysafety from "./pages/EmergencySafety/emergencySafetyScreen";
 import UrgentHelp from "./pages/UrgentHelpDesk/urgenthelp";
 import Safetybeforego from "./pages/SafetyBeforeGo/safetybeforego";
 import DestinationsEmergency from "./pages/DestinationsInEmergency/destinationsEmergency";
+import Trip from "./pages/trip/Trip";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/places" element={<List/>}/>
+        <Route path="/trips" element={<Trip/>}/>
         <Route path="/places/:id" element={<Place/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/planatrip" element={<Planatrip/>}/>

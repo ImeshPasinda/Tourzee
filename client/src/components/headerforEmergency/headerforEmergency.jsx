@@ -18,7 +18,6 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
@@ -52,10 +51,10 @@ const HeaderForEmergency = ({ type }) => {
         });
     };
 
-    const { dispatch } = useContext(SearchContext);
+  
 
     const handleSearch = () => {
-        dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+       
         navigate("/places", { state: { destination, dates, options } });
     };
 
