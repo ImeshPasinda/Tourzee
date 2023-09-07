@@ -13,6 +13,10 @@ import { emergencyColumns, placeColumns, roomColumns, userColumns } from "./data
 import NewPlace from "./pages/newPlace/NewPlace";
 import NewRoom from "./pages/newRoom/NewRoom";
 import EmergencyFacility from "./pages/emergency/EmergencyFacility";
+import AdminEmergency from "./pages/emergency/adminEmergency";
+import AdminDestinationEmergency from "./pages/emergency/adminDestinationEmergency";
+import AdminUrgentHelp from "./pages/emergency/adminUrgentHelp";
+import AdminSBYG from "./pages/emergency/adminSBYG";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -140,6 +144,38 @@ function App() {
               />
             </Route>
           </Route>
+          <Route
+            path="adminEmergency"
+            element={
+              <ProtectedRoute>
+                <AdminEmergency />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="adminDesEmergency"
+            element={
+              <ProtectedRoute>
+                <AdminDestinationEmergency />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="adminUrgent"
+            element={
+              <ProtectedRoute>
+                <AdminUrgentHelp />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="adminSBYG"
+            element={
+              <ProtectedRoute>
+                <AdminSBYG />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

@@ -10,3 +10,8 @@
     width: 1024px;
     font-size: 20px;
   }
+
+  /* Add this CSS to your stylesheet or component */
+.bold-cell {
+  font-weight: bold;
+}

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import HeaderForEmergency from '../../components/headerforEmergency/headerforEmergency';
@@ -10,6 +11,7 @@ import List from '@mui/material/List';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Footer from "../../components/footer/Footer";
 import MailList from "../../components/mailList/MailList";
+
 // Define your OpenWeatherMap API key here
 const apiKey = '8bb22a595c9c59025daa28addb2d0b60';
 
@@ -63,25 +65,19 @@ const Safetybeforego = () => {
         <div
           style={{
             paddingTop: '15px',
-            paddingLeft: '20px',
+            paddingLeft: '30px',
             paddingRight: '20px',
             width: '120%',
-            maxWidth: '1160px',
+            maxWidth: '1100px',
             display: 'flex',
             flexDirection: 'column', /* Change to column layout */
             alignItems: 'center', /* Center align content */
             zIndex: '1',
           }}
         >
-    
-          <img
-            src="https://img.freepik.com/free-vector/travel-time-typography-logo-with-travelers-group_1308-88815.jpg?w=740&t=st=1693973471~exp=1693974071~hmac=bdee51c4e13fcd7b17356c5783a2cd250abf3c2fd70897a6742b3e4bc54c721c" alt="Image Description"
-            style={{ maxWidth: '30%', height: 'auto', borderRadius: '10px' }}
-          />
-          <br></br>
           {/* Display weather data */}
           {weatherData && (
-            <div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <Card variant="outlined">
                 <CardContent>
                   <Typography variant="h6" color="textPrimary" gutterBottom>
@@ -101,34 +97,41 @@ const Safetybeforego = () => {
                   </Typography>
                 </CardContent>
               </Card>
+              <img
+  src="https://img.freepik.com/free-vector/travel-time-typography-logo-with-travelers-group_1308-88815.jpg?w=740&t=st=1693973471~exp=1693974071~hmac=bdee51c4e13fcd7b17356c5783a2cd250abf3c2fd70897a6742b3e4bc54c721c"
+  alt="Image Description"
+  style={{ maxWidth: '30%', height: 'auto', borderRadius: '10px', marginLeft: '20px', marginRight: '20px' }}
+/>
+
+              <Card variant="outlined">
+                <CardContent>
+                  <Typography variant="h6" color="textPrimary" gutterBottom>
+                    Travel Safety Tips
+                  </Typography>
+                  <List>
+                    <ListItem style={tipStyle}>
+                      <CheckCircleOutlineIcon color="primary" fontSize="small" />
+                      <ListItemText
+                        primary={<strong>Research:</strong>}
+                        secondary="Learn about the place you're going to. 
+                        Find out about their rules and how they do things."
+                      />
+                    </ListItem>
+                    <ListItem style={tipStyle}>
+                      <CheckCircleOutlineIcon color="primary" fontSize="small" />
+                      <ListItemText
+                        primary={<strong>Warnings:</strong>}
+                        secondary="Check if there are any warnings about going to that place.
+                         Sometimes, there can be dangerous situations."
+                      />
+                    </ListItem>
+                  </List>
+                </CardContent>
+              </Card>
             </div>
           )}
-               <br></br>
-          <Card variant="outlined">
-            <CardContent>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
-                Travel Safety Tips
-              </Typography>
-              <List>
-                <ListItem style={tipStyle}>
-                  <CheckCircleOutlineIcon color="primary" fontSize="small" />
-                  <ListItemText
-                    primary={<strong>Research:</strong>}
-                    secondary="Learn about the place you're going to. Find out about their rules and how they do things."
-                  />
-                </ListItem>
-                <ListItem style={tipStyle}>
-                  <CheckCircleOutlineIcon color="primary" fontSize="small" />
-                  <ListItemText
-                    primary={<strong>Warnings:</strong>}
-                    secondary="Check if there are any warnings about going to that place. Sometimes, there can be dangerous situations."
-                  />
-                </ListItem>
-              </List>
-            </CardContent>
-          </Card>
+          <br></br>
         </div>
-
 
         <MailList />
         <Footer />

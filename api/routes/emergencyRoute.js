@@ -8,7 +8,7 @@ import {
   // Add more routes/functions as needed for emergency facilities
 } from '../controllers/emergencyController.js';
 import { verifyAdmin } from '../utils/verifyToken.js';
-
+import EmergencyFacility from '../models/EmergencyFacility.js';
 const router = express.Router();
 
 // CREATE
@@ -27,6 +27,6 @@ router.get('/find/:id', getEmergencyFacility);
 // GET ALL
 router.get('/', getEmergencyFacilities);
 
-// Add more routes/functions as needed for emergency facilities
+
 
 export default router;
