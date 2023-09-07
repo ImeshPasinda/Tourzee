@@ -9,16 +9,15 @@ import {
   faCircleArrowRight,
   faCircleXmark,
   faLocationDot,
-  faArrowRight,
-  faThunderstorm,
-  faVrCardboard
+  faVrCardboard,
+  faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
-import Reserve from "../../components/reserve/Reserve";
+import { Link } from "react-router-dom";
+import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 
 const Place = () => {
   const location = useLocation();
@@ -30,7 +29,6 @@ const Place = () => {
   const { data, loading, error } = useFetch(`/places/find/${id}`);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -61,6 +59,7 @@ const Place = () => {
     <div>
       <Navbar />
       <Header type="list" />
+      <div className="space"></div>
       {loading ? (
         "loading"
       ) : (
@@ -92,8 +91,21 @@ const Place = () => {
             </div>
           )}
           <div className="placeWrapper">
-            <button className="bookNow">Go to Virtual Tour<FontAwesomeIcon icon={faVrCardboard} style={{ marginLeft: '5px' }} /></button>
-            <h1 className="placeTitle">{data.name}</h1>
+            <button className="virtualBtn">
+              Go to Virtual Tour
+              <FontAwesomeIcon
+                icon={faVrCardboard}
+                style={{ marginLeft: "5px" }}
+              />
+            </button>
+            <button className="planBtn">
+              Plan a trip to {data.title}
+              <FontAwesomeIcon
+                icon={faLocationDot}
+                style={{ marginLeft: "5px" }}
+              />
+            </button>
+            <h1 className="placeTitle" style={{ fontSize: '30px' }}>{data.name}</h1>
             <div className="placeAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
@@ -101,10 +113,6 @@ const Place = () => {
             <span className="placeDistance">
               Excellent location – {data.distance}m from {data.city}
             </span>
-            {/* <span className="placePriceHighlight">
-              Book a stay over ${data.cheapestPrice} at this property and get a
-              free airport taxi
-            </span> */}
             <div className="placeImages">
               {data.photos?.map((photo, i) => (
                 <div className="placeImgWrapper" key={i}>
@@ -117,34 +125,72 @@ const Place = () => {
                 </div>
               ))}
             </div>
+            <div className="map-container">
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyDbEtMrpESGgw6iEoP-FujLUFyrIgkt2QY&center=${data.latitude},${data.longitude}&zoom=16`}
+                title="Google Map"
+                width="1020"
+                height="400"
+                frameBorder="0"
+                style={{ borderRadius: 20 }}
+                allowFullScreen=""
+                aria-hidden="false"
+                tabIndex="0"
+              >
+
+              </iframe>
+
+
+
+
+            </div>
             <div className="placeDetails">
               <div className="placeDetailsTexts">
-                <h1 className="placeTitle">{data.title}</h1>
+                <h1 className="placeTitle" style={{ fontSize: '20px' }}>About {data.title}</h1>
                 <p className="placeDesc">{data.desclong}</p>
                 <p className="placeDesc">{data.descsinhala}</p>
               </div>
               <div className="placeDetailsPrice">
-                <h1>Perfect for a night stay!</h1>
+                <h1>Local emergency contacts</h1>
+                <h4>Fire and rescue services</h4>
                 <span>
-                  Located in the real heart of Krakow, this property has an
-                  excellent location score of 9.8!
+                  Call 110.
                 </span>
-                <h2>
-                  <b>$</b>
-                </h2>
-                <button onClick={handleClick}>Reserve or Book Now!</button>
+                <h4>Medical emergencies</h4>
+                <span>
+                  Call 110.
+
+                  In Colombo, you can also call (+94 11) 269 1111.
+                </span>
+                <h4>Police</h4>
+                <span>
+                  Call 118 or 119 or go to your local police station.
+                </span>
+                <h4>Tourist police</h4>
+                <span>
+                  Call (+94 11) 242 1052 or (+94 11) 238 2209.
+                </span>
+
+
+                <Link to="/emergencySafety">
+                  <button className="Btn" style={{ backgroundColor: 'red', color: 'white', fontWeight: '400' }}>
+                    More safety tips
+                    <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} />
+                  </button>
+                </Link>
+
               </div>
             </div>
-
           </div>
-         
-          <MailList/>
+
+          <h1 className="homeTitle" style={{ paddingBottom: '15px' }}>Nearby places in ,{data.city}</h1>
+          <FeaturedProperties />
+          <MailList />
           <div className="space"></div>
           <Footer />
-
         </div>
       )}
-      {openModal && <Reserve setOpen={setOpenModal} placeId={id} />}
+      
     </div>
   );
 };

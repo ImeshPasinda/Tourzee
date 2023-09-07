@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const Placeschema = new mongoose.Schema({
+const Tripschema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -64,6 +64,10 @@ const Placeschema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  place: {
+    type: String,
+    required: true,
+  },
 });
 
-export default mongoose.model("Place", Placeschema)
+export default mongoose.model("Trip", Tripschema)

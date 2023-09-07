@@ -111,7 +111,7 @@ const UrgentHelp = () => {
 
         // Create a script element to load the Google Maps JavaScript API
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAl2b4BNlhmcP2k7vY3hDJ6Q2wfv7B5P80&libraries=places&callback=initMap`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDbEtMrpESGgw6iEoP-FujLUFyrIgkt2QY&libraries=places&callback=initMap`;
         script.async = true;
         script.defer = true;
         script.onload = initMap; // Call initMap after the script is loaded

@@ -1,24 +1,18 @@
 import {
   faBed,
-  faCalendarDays,
   faCar,
   faLocationDot,
   faPerson,
-  faPlane,
-  faTaxi,
-  faTruck,
+  faRoad,
   faTruckMedical,
 } from "@fortawesome/free-solid-svg-icons";
 import Badge from '@mui/material/Badge';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
-import { DateRange } from "react-date-range";
-import { useContext, useState , useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
@@ -44,39 +38,14 @@ const Header = ({ type }) => {
   }, []);
 
   const [destination, setDestination] = useState("");
-  const [openDate, setOpenDate] = useState(false);
-  const [dates, setDates] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
-  const [openOptions, setOpenOptions] = useState(false);
-  const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
 
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
 
-  const handleOption = (name, operation) => {
-    setOptions((prev) => {
-      return {
-        ...prev,
-        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
-      };
-    });
-  };
-
-  const { dispatch } = useContext(SearchContext);
-
   const handleSearch = () => {
-    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
-    navigate("/places", { state: { destination, dates, options } });
+
+    navigate("/places", { state: { destination } });
   };
 
   return (
@@ -88,8 +57,8 @@ const Header = ({ type }) => {
       >
         <div className="headerList">
           <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
+            <FontAwesomeIcon icon={faRoad} />
+            <span>Attractions</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPerson} />
@@ -106,7 +75,7 @@ const Header = ({ type }) => {
           <div className="headerListItem">
             <Link to="/emergencySafety" className="linkStyle">
               <FontAwesomeIcon icon={faTruckMedical} />
-              <span>Safety</span>
+              <span style={{ marginLeft: '8px' }}>Safety</span>
             </Link>
           </div>
           <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
@@ -122,9 +91,9 @@ const Header = ({ type }) => {
         {type !== "list" && (
           <>
             <div className="headerTitle">
-            <h1 className="headerTitleLine">
-              {headerTitleLines[currentLine]}
-            </h1>
+              <h1 className="headerTitleLine">
+                {headerTitleLines[currentLine]}
+              </h1>
             </div>
             <p className="headerDesc">
               "Discover the Wonders of Sri Lanka with Tourzee"
@@ -141,11 +110,11 @@ const Header = ({ type }) => {
                 />
               </div>
               <div className="space"></div>
-                <button className="headerBtn" onClick={handleSearch}>
-                  Search
-                </button>
-              </div>
-            
+              <button className="headerBtn" onClick={handleSearch}>
+                Search
+              </button>
+            </div>
+
           </>
         )}
       </div>

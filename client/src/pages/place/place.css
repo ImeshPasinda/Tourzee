@@ -13,8 +13,8 @@
   gap: 10px;
   position: relative;
 }
-
-.bookNow {
+/* Style for the button on the left */
+.virtualBtn {
   position: absolute;
   top: 10px;
   right: 0;
@@ -22,10 +22,27 @@
   padding: 10px 20px;
   background-color: #0071c2;
   color: white;
-  font-weight: bold;
+  font-weight: 500;
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* Style for the button on the right, near the left button */
+.planBtn {
+  position: absolute;
+  top: 10px;
+  right: 120px; /* Adjust the left value to position it near the left button */
+  border: none;
+  margin-right: 7%;
+  padding: 10px 20px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
 
 .placeTitle {
   font-size: 24px;
@@ -86,7 +103,7 @@
 
 .placeDetailsPrice {
   flex: 1;
-  background-color: #ffcfcf;
+  background-color: #ffdcdc;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -155,4 +172,15 @@
 }
 .space {
   margin-top: 50px; /* Adjust the margin as needed */
+}
+
+.Btn {
+  background-color: #ff0000;
+  color: white;
+  font-weight: 500;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 250px; /* Adjust the width to your desired value */
 }

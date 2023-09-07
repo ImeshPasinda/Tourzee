@@ -8,6 +8,7 @@ import roomsRoute from "./routes/rooms.js";
 import emergencyRoute from './routes/emergencyRoute.js'; // Import the new route
 import safetyRoute from './routes/safetyRoute.js'; // Import the new route
 import emergencyContactRoute from './routes/emergencyContactRoute.js'; // Import the new route
+import tripsRoute from "./routes/trips.js";
 
 import cookieParser from "cookie-parser";
 
@@ -41,7 +42,7 @@ app.use("/api/rooms", roomsRoute);
 app.use('/api/emergencyfacilities', emergencyRoute); // Add the new route
 app.use('/api/destinationsafetytips', safetyRoute); // Add the new route
 app.use('/api/emergencyContacts', emergencyContactRoute); // Add the new route
-
+app.use('/api/trips', tripsRoute); // Add the new route
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

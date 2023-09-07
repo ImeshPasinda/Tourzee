@@ -13,6 +13,8 @@ import "./planatrip.css";
 
 
 const Planatrip = () => {
+
+  
   return (
     <div>
       <Navbar />
