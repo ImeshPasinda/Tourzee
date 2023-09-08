@@ -40,24 +40,17 @@ const Placeschema = new mongoose.Schema({
     required: true,
   },
   rating: {
-    type: Number,
-    min: 0,
-    max: 5,
+    type: String,
+    // min: 0,
+    // max: 5,
     required: true,
   },
   latitude: {
-    type: Number,
+    type: String,
     required: true,
   },
   longitude: {
-    type: Number,
-    required: true,
-  },
-  rooms: {
-    type: [String],
-  },
-  cheapestPrice: {
-    type: Number,
+    type: String,
     required: true,
   },
   featured: {
