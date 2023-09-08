@@ -13,6 +13,7 @@ import UrgentHelp from "./pages/UrgentHelpDesk/urgenthelp";
 import Safetybeforego from "./pages/SafetyBeforeGo/safetybeforego";
 import DestinationsEmergency from "./pages/DestinationsInEmergency/destinationsEmergency";
 import Trip from "./pages/trip/Trip";
+import TripPage from "./pages/tripPage/TripPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/places" element={<List/>}/>
         <Route path="/trips" element={<Trip/>}/>
         <Route path="/places/:id" element={<Place/>}/>
+        <Route path="/trips/:id" element={<TripPage/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/planatrip" element={<Planatrip/>}/>
         <Route path="/emergencySafety" element={<Emergencysafety/>}/>

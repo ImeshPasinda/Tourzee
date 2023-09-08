@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import useFetch from '../../hooks/useFetch';
-import './featuredProperties.css';
+import './featuredPropertiesHome.css';
 
-const FeaturedProperties = ({ city }) => {
-  const { data, loading, error } = useFetch(`/places?featured=true&limit=4&city=${city}`);
+const FeaturedPropertiesHome = () => {
+  const { data, loading, error } = useFetch('/places?featured=true&limit=4');
 
   return (
     <div className="fp">
@@ -38,4 +38,4 @@ const FeaturedProperties = ({ city }) => {
   );
 };
 
-export default FeaturedProperties;
+export default FeaturedPropertiesHome;

@@ -1,4 +1,4 @@
-import "./place.css";
+import "./tripPage.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import MailList from "../../components/mailList/MailList";
@@ -20,14 +20,14 @@ import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 
-const Place = () => {
+const TripPage = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
-  const { data, loading, error } = useFetch(`/places/find/${id}`);
+  const { data, loading, error } = useFetch(`/trips/find/${id}`);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -95,20 +95,9 @@ const Place = () => {
           )}
           <div className="placeWrapper">
             <button className="virtualBtn">
-              Go to Virtual Tour
-              <FontAwesomeIcon
-                icon={faVrCardboard}
-                style={{ marginLeft: "5px" }}
-              />
+              Est. LKR {data.budget}
             </button>
-            <button className="planBtn">
-              Plan a trip to {data.title}
-              <FontAwesomeIcon
-                icon={faLocationDot}
-                style={{ marginLeft: "5px" }}
-              />
-            </button>
-            <h1 className="placeTitle" style={{ fontSize: '30px' }}>{data.name}</h1>
+            <h1 className="placeTitle" style={{ fontSize: '30px' }}>{data.tripName} {data.days}day Plan</h1>
             <div className="placeAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
@@ -186,8 +175,9 @@ const Place = () => {
             </div>
           </div>
 
-          <h1 className="homeTitle" style={{ paddingBottom: '15px' }}>Nearby places in ,{data.city}</h1>
-          <FeaturedProperties city={data.city} />
+          <h1 className="homeTitle" style={{ paddingBottom: '15px' }}>Nearby places in ,{data.place}</h1>
+          <FeaturedProperties city={data.place} />
+
           <MailList />
           <div className="space"></div>
           <Footer />
@@ -198,4 +188,4 @@ const Place = () => {
   );
 };
 
-export default Place;
+export default TripPage;
