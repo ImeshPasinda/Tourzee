@@ -82,3 +82,15 @@
   flex: 3;
 }
 
+/* Trip.css */
+
+.trip-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Three columns per row */
+  gap: 16px; /* Adjust the gap as needed */
+}
+
+.trip-item {
+ 
+}
+

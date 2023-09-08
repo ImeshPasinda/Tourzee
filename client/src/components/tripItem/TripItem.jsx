@@ -1,35 +1,63 @@
-import { Link } from "react-router-dom";
-import "./tripItem.css";
-
+import React from 'react';
+import { Badge, Card, Space } from 'antd';
+import { Link } from 'react-router-dom';
 
 const TripItem = ({ item }) => {
+  const { Meta } = Card;
+
+  // Function to truncate the description to 50 words
+  const truncateDescription = (text, limit) => {
+    const words = text.split(' ');
+    if (words.length <= limit) {
+      return text;
+    }
+    return words.slice(0, limit).join(' ') + '...';
+  };
+
+  const truncatedDescription = truncateDescription(item.desc, 20);
+  <Space
+    direction="vertical"
+    size="middle"
+    style={{
+      width: '100%',
+    }}
+  ></Space>
+  const text = item.days
   return (
-    <div className="searchItem">
-      <img src={item.photos[0]} alt="" className="siImg" />
-      <div className="siDesc">
-        <h1 className="siTitle">{item.name}</h1>
-        <span className="siDistance">{item.distance}m from {item.city}</span>
-        <span className="siType">{item.type}</span>
-        <span className="siFeatures">{item.desc}</span>
-        {/* <span className="siNoticeHeader">Free cancellation </span> */}
-        <span className="siNotice">
-          Please refrain from damaging any places during your travel!
-        </span>
-      </div>
-      <div className="siDetails">
-        {item.days && <div className="siRating">
-        <span>Ratings for {item.name}</span>
-          <button>{item.days >= 1000 ? '999+' : item.days}</button>
-        </div>}
-        <div className="siDetailTexts">
-          {/* <span className="siPrice">${item.cheapestPrice}</span>
-          <span className="siTaxOp">Includes taxes and fees</span> */}
+    <Badge.Ribbon text={`${text} Days Plan`}>
+      <Card
+        hoverable
+        style={{
+          width: 240,
+          marginBottom: '20px',
+        }}
+        cover={<img alt={item.tripName} src={item.photos[0]}
+        style={{
+          width: '100%', // Set the width to 100% to make it fill the card
+          height: '150px', // Adjust the height as needed
+          objectFit: 'cover', // Ensure the image covers the entire space without stretching
+        }}
+        />}
+      >
+        <Meta
+          title={item.tripName}
+          description={
+            <>
+              <p style={{marginBottom:"10px"}}>{item.distance}m from {item.city}</p>
+              <p>{item.type}</p>
+              <p>{truncatedDescription}</p>
+
+              
+            </>
+          }
+        />
+        <div style={{ marginTop: '10px' }}>
           <Link to={`/places/${item._id}`}>
-            <button className="siCheckButton">More Info</button>
+            <button className="headerBtn" style={{ width: '100%' }}>More Info</button>
           </Link>
         </div>
-      </div>
-    </div>
+      </Card>
+    </Badge.Ribbon>
   );
 };
 
