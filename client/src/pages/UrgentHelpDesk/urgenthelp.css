@@ -11,3 +11,20 @@
     font-size: 30px;
     font-variant: normal;
   }
+
+  /* Define a class for call buttons */
+.call-button {
+  background-color: #007BFF; /* Blue background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Add padding to the button */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Add pointer cursor on hover */
+  border-radius: 5px; /* Add a rounded border */
+  transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+
+  /* Optional: Add styles for hover state */
+  &:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+}

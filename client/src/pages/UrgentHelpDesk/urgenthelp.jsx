@@ -11,9 +11,45 @@ const UrgentHelp = () => {
     // Define state variables for the Google Map and InfoWindow
     const [map, setMap] = useState(null);
     const [infoWindow, setInfoWindow] = useState(null);
+    const [sharingLocation, setSharingLocation] = useState(false);
+    const [userLocation, setUserLocation] = useState(null);
+
+
+    // Function to start sharing the user's location
+    const startLocationSharing = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(
+                (position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    setUserLocation({ latitude, longitude });
+                },
+                (error) => {
+                    console.error('Error getting user location:', error);
+                }
+            );
+            setSharingLocation(true);
+        } else {
+            console.error('Geolocation is not supported in this browser.');
+        }
+    };
+
+    // Function to stop sharing the user's location
+    const stopLocationSharing = () => {
+        setSharingLocation(false);
+        setUserLocation(null);
+    };
+
+
+
+
+
+
+
 
     // This useEffect hook runs once when the component is mounted
     useEffect(() => {
+
         // Function to initialize the Google Map
         function initMap() {
             const bounds = new window.google.maps.LatLngBounds();
@@ -133,7 +169,10 @@ const UrgentHelp = () => {
         );
         infoWindow.open(map);
     };
-
+    // Function to make a phone call
+    const makePhoneCall = (phoneNumber) => {
+        window.location.href = `tel:${phoneNumber}`;
+    };
     return (
         <div>
             <Navbar />
@@ -186,9 +225,42 @@ const UrgentHelp = () => {
                             <Typography variant="body1">
                                 <strong>Tourist Police:</strong> Call (+94 11) 242 1052 or (+94 11) 238 2209.
                             </Typography>
+
+
                         </CardContent>
                     </Card>
+
                     <div id="google-map" style={{ height: '400px', width: '100%' }}></div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {/* Add buttons for emergency services */}
+                    <button className="headerBtn" onClick={() => makePhoneCall('110')}>Call Fire and Rescue Services (110)</button>
+                    <button className="headerBtn" onClick={() => makePhoneCall('110')}>Call Medical Emergencies (110)</button>
+                    <button className="headerBtn" onClick={() => makePhoneCall('118')}>Call Police (118)</button>
+                    <button className="headerBtn" onClick={() => makePhoneCall('119')}>Call Police (119)</button>
+                    <button className="headerBtn" onClick={() => makePhoneCall('+94112691111')}>Call Colombo Medical Emergencies (+94 11 269 1111)</button>
+                    <button className="headerBtn" onClick={() => makePhoneCall('+94112421052')}>Call Tourist Police (+94 11 242 1052)</button>
+                    <button className="headerBtn" onClick={() => makePhoneCall('+94112382209')}>Call Tourist Police (+94 11 238 2209)</button>
+                </div>
+                <div>
+                    {/* ...other components... */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        {/* Add a button to start/stop sharing location */}
+                        {!sharingLocation ? (
+                            <button className="headerBtn" style={{ backgroundColor: 'red', color: 'white' }} onClick={startLocationSharing}>Share Location</button>
+                        ) : (
+                            <button className="headerBtn" style={{ backgroundColor: 'red', color: 'white' }} onClick={stopLocationSharing}>Stop Sharing</button>
+                        )}
+                        {/* Display user's shared location */}
+                        {sharingLocation && userLocation && (
+                            <div>
+                                <h3>Your Shared Location:</h3>
+                                <p>Latitude: {userLocation.latitude}</p>
+                                <p>Longitude: {userLocation.longitude}</p>
+                            </div>
+                        )}
+                        {/* Implement a component to display trusted contacts and their shared locations */}
+                    </div>
                 </div>
                 <MailList />
                 <Footer />
