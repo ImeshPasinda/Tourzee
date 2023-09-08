@@ -17,6 +17,7 @@ import AdminEmergency from "./pages/emergency/adminEmergency";
 import AdminDestinationEmergency from "./pages/emergency/adminDestinationEmergency";
 import AdminUrgentHelp from "./pages/emergency/adminUrgentHelp";
 import AdminSBYG from "./pages/emergency/adminSBYG";
+import TripTable from "./pages/tripTable/TripTable";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -149,6 +150,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminEmergency />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="tripTable"
+            element={
+              <ProtectedRoute>
+                <TripTable />
               </ProtectedRoute>
             }
           />
