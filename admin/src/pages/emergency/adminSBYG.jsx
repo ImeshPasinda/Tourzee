@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react';
+
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import axios from 'axios';
@@ -16,7 +17,7 @@ function AdminSBYG() {
     <Sidebar />
     <div className="newContainer">
       <Navbar />
-
+     
 
       </div>
     </div>
