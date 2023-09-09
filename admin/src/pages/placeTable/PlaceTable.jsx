@@ -79,18 +79,21 @@ const PlaceTable = () => {
       title: 'Short Description',
       dataIndex: 'descshort',
       key: 'descshort',
+      render: (descshort) => descshort.length > 20 ? `${descshort.substring(0, 20)}...` : descshort,
       
     },
     {
       title: 'Long Description',
       dataIndex: 'desclong',
       key: 'desclong',
+      render: (desclong) => desclong.length > 20 ? `${desclong.substring(0, 20)}...` : desclong,
       
     },
     {
       title: 'Sinhala Description',
       dataIndex: 'descsinhala',
       key: 'descsinhala',
+      render: (descsinhala) => descsinhala.length > 20 ? `${descsinhala.substring(0, 20)}...` : descsinhala,
       
     },
     {
@@ -306,7 +309,7 @@ const PlaceTable = () => {
             <Input />
           </Form.Item>
           <Form.Item name="rating" label="Rating">
-            <InputNumber min={0} max={5} />
+            <InputNumber min={0} />
           </Form.Item>
           <Form.Item name="latitude" label="Latitude">
             <InputNumber />
