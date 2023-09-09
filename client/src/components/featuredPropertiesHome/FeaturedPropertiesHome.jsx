@@ -18,15 +18,15 @@ const FeaturedPropertiesHome = () => {
                 <img src={item.photos[0]} alt="" className="fpImg" />
                 <span className="fpName">{item.name}</span>
                 <span className="fpCity">{item.city}</span>
-                <span className="fpPrice">
+                {/* <span className="fpPrice">
                   type here
-                </span>
+                </span> */}
                 {item.rating && (
                   <div className="fpRating">
                     <button>
                       {item.rating >= 1000 ? '999+' : item.rating}
                     </button>
-                    <span>Excellent</span>
+                    <span>Ratings</span>
                   </div>
                 )}
               </div>

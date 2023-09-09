@@ -315,7 +315,7 @@ const TripTable = () => {
             <Input.TextArea />
           </Form.Item>
           <Form.Item name="rating" label="Rating" rules={[{ required: true, type: 'number' }]}>
-            <InputNumber />
+            <InputNumber min={0} max={5} />
           </Form.Item>
           <Form.Item name="budget" label="Budget" rules={[{ required: true }]}>
             <Input />

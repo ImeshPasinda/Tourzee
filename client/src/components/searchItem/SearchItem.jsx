@@ -8,9 +8,9 @@ const SearchItem = ({ item }) => {
       <img src={item.photos[0]} alt="" className="siImg" />
       <div className="siDesc">
         <h1 className="siTitle">{item.name}</h1>
-        <span className="siDistance">{item.distance}m from {item.city}</span>
+        <span className="siDistance">{item.distance}Km from {item.city}</span>
         <span className="siType">{item.type}</span>
-        <span className="siFeatures">{item.desc}</span>
+        <span className="siFeatures">{item.descshort}</span>
         {/* <span className="siNoticeHeader">Free cancellation </span> */}
         <span className="siNotice">
           Please refrain from damaging any places during your travel!
