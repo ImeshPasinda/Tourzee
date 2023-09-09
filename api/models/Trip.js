@@ -1,19 +1,15 @@
 import mongoose from "mongoose";
 const Tripschema = new mongoose.Schema({
-  name: {
+  tripName: {
     type: String,
     required: true,
   },
-  type: {
+  place: {
     type: String,
     required: true,
   },
-  city: {
-    type: String,
-    required: true,
-  },
-  address: {
-    type: String,
+  days: {
+    type: Number,
     required: true,
   },
   distance: {
@@ -23,11 +19,7 @@ const Tripschema = new mongoose.Schema({
   photos: {
     type: [String],
   },
-  title: {
-    type: String,
-    required: true,
-  },
-  desc: {
+  descshort: {
     type: String,
     required: true,
   },
@@ -35,14 +27,12 @@ const Tripschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  descsinhala: {
-    type: String,
-    required: true,
-  },
   rating: {
     type: Number,
-    min: 0,
-    max: 5,
+    required: true,
+  },
+  budget: {
+    type: String,
     required: true,
   },
   latitude: {
@@ -50,13 +40,6 @@ const Tripschema = new mongoose.Schema({
     required: true,
   },
   longitude: {
-    type: Number,
-    required: true,
-  },
-  rooms: {
-    type: [String],
-  },
-  cheapestPrice: {
     type: Number,
     required: true,
   },
@@ -68,6 +51,40 @@ const Tripschema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  routeOne: {
+    type: String,
+    required: true,
+  },
+  routeOneTitle: {
+    type: String,
+    required: true,
+  },
+  routeTwo: {
+    type: String,
+    required: true,
+  },
+  routeTwoTitle: {
+    type: String,
+    required: true,
+  },
+  routeThree: {
+    type: String,
+    required: true,
+  },
+  routeThreeTitle: {
+    type: String,
+    required: true,
+  },
+  routeFour: {
+    type: String,
+    required: true,
+  },
+  routeFourTitle: {
+    type: String,
+    required: true,
+  },
+
+  
 });
 
-export default mongoose.model("Trip", Tripschema)
+export default mongoose.model("Trips", Tripschema)

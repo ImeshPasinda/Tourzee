@@ -4,7 +4,7 @@ import Header from "../../components/header/Header";
 import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Spin } from 'antd';
+import { Divider, Steps, Spin } from 'antd';
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
@@ -94,16 +94,16 @@ const TripPage = () => {
             </div>
           )}
           <div className="placeWrapper">
-            <button className="virtualBtn">
+            {/* <button className="virtualBtn">
               Est. LKR {data.budget}
-            </button>
+            </button> */}
             <h1 className="placeTitle" style={{ fontSize: '30px' }}>{data.tripName} {data.days}day Plan</h1>
             <div className="placeAddress">
               <FontAwesomeIcon icon={faLocationDot} />
-              <span>{data.address}</span>
+              <span>{data.place}</span>
             </div>
             <span className="placeDistance">
-              Excellent location – {data.distance}m from {data.city}
+              Estimated distance – {data.distance}Km
             </span>
             <div className="placeImages">
               {data.photos?.map((photo, i) => (
@@ -138,12 +138,41 @@ const TripPage = () => {
             </div>
             <div className="placeDetails">
               <div className="placeDetailsTexts">
-                <h1 className="placeTitle" style={{ fontSize: '20px' }}>About {data.title}</h1>
+                <h1 className="placeTitle" style={{ fontSize: '20px' }}>Your trip to {data.tripName} for {data.days} day </h1>
                 <p className="placeDesc">{data.desclong}</p>
-                <p className="placeDesc">{data.descsinhala}</p>
+                <div className="space"></div>
+                <Steps
+                  progressDot
+                  current={4}
+                  direction="vertical"
+                  items={[
+                    {
+                      title: data.routeOneTitle,
+                      description: data.routeOne,
+                    },
+                    {
+                      title: data.routeTwoTitle,
+                      description: data.routeTwo,
+                    },
+                    {
+                      title: data.routeThreeTitle,
+                      description: data.routeThree,
+                    },
+                    {
+                      title: data.routeFourTitle,
+                      description: data.routeFourOne,
+                    },
+
+                  ]}
+                />
+                <div className="space"></div>
               </div>
               <div className="placeDetailsPrice">
-                <h1>Local emergency contacts</h1>
+                <h1>Notices</h1>
+                <h4>Responsible and Sustainable Travel Practices</h4>
+                <span>
+                "Practice responsible and eco-conscious travel by disposing of waste properly, using designated bins, minimizing campfire impact, staying on marked trails, respecting wildlife and their habitats, and choosing biodegradable products to protect the environment and local ecosystems."
+                </span>
                 <h4>Fire and rescue services</h4>
                 <span>
                   Call 110.
