@@ -1,0 +1,27 @@
+.new {
+    width: 100%;
+    display: flex;
+  
+    .newAUGContainer {
+      flex: 6;
+      
+  
+      .top,
+      .bottomAUG {
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 30px;
+        margin: 20px;
+        border-radius: 25px;
+        
+  
+       
+      }
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }

@@ -6,6 +6,11 @@ import Footer from "../../components/footer/Footer";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import useFetch from "../../hooks/useFetch";
+import axios from "axios";
+import { Table, Input ,Button} from 'antd';
+import './urgenthelp.css';
+
 
 const UrgentHelp = () => {
     // Define state variables for the Google Map and InfoWindow
@@ -39,12 +44,6 @@ const UrgentHelp = () => {
         setSharingLocation(false);
         setUserLocation(null);
     };
-
-
-
-
-
-
 
 
     // This useEffect hook runs once when the component is mounted
@@ -173,6 +172,68 @@ const UrgentHelp = () => {
     const makePhoneCall = (phoneNumber) => {
         window.location.href = `tel:${phoneNumber}`;
     };
+
+
+    const { data, loading, error } = useFetch("/emergencyfacilities");
+
+    const columns = [
+        {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: 'Type',
+            dataIndex: 'type',
+            key: 'type',
+        },
+        {
+            title: 'City',
+            dataIndex: 'city',
+            key: 'city',
+        },
+        {
+            title: 'Address',
+            dataIndex: 'address',
+            key: 'address',
+        },
+        {
+            title: 'Contact Number',
+            dataIndex: 'contactNumber',
+            key: 'contactNumber',
+            render: (text, record) => (
+              <span>
+                {text}
+                <Button
+                  type="link"
+                  onClick={() => makePhoneCall(text)} // Handle the phone call action here
+                >
+                  Make Phone Call
+                </Button>
+              </span>
+            ),
+          },
+    ];
+
+
+    // Handle search input change
+    const [searchValue, setSearchValue] = useState(''); // State to store search value
+
+    // Filter the data based on search value
+    const filteredData = data.filter(
+        (item) =>
+            item.city.toLowerCase().includes(searchValue.toLowerCase()) ||
+            item.type.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    // Handle search input change
+    const handleSearch = (value) => {
+        setSearchValue(value);
+    };
+
+
+
+
     return (
         <div>
             <Navbar />
@@ -261,6 +322,25 @@ const UrgentHelp = () => {
                         )}
                         {/* Implement a component to display trusted contacts and their shared locations */}
                     </div>
+                </div>
+                <br />
+                <h3>Emeregency Facilities - Contact Details</h3>
+
+                <div className="bottomAUG">
+                    <div className="search-bar">
+                        <Input.Search
+                            placeholder="Search by city or type"
+                            onSearch={handleSearch}
+                            enterButton
+                        />
+                    </div>
+                    <br /><br />
+                    <Table
+                        dataSource={searchValue ? filteredData : data} // Use filteredData when searchValue is not empty, otherwise use all data
+                        columns={columns}
+                        loading={loading}
+                        pagination={false}
+                    />
                 </div>
                 <MailList />
                 <Footer />
