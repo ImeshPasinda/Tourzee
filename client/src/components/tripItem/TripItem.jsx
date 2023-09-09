@@ -14,7 +14,7 @@ const TripItem = ({ item }) => {
     return words.slice(0, limit).join(' ') + '...';
   };
 
-  const truncatedDescription = truncateDescription(item.desc, 20);
+  const truncatedDescription = truncateDescription(item.descshort, 20);
   <Space
     direction="vertical"
     size="middle"

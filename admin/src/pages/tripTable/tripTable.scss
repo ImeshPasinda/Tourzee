@@ -1,0 +1,32 @@
+.new {
+  width: 100%;
+  display: flex;
+
+  .newTripContainer {
+    flex: 6;
+    
+
+    .top,
+    .bottomTrip {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 30px;
+      margin: 20px;
+      border-radius: 25px;
+      
+
+     
+    }
+  }
+}
+
+/* tripTable.scss */
+
+/* Add this class to the cells where you want text truncation */
+.truncate-text {
+  max-width: 150px; /* Adjust the maximum width as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

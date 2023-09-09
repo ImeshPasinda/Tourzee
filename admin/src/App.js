@@ -11,12 +11,14 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { emergencyColumns, placeColumns, roomColumns, userColumns } from "./datatablesource";
 import NewPlace from "./pages/newPlace/NewPlace";
-import NewRoom from "./pages/newRoom/NewRoom";
 import EmergencyFacility from "./pages/emergency/EmergencyFacility";
 import AdminEmergency from "./pages/emergency/adminEmergency";
 import AdminDestinationEmergency from "./pages/emergency/adminDestinationEmergency";
 import AdminUrgentHelp from "./pages/emergency/adminUrgentHelp";
 import AdminSBYG from "./pages/emergency/adminSBYG";
+import TripTable from "./pages/tripTable/TripTable";
+import PlaceTable from "./pages/placeTable/PlaceTable";
+import NewTrip from "./pages/newTrip/NewTrip";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -97,6 +99,26 @@ function App() {
                 }
               />
             </Route>
+            <Route path="trips">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={placeColumns} />
+                  </ProtectedRoute>
+                }
+              />
+             
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewTrip />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
             <Route path="rooms">
               <Route
                 index
@@ -114,14 +136,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route
-                path="new"
-                element={
-                  <ProtectedRoute>
-                    <NewRoom />
-                  </ProtectedRoute>
-                }
-              />
+              
             </Route>
 
             <Route path="emergencyfacility">
@@ -149,6 +164,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminEmergency />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="tripTable"
+            element={
+              <ProtectedRoute>
+                <TripTable />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="placeTable"
+            element={
+              <ProtectedRoute>
+                <PlaceTable />
               </ProtectedRoute>
             }
           />

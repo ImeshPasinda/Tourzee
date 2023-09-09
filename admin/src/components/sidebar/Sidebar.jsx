@@ -14,6 +14,8 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import PlaceIcon from '@mui/icons-material/Place';
+import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -28,34 +30,36 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
+          <Link to="/" style={{ textDecoration: "none" }}>
           <li>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
           </li>
-          <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          </Link>
+          <p className="title">TABLES</p>
+          {/* <Link to="/users" style={{ textDecoration: "none" }}> */}
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Users</span>
             </li>
-          </Link>
-          <Link to="/places" style={{ textDecoration: "none" }}>
+          {/* </Link> */}
+          <Link to="/placeTable" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
+              <PlaceIcon className="icon" />
               <span>Places</span>
             </li>
           </Link>
-          <Link to="/rooms" style={{ textDecoration: "none" }}>
+          <Link to="/tripTable" style={{ textDecoration: "none" }}>
             <li>
-              <CreditCardIcon className="icon" />
-              <span>Rooms</span>
+              <LocalAirportIcon className="icon" />
+              <span>Trips</span>
             </li>
           </Link>
           <li>
             <LocalShippingIcon className="icon" />
             <span>Emergency</span>
           </li>
-          <p className="title">USEFUL</p>
+          {/* <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
             <span>Stats</span>
@@ -63,8 +67,8 @@ const Sidebar = () => {
           <li>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>
-          </li>
-          <p className="title">SERVICE</p>
+          </li> */}
+          {/* <p className="title">SERVICE</p>
           <li>
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
             <span>System Health</span>
@@ -76,7 +80,7 @@ const Sidebar = () => {
           <li>
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
-          </li>
+          </li> */}
           <p className="title">USER</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />

@@ -17,7 +17,7 @@ const Placeschema = new mongoose.Schema({
     required: true,
   },
   distance: {
-    type: String,
+    type: Number,
     required: true,
   },
   photos: {
@@ -27,7 +27,7 @@ const Placeschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  desc: {
+  descshort: {
     type: String,
     required: true,
   },
@@ -41,8 +41,8 @@ const Placeschema = new mongoose.Schema({
   },
   rating: {
     type: Number,
-    min: 0,
-    max: 5,
+    // min: 0,
+    // max: 5,
     required: true,
   },
   latitude: {
@@ -50,13 +50,6 @@ const Placeschema = new mongoose.Schema({
     required: true,
   },
   longitude: {
-    type: Number,
-    required: true,
-  },
-  rooms: {
-    type: [String],
-  },
-  cheapestPrice: {
     type: Number,
     required: true,
   },

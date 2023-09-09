@@ -4,9 +4,9 @@ import { UploadOutlined } from '@ant-design/icons';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import axios from 'axios';
-import './newPlace.scss';
+import './newTrip.scss';
 
-const NewPlace = () => {
+const NewTrip = () => {
   const [form] = Form.useForm();
   const [files, setFiles] = useState([]);
 
@@ -36,18 +36,18 @@ const NewPlace = () => {
         })
       );
 
-      const newplace = {
+      const newtrip = {
         ...values,
         photos: list,
       };
 
-      console.log(newplace);
+      console.log(newtrip);
 
 
-      await axios.post('/places', newplace);
+      await axios.post('/trips', newtrip);
       message.open({
         type: 'success',
-        content: 'Place added sucessfully!',
+        content: 'Trip plan added sucessfully!',
       });
     } catch (err) {
       console.error(err);
@@ -65,23 +65,23 @@ const NewPlace = () => {
       rules: [{ required: true, message: 'Please upload an image' }],
 
     },
-    city: {
-      label: "City",
-      name: "city",
-      rules: [{ required: true, message: "Please enter city" }],
-      placeholder: "Enter city",
+    place: {
+      label: "Place",
+      name: "place",
+      rules: [{ required: true, message: "Please enter place" }],
+      placeholder: "Enter place",
     },
-    address: {
-      label: "Address",
-      name: "address",
-      rules: [{ required: true, message: "Please enter address" }],
-      placeholder: "Enter address",
+    budget: {
+      label: "Budget",
+      name: "budget",
+      rules: [{ required: true, message: "Please enter budget" }],
+      placeholder: "Enter budget",
     },
     descshort: {
-      label: "Descripton for Serch Item",
+      label: "Descripton for Search Item",
       name: "descshort",
-      rules: [{ required: true, message: "Please enter Desc" }, { validator: validateDescshort }],
-      placeholder: "Enter Desc",
+      rules: [{ required: true, message: "Please enter short descripton" }, { validator: validateDescshort }],
+      placeholder: "Enter Descripton",
     },
     distance: {
       label: "Distance",
@@ -89,23 +89,17 @@ const NewPlace = () => {
       rules: [{ required: true, message: "Please enter distance" }],
       placeholder: "Enter distance",
     },
-    name: {
+    tripName: {
       label: "Place Name",
-      name: "name",
-      rules: [{ required: true, message: "Please enter name" }],
-      placeholder: "Enter name",
+      name: "tripName",
+      rules: [{ required: true, message: "Please enter trip name" }],
+      placeholder: "Enter trip name",
     },
-    title: {
-      label: "Title for Description",
-      name: "title",
-      rules: [{ required: true, message: "Please enter title" }],
-      placeholder: "Enter title",
-    },
-    type: {
-      label: "Place Type",
-      name: "type",
-      rules: [{ required: true, message: "Please enter type" }],
-      placeholder: "Enter type",
+    days: {
+      label: "Days",
+      name: "days",
+      rules: [{ required: true, message: "Please enter days" }],
+      placeholder: "Enter days",
     },
     rating: {
       label: "Place Ratings",
@@ -118,12 +112,6 @@ const NewPlace = () => {
       name: "desclong",
       rules: [{ required: true, message: "Please enter desclong" }],
       placeholder: "Enter desclong",
-    },
-    descsinhala: {
-      label: "Timeline Description (Sinhala)",
-      name: "descsinhala",
-      rules: [{ required: true, message: "Please enter descsinhala" }],
-      placeholder: "Enter descsinhala",
     },
     longitude: {
       label: "Longitude",
@@ -145,6 +133,54 @@ const NewPlace = () => {
       initialValue: false, // Set the initial value to false
 
     },
+    routeOneTitle: {
+      label: "Add first route place name",
+      name: "routeOneTitle",
+      rules: [{ required: true, message: "Please enter first route place name" }],
+      placeholder: "Enter first route place name",
+    },
+    routeOne: {
+      label: "Add first route place description",
+      name: "routeOne",
+      rules: [{ required: true, message: "Please enter first route place description" }],
+      placeholder: "Enter first route place description",
+    },
+    routeTwoTitle: {
+      label: "Add first route place name",
+      name: "routeTwoTitle",
+      rules: [{ required: true, message: "Please enter first route place name" }],
+      placeholder: "Enter first route place name",
+    },
+    routeTwo: {
+      label: "Add first route place description",
+      name: "routeTwo",
+      rules: [{ required: true, message: "Please enter first route place description" }],
+      placeholder: "Enter first route place description",
+    },
+    routeThreeTitle: {
+      label: "Add first route place name",
+      name: "routeThreeTitle",
+      rules: [{ required: true, message: "Please enter first route place name" }],
+      placeholder: "Enter first route place name",
+    },
+    routeThree: {
+      label: "Add first route place description",
+      name: "routeThree",
+      rules: [{ required: true, message: "Please enter first route place description" }],
+      placeholder: "Enter first route place description",
+    },
+    routeFourTitle: {
+      label: "Add first route place name",
+      name: "routeFourTitle",
+      rules: [{ required: true, message: "Please enter first route place name" }],
+      placeholder: "Enter first route place name",
+    },
+    routeFour: {
+      label: "Add first route place description",
+      name: "routeFour",
+      rules: [{ required: true, message: "Please enter first route place description" }],
+      placeholder: "Enter first route place description",
+    },
 
   };
 
@@ -154,7 +190,7 @@ const NewPlace = () => {
       <div className="newPlaceContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Place</h1>
+          <h1>Add New Trip Plan</h1>
         </div>
         <div className="bottomPlace">
           <Row>
@@ -200,15 +236,21 @@ const NewPlace = () => {
                         ) : field.name === 'longitude' ? (
                           <InputNumber min={0} />
                         ) : field.name === 'rating' ? (
-                          <InputNumber min={0} />
-                        ) : field.name === 'distance' ? (
-                          <InputNumber min={0} />
+                          <InputNumber min={0} max={5} />
                         ) : field.name === 'descshort' ? (
                           <Input.TextArea rows={3} />
                         ) : field.name === 'desclong' ? (
                           <Input.TextArea rows={3} />
-                        ) : field.name === 'descsinhala' ? (
+                        ) : field.name === 'routeOne' ? (
                           <Input.TextArea rows={3} />
+                        ) : field.name === 'routeTwo' ? (
+                          <Input.TextArea rows={3} />
+                        ) : field.name === 'routeThree' ? (
+                          <Input.TextArea rows={3} />
+                        ) : field.name === 'routeFour' ? (
+                          <Input.TextArea rows={3} />
+                        ) : field.name === 'days' ? (
+                          <InputNumber min={0} />
                         ) : (
                           <Input type={field.type} placeholder={field.placeholder} />
 
@@ -246,5 +288,5 @@ const NewPlace = () => {
   );
 };
 
-export default NewPlace;
+export default NewTrip;
 

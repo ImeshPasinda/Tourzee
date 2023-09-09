@@ -1,16 +1,16 @@
 import Trip from "../models/Trip.js";
 
 
-export const createTrip = async (req, res, next) => {
-  const newTrip = new Trip(req.body);
+// export const createTrip = async (req, res, next) => {
+//   const newTrip = new Trip(req.body);
 
-  try {
-    const savedTrip = await newTrip.save();
-    res.status(200).json(savedTrip);
-  } catch (err) {
-    next(err);
-  }
-};
+//   try {
+//     const savedTrip = await newTrip.save();
+//     res.status(200).json(savedTrip);
+//   } catch (err) {
+//     next(err);
+//   }
+// };
 export const updateTrip = async (req, res, next) => {
   try {
     const updatedTrip = await Trip.findByIdAndUpdate(
