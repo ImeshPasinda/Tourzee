@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Upload, Button, Row, Col, Statistic, message, Space } from 'antd';
+import { Form, Input, Upload, Button, Row, Col, InputNumber, message, Select } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
@@ -9,6 +9,15 @@ import './newPlace.scss';
 const NewPlace = () => {
   const [form] = Form.useForm();
   const [files, setFiles] = useState([]);
+
+  const validateDescshort = (rule, value, callback) => {
+    const wordCount = value.trim().split(/\s+/).length; // Split by whitespace to count words
+    if (wordCount > 20) {
+      callback("Please enter no more than 20 words for Desc");
+    } else {
+      callback();
+    }
+  };
 
   const onFinish = async (values) => {
     try {
@@ -68,10 +77,10 @@ const NewPlace = () => {
       rules: [{ required: true, message: "Please enter address" }],
       placeholder: "Enter address",
     },
-    desc: {
+    descshort: {
       label: "Desc",
-      name: "desc",
-      rules: [{ required: true, message: "Please enter Desc" }],
+      name: "descshort",
+      rules: [{ required: true, message: "Please enter Desc" }, { validator: validateDescshort }],
       placeholder: "Enter Desc",
     },
     distance: {
@@ -127,18 +136,22 @@ const NewPlace = () => {
       name: "longitude",
       rules: [{ required: true, message: "Please enter longitude" }],
       placeholder: "Enter longitude",
+
     },
     latitude: {
       label: "latitude",
       name: "latitude",
       rules: [{ required: true, message: "Please enter latitude" }],
       placeholder: "Enter latitude",
+
     },
     featured: {
       label: "Featured",
       name: "featured",
-      valuePropName: "checked",
+      initialValue: false, // Set the initial value to false
+
     },
+
   };
 
   return (
@@ -146,24 +159,13 @@ const NewPlace = () => {
       <Sidebar />
       <div className="newPlaceContainer">
         <Navbar />
+        <div className="top">
+          <h1>Add New Place</h1>
+        </div>
         <div className="bottomPlace">
           <Row>
             <Col span={8}>
-              <div className="left">
-                {files.map((file, index) => (
-                  <img
-                    key={index}
-                    src={URL.createObjectURL(file)}
-                    alt={`Image ${index + 1}`}
-                  />
-                ))}
-                {files.length === 0 && (
-                  <img
-                    src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-                    alt=""
-                  />
-                )}
-              </div>
+
               <Form
                 form={form}
                 onFinish={onFinish}
@@ -177,25 +179,45 @@ const NewPlace = () => {
                   return (
                     <div className="formInput" key={fieldName}>
                       <label>{field.label}</label>
-                      <Form.Item name={field.name} rules={field.rules}>
+                      <Form.Item name={field.name} rules={field.rules} >
                         {field.name === 'photos' ? (
-    <div className="custom-file-input">
-      <input
-        type="file"
-        onChange={(e) => {
-          const selectedFiles = e.target.files;
-          setFiles([...selectedFiles]);
-        }}
-        multiple
-      />
-      <label for="file-upload">Choose Files</label>
-    </div>
+                          <div className="custom-file-input">
+                            <input
+                              type="file"
+                              onChange={(e) => {
+                                const selectedFiles = e.target.files;
+                                setFiles([...selectedFiles]);
+                              }}
+                              multiple
+                            />
+                            <label for="file-upload">Choose Files</label>
+                          </div>
                         ) : field.uploadProps ? (
                           <Upload {...field.uploadProps}>
                             <Button icon={<UploadOutlined />}>Upload</Button>
                           </Upload>
+                        ) : field.name === 'featured' ? (
+                          <Select defaultValue={false}>
+                            <Select.Option value={true}>True</Select.Option>
+                            <Select.Option value={false}>False</Select.Option>
+                          </Select>
+                        ) : field.name === 'latitude' ? (
+                          <InputNumber min={0} />
+                        ) : field.name === 'longitude' ? (
+                          <InputNumber min={0} />
+                        ) : field.name === 'rating' ? (
+                          <InputNumber min={0} />
+                        ) : field.name === 'distance' ? (
+                          <InputNumber min={0} />
+                        ) : field.name === 'descshort' ? (
+                          <Input.TextArea rows={3} />
+                        ) : field.name === 'desclong' ? (
+                          <Input.TextArea rows={3} />
+                        ) : field.name === 'descsinhala' ? (
+                          <Input.TextArea rows={3} />
                         ) : (
                           <Input type={field.type} placeholder={field.placeholder} />
+
                         )}
                       </Form.Item>
                     </div>
@@ -208,7 +230,21 @@ const NewPlace = () => {
                 </Form.Item>
               </Form>
             </Col>
-            {/* ... (existing code) */}
+            <div className="left">
+              {files.map((file, index) => (
+                <img
+                  key={index}
+                  src={URL.createObjectURL(file)}
+                  alt={`Image ${index + 1}`}
+                />
+              ))}
+              {files.length === 0 && (
+                <img
+                  src="https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                  alt=""
+                />
+              )}
+            </div>
           </Row>
         </div>
       </div>
