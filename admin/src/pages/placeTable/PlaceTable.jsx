@@ -4,6 +4,8 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import useFetch from "../../hooks/useFetch";
 import axios from 'axios';
+import { PlusOutlined  } from '@ant-design/icons'
+import { Link } from "react-router-dom";
 
 import "./placeTable.scss";
 
@@ -14,6 +16,7 @@ const PlaceTable = () => {
   const [filteredData, setFilteredData] = useState(data);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [editedPlace, setEditedPlace] = useState(null);
+  const [size, setSize] = useState('large');
  
   const [form] = Form.useForm();
 
@@ -237,7 +240,13 @@ const PlaceTable = () => {
             }}
             rowKey="_id"
           />
+           <Link to="/places/new">
+           <Button type="primary"  icon={<PlusOutlined  />} size={size}>
+            Add Place 
+          </Button>
+          </Link>
         </div>
+       
       </div>
       <Modal
          title="Edit Place"

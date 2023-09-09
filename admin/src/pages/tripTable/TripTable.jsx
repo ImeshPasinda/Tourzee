@@ -3,8 +3,14 @@ import { Table, Button, Modal, Form, Input, InputNumber, Switch } from 'antd';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import useFetch from '../../hooks/useFetch';
+import { PlusOutlined  } from '@ant-design/icons'
 import './tripTable.scss';
 import axios from 'axios';
+import { Link } from "react-router-dom";
+
+
+
+const { Search } = Input;
 
 const truncateText = (text, maxLength) => {
   if (text.length > maxLength) {
@@ -14,11 +20,11 @@ const truncateText = (text, maxLength) => {
 };
 
 const TripTable = () => {
-  const { data, loading, error,refetch  } = useFetch('/trips');
-
+  const { data, loading, error, refetch } = useFetch('/trips');
+  const [filteredData, setFilteredData] = useState(data);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [editedTrip, setEditedTrip] = useState(null);
-
+  const [size, setSize] = useState('large');
   const [form] = Form.useForm();
 
   const columns = [
@@ -233,7 +239,18 @@ const TripTable = () => {
     });
   };
 
+  const handleSearch = (value) => {
+    const filtered = data.filter(item => {
+      const name = item.name.toLowerCase();
+      const searchValue = value.toLowerCase();
+      return name.includes(searchValue);
+    });
+    setFilteredData(filtered);
+  };
 
+  useEffect(() => {
+    setFilteredData(data);
+  }, [data]);
 
 
   return (
@@ -243,13 +260,30 @@ const TripTable = () => {
         <Navbar />
 
         <div className="bottomTrip">
+        <div className="search-bar">
+            <Search
+              placeholder="Search trip name"
+              onSearch={handleSearch}
+              style={{
+                width: 200,
+              }}
+            />
+          </div>
+          <br />
           <Table
             dataSource={data}
             columns={columns}
             loading={loading}
             pagination={false}
           />
+          <br />
+          <Link to="/trips/new">
+           <Button type="primary"  icon={<PlusOutlined  />} size={size}>
+            Add Trip Plan
+          </Button>
+          </Link>
         </div>
+        
       </div>
 
       <Modal
