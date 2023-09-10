@@ -14,6 +14,8 @@ import {
   LoadScript,
 } from "@react-google-maps/api";
 
+
+
 const googleApiKey = "AIzaSyA44R7M50CvxW25lU6kgdnfptEW-dSsaWs"; // Replace with your actual Google Maps API key
 
 const containerStyle = {
@@ -45,8 +47,8 @@ export default function VirtualTourPlaces() {
     <div>
       <Navbar />
       <HeaderforVirtualTour />
-      <div className="virtual-tour-details">
-        <Link to="/virtualTour/virtualTourPlaces/virtualTourMap">
+      <div className="virtual-tour-details" style={{paddingLeft : '100px' ,paddingRight : '100px' }} >
+        <Link to="/virtualTour/virtualTourPlaces/virtualTourMap" style={{ textDecoration: "none" }}>
         <div
           className="card-container"
           style={{ display: "flex", flexWrap: "wrap" }}
@@ -67,7 +69,8 @@ export default function VirtualTourPlaces() {
                   marginTop: "100px",
                   marginLeft: "50px",
                   marginRight: "50px",
-                  marginBottom: "50px",
+                 
+                  boxSizing:"5px"
                 }}
                 cover={
                   <img
@@ -81,7 +84,7 @@ export default function VirtualTourPlaces() {
                 }
               >
                 <Meta title={item.title} description={item.description} />
-                <h3>{item.location}</h3>
+                <h4>{item.location}</h4>
               </Card>
             </div>
           ))}
