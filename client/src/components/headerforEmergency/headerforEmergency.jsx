@@ -4,10 +4,9 @@ import {
     faCar,
     faLocationDot,
     faPerson,
-    faPlane,
-    faTaxi,
-    faTruck,
+    faRoad,
     faTruckMedical,
+    faVrCardboard
 } from "@fortawesome/free-solid-svg-icons";
 import Badge from '@mui/material/Badge';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -51,10 +50,10 @@ const HeaderForEmergency = ({ type }) => {
         });
     };
 
-  
+
 
     const handleSearch = () => {
-       
+
         navigate("/places", { state: { destination, dates, options } });
     };
 
@@ -66,32 +65,33 @@ const HeaderForEmergency = ({ type }) => {
                 }
             >
                 <div className="headerList">
-                    <div className="headerListItem">
-                        <Link to="/" className="linkStyle">
-                            <FontAwesomeIcon icon={faBed} className="iconStyle" />
-                            <span>Stays</span>
-                        </Link>
-                    </div>
-                    <div className="headerListItem">
-                        <FontAwesomeIcon icon={faPerson} />
-                        <span>Social</span>
-                    </div>
-                    <div className="headerListItem">
-                        <FontAwesomeIcon icon={faCar} />
-                        <span>Car rentals</span>
-                    </div>
-                    <div className="headerListItem">
-                        <FontAwesomeIcon icon={faBed} />
+                    <div className="headerListItem active">
+                        <FontAwesomeIcon icon={faRoad} />
                         <span>Attractions</span>
                     </div>
-                    <div className="headerListItem active">
-                        <FontAwesomeIcon icon={faTruckMedical} />
-                        <span>Safety</span>
+                    <div className="headerListItem">
+                        <Link to="/soialsharing" className="linkStyle">
+                            <FontAwesomeIcon icon={faPerson} />
+                            <span style={{ marginLeft: '8px' }}>Social</span>
+                        </Link>
+                    </div>
+
+                    {/* <div className="headerListItem">
+                        <FontAwesomeIcon icon={faBed} />
+                        <span>Attractions</span>
+                    </div> */}
+                    <div className="headerListItem">
+                        <Link to="/virtualTour" className="linkStyle">
+                            <FontAwesomeIcon icon={faVrCardboard} />
+                            <span style={{ marginLeft: '8px' }}>Virtual Tour</span>
+                        </Link>
                     </div>
                     <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
-                        <div className="headerListItem ">
-                            <FontAwesomeIcon icon={faLocationDot} />
-                            <span>Start a Trip</span>
+                        <div className="headerListItem">
+                            <Link to="/planatrip" className="linkStyle">
+                                <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
+                                <span>Start a Trip</span>
+                            </Link>
                         </div>
                     </Badge>
                 </div>
@@ -114,8 +114,8 @@ const HeaderForEmergency = ({ type }) => {
                                     onChange={(e) => setDestination(e.target.value)}
                                 />
                             </div>
-                            
-                          
+
+
                             <div className="headerSearchItem">
                                 <button className="headerBtn" onClick={handleSearch}>
                                     Search
