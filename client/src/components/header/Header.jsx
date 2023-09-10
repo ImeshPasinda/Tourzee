@@ -5,6 +5,7 @@ import {
   faPerson,
   faRoad,
   faTruckMedical,
+  faVrCardboard
 } from "@fortawesome/free-solid-svg-icons";
 import Badge from '@mui/material/Badge';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -76,6 +77,12 @@ const Header = ({ type }) => {
             <Link to="/emergencySafety" className="linkStyle">
               <FontAwesomeIcon icon={faTruckMedical} />
               <span style={{ marginLeft: '8px' }}>Safety</span>
+            </Link>
+          </div>
+          <div className="headerListItem">
+            <Link to="/virtualTour" className="linkStyle">
+              <FontAwesomeIcon icon={faVrCardboard} />
+              <span className="virtual">Virtual Tour</span>
             </Link>
           </div>
           <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>

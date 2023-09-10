@@ -117,3 +117,59 @@ export const emergencyColumns = [
     width: 150,
   },
 ];
+
+
+export const virtualTourColumns = [
+  { field: "_id", headerName: "ID", width: 70 },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 230,
+  },
+  {
+    field: "description",
+    headerName: "Description",
+    width: 230,
+  },
+  {
+    field: "location",
+    headerName: "Location",
+    width: 230,
+  },
+  {
+    field: "latitude",
+    headerName: "Latitude",
+    width: 230,
+  },
+  {
+    field: "longitude",
+    headerName: "Longitude",
+    width: 230,
+  },
+  {
+    field: "photo", // Display the image in a custom way
+    headerName: "Photo",
+    width: 150,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img
+            className="cellImg"
+            src={params.row.photo || "https://i.ibb.co/MBtjqXQ/no-image.png"} // Display a default image if no photo is available
+            alt="tour"
+          />
+        </div>
+      );
+    },
+  },
+  {
+    field: "createdAt",
+    headerName: "Created At",
+    width: 200,
+    valueGetter: (params) => {
+      // Format createdAt timestamp as needed (e.g., using date-fns or another library).
+      const createdAtDate = new Date(params.row.createdAt);
+      return createdAtDate.toLocaleDateString(); // Format the date as required.
+    },
+  },
+];

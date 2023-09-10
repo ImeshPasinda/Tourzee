@@ -178,4 +178,47 @@ export const emergencyInputs = [
     type: "text",
     placeholder: "Phone Number",
   },
+  
+];
+
+export const virtualTourInputs = [
+  {
+    id: "title",
+    label: "Title",
+    type: "text",
+    placeholder: "Virtual Tour Title",
+  },
+  {
+    id: "description",
+    label: "Description",
+    type: "text",
+    placeholder: "Enter a description for the virtual tour...",
+  },
+  {
+    id: "location",
+    label: "Location",
+    type: "text",
+    placeholder: "Enter Location...",
+  },
+  {
+    id: "latitude",
+    label: "Latitude",
+    type: "text",
+    placeholder: "Enter Latitude...",
+  },
+  {
+    id: "longitude",
+    label: "Longitude",
+    type: "text",
+    placeholder: "Enter Longitude...",
+  },
+
+  {
+    id: "photo",
+    label: "Photo",
+    type: "file", // Use "file" type for image uploads
+    accept: "image/*", // Allow only image files
+  },
+  
+  
 ];
