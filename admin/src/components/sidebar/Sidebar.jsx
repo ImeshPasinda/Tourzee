@@ -10,6 +10,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
+import TourIcon from '@mui/icons-material/Tour';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
@@ -53,6 +54,12 @@ const Sidebar = () => {
             <li>
               <LocalAirportIcon className="icon" />
               <span>Trips</span>
+            </li>
+          </Link>
+          <Link to="/virtualTour" style={{ textDecoration: "none" }}>
+            <li>
+              <TourIcon className="icon" />
+              <span>Virtual Tours</span>
             </li>
           </Link>
           <li>

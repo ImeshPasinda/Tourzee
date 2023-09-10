@@ -14,6 +14,9 @@ import Safetybeforego from "./pages/SafetyBeforeGo/safetybeforego";
 import DestinationsEmergency from "./pages/DestinationsInEmergency/destinationsEmergency";
 import Trip from "./pages/trip/Trip";
 import TripPage from "./pages/tripPage/TripPage";
+import VirtualTour from "./pages/virtualTour/VirtualTour";
+import VirtualTourPlaces from "./pages/virtualTourPlaces/VirtualTourPlaces";
+import VirtualTourMap from "./pages/virtualTourMap/VirtualTourMap"
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
         <Route path="/urgentHelp" element={<UrgentHelp/>}/>
         <Route path="/safetybeforego" element={<Safetybeforego/>}/>
         <Route path="/destinationsemergency" element={<DestinationsEmergency/>}/>
+        <Route path="/virtualTour" element={<VirtualTour/>}/>       
+        <Route path="/virtualTour/virtualTourPlaces" element={<VirtualTourPlaces/>}/>
+        <Route path="/virtualTour/virtualTourPlaces/virtualTourMap" element={<VirtualTourMap/>}/>
 
 
       </Routes>

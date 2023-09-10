@@ -1,0 +1,27 @@
+.header-datatable{
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+.table-data{
+    margin-top: 40px;
+    margin-left: 90px;
+    margin-bottom: 40px;
+    margin-right: 150px;
+}
+
+.button-datatable{
+    
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+.edit{
+    background-color: rgb(19, 82, 240);
+    color: aliceblue;
+    width: 80px;
+}
+.delete{
+    background-color: red;
+    color: aliceblue;
+    width: 80px;
+}

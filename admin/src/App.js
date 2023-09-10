@@ -9,7 +9,7 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { emergencyColumns, placeColumns, roomColumns, userColumns } from "./datatablesource";
+import { emergencyColumns, placeColumns, roomColumns, userColumns, virtualTourColumns } from "./datatablesource";
 import NewPlace from "./pages/newPlace/NewPlace";
 import EmergencyFacility from "./pages/emergency/EmergencyFacility";
 import AdminEmergency from "./pages/emergency/adminEmergency";
@@ -19,6 +19,8 @@ import AdminSBYG from "./pages/emergency/adminSBYG";
 import TripTable from "./pages/tripTable/TripTable";
 import PlaceTable from "./pages/placeTable/PlaceTable";
 import NewTrip from "./pages/newTrip/NewTrip";
+import NewVirtualTour from "./pages/newVirtualTour/NewVirtualTour";
+import VirtualTour from "./pages/virtualTour/VirtualTour"
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -108,7 +110,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-             
+
               <Route
                 path="new"
                 element={
@@ -118,7 +120,6 @@ function App() {
                 }
               />
             </Route>
-
             <Route path="rooms">
               <Route
                 index
@@ -136,7 +137,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              
+
             </Route>
 
             <Route path="emergencyfacility">
@@ -158,6 +159,27 @@ function App() {
                 }
               />
             </Route>
+          </Route>
+
+          <Route path="virtualTour">
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <VirtualTour />
+                  {/* <List columns={virtualTourColumns} /> */}
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="new"
+              element={
+                <ProtectedRoute>
+                  <NewVirtualTour />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route
             path="adminEmergency"

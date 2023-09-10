@@ -146,3 +146,7 @@
   animation: none; /* Remove any animation */
   opacity: 1; /* Set opacity to 1 to show the text continuously */
 }
+
+.virtual{
+  margin-left: 5px;
+}
