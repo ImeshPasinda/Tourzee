@@ -45,10 +45,10 @@ const Headerforplanatrip = ({ type }) => {
             <FontAwesomeIcon icon={faPerson} />
             <span>Social</span>
           </div>
-          <div className="headerListItem">
+          {/* <div className="headerListItem">
             <FontAwesomeIcon icon={faCar} />
             <span>Car rentals</span>
-          </div>
+          </div> */}
           <div className="headerListItem">
             <FontAwesomeIcon icon={faBed} />
             <span>Attractions</span>

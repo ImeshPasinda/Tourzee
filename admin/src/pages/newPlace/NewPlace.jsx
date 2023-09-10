@@ -13,7 +13,7 @@ const NewPlace = () => {
   const validateDescshort = (rule, value, callback) => {
     const wordCount = value.trim().split(/\s+/).length; // Split by whitespace to count words
     if (wordCount > 100) {
-      callback("Please enter no more than 20 words for Desc");
+      callback("Please enter no more than 100 words for Desc");
     } else {
       callback();
     }

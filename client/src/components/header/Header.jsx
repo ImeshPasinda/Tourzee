@@ -1,6 +1,4 @@
 import {
-  faBed,
-  faCar,
   faLocationDot,
   faPerson,
   faRoad,
@@ -61,18 +59,15 @@ const Header = ({ type }) => {
             <FontAwesomeIcon icon={faRoad} />
             <span>Attractions</span>
           </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faPerson} />
-            <span>Social</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
-          </div>
+          
+            <div className="headerListItem">
+            <Link to="/soialsharing" className="linkStyle">
+              <FontAwesomeIcon icon={faPerson} />
+              <span style={{ marginLeft: '8px' }}>Social</span>
+              </Link>
+            </div>
+      
+
           <div className="headerListItem">
             <Link to="/emergencySafety" className="linkStyle">
               <FontAwesomeIcon icon={faTruckMedical} />
@@ -82,7 +77,7 @@ const Header = ({ type }) => {
           <div className="headerListItem">
             <Link to="/virtualTour" className="linkStyle">
               <FontAwesomeIcon icon={faVrCardboard} />
-              <span className="virtual">Virtual Tour</span>
+              <span style={{ marginLeft: '8px' }}>Virtual Tour</span>
             </Link>
           </div>
           <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>

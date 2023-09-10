@@ -12,8 +12,8 @@ const NewTrip = () => {
 
   const validateDescshort = (rule, value, callback) => {
     const wordCount = value.trim().split(/\s+/).length; // Split by whitespace to count words
-    if (wordCount > 20) {
-      callback("Please enter no more than 20 words for Desc");
+    if (wordCount > 100) {
+      callback("Please enter no more than 100 words for Desc");
     } else {
       callback();
     }
@@ -146,40 +146,40 @@ const NewTrip = () => {
       placeholder: "Enter first route place description",
     },
     routeTwoTitle: {
-      label: "Add first route place name",
+      label: "Add second route place name",
       name: "routeTwoTitle",
-      rules: [{ required: true, message: "Please enter first route place name" }],
-      placeholder: "Enter first route place name",
+      rules: [{ required: true, message: "Please enter second route place name" }],
+      placeholder: "Enter second route place name",
     },
     routeTwo: {
-      label: "Add first route place description",
+      label: "Add second route place description",
       name: "routeTwo",
-      rules: [{ required: true, message: "Please enter first route place description" }],
-      placeholder: "Enter first route place description",
+      rules: [{ required: true, message: "Please enter second route place description" }],
+      placeholder: "Enter second route place description",
     },
     routeThreeTitle: {
-      label: "Add first route place name",
+      label: "Add third route place name",
       name: "routeThreeTitle",
-      rules: [{ required: true, message: "Please enter first route place name" }],
-      placeholder: "Enter first route place name",
+      rules: [{ required: true, message: "Please enter third route place name" }],
+      placeholder: "Enter third route place name",
     },
     routeThree: {
-      label: "Add first route place description",
+      label: "Add third route place description",
       name: "routeThree",
-      rules: [{ required: true, message: "Please enter first route place description" }],
-      placeholder: "Enter first route place description",
+      rules: [{ required: true, message: "Please enter third route place description" }],
+      placeholder: "Enter third route place description",
     },
     routeFourTitle: {
-      label: "Add first route place name",
+      label: "Add fourth route place name",
       name: "routeFourTitle",
-      rules: [{ required: true, message: "Please enter first route place name" }],
-      placeholder: "Enter first route place name",
+      rules: [{ required: true, message: "Please enter fourth route place name" }],
+      placeholder: "Enter fourth route place name",
     },
     routeFour: {
-      label: "Add first route place description",
+      label: "Add fourth route place description",
       name: "routeFour",
-      rules: [{ required: true, message: "Please enter first route place description" }],
-      placeholder: "Enter first route place description",
+      rules: [{ required: true, message: "Please enter fourth route place description" }],
+      placeholder: "Enter fourth route place description",
     },
 
   };
