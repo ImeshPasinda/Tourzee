@@ -35,7 +35,7 @@ const Headerforplanatrip = ({ type }) => {
         }
       >
          <div className="headerList">
-                    <div className="headerListItem active">
+                    <div className="headerListItem ">
                     <Link to="/" className="linkStyle">
 
                         <FontAwesomeIcon icon={faRoad} />
@@ -61,7 +61,7 @@ const Headerforplanatrip = ({ type }) => {
                         </Link>
                     </div>
                     <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
-                        <div className="headerListItem">
+                        <div className="headerListItem active">
                             <Link to="/planatrip" className="linkStyle">
                                 <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
                                 <span>Start a Trip</span>

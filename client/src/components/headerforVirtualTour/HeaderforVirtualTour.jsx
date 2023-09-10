@@ -40,7 +40,7 @@ const HeaderforVirtualTour = () => {
     <div className="header">
       <div className="headerContainer">
       <div className="headerList">
-          <div className="headerListItem active">
+          <div className="headerListItem ">
             <FontAwesomeIcon icon={faRoad} />
             <span>Attractions</span>
           </div>
@@ -59,7 +59,7 @@ const HeaderforVirtualTour = () => {
               <span style={{ marginLeft: '8px' }}>Safety</span>
             </Link>
           </div>
-          <div className="headerListItem">
+          <div className="headerListItem active">
             <Link to="/virtualTour" className="linkStyle">
               <FontAwesomeIcon icon={faVrCardboard} />
               <span style={{ marginLeft: '8px' }}>Virtual Tour</span>
