@@ -77,7 +77,7 @@ router.post('/', async (req, res) => {
 //UPDATE
 router.put("/:id", updateTrip);
 //DELETE
-router.delete("/:id", verifyAdmin, deleteTrip);
+router.delete("/:id", deleteTrip);
 //GET
 
 router.get("/find/:id", getTrip);
