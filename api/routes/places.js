@@ -66,7 +66,7 @@ router.post('/', async (req, res) => {
 
 
 //UPDATE
-router.put("/:id", verifyAdmin, updatePlace);
+router.put("/:id", updatePlace);
 //DELETE
 router.delete("/:id", verifyAdmin, deletePlace);
 //GET

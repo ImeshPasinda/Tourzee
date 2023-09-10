@@ -20,6 +20,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 
+
 const TripPage = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
