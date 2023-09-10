@@ -60,14 +60,14 @@ const Headerforplanatrip = ({ type }) => {
                             <span style={{ marginLeft: '8px' }}>Virtual Tour</span>
                         </Link>
                     </div>
-                    <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
+                    {/* <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}> */}
                         <div className="headerListItem active">
                             <Link to="/planatrip" className="linkStyle">
                                 <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
                                 <span>Start a Trip</span>
                             </Link>
                         </div>
-                    </Badge>
+                    {/* </Badge> */}
                 </div>
         {type !== "list" && (
           <>
