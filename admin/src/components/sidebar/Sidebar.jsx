@@ -11,6 +11,7 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import TourIcon from '@mui/icons-material/Tour';
+import ManIcon from '@mui/icons-material/Man';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
@@ -63,10 +64,15 @@ const Sidebar = () => {
             </li>
           </Link>
           <Link to="/adminEmergency" style={{ textDecoration: "none" }}>
-
           <li>
             <LocalShippingIcon className="icon" />
             <span>Emergency</span>
+          </li>
+          </Link>
+          <Link to="/adminPost" style={{ textDecoration: "none" }}>
+          <li>
+            <ManIcon className="icon" />
+            <span>Social</span>
           </li>
           </Link>
           {/* <p className="title">USEFUL</p>
