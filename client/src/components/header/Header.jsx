@@ -59,14 +59,14 @@ const Header = ({ type }) => {
             <FontAwesomeIcon icon={faRoad} />
             <span>Attractions</span>
           </div>
-          
-            <div className="headerListItem">
+
+          <div className="headerListItem">
             <Link to="/soialsharing" className="linkStyle">
               <FontAwesomeIcon icon={faPerson} />
               <span style={{ marginLeft: '8px' }}>Social</span>
-              </Link>
-            </div>
-      
+            </Link>
+          </div>
+
 
           <div className="headerListItem">
             <Link to="/emergencySafety" className="linkStyle">

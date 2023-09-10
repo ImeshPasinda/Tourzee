@@ -1,7 +1,7 @@
 import {
-  faBed,
-  faCar,
   faLocationDot,
+  faRoad,
+  faVrCardboard,
   faLocationPin,
   faPerson,
   faTruckMedical,
@@ -34,36 +34,41 @@ const Headerforplanatrip = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-        <div className="headerList">
-          <div className="headerListItem">
-          <Link to="/" className="linkStyle">
-            <FontAwesomeIcon icon={faBed} className="iconStyle"/>
-            <span>Stays</span>
-            </Link>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faPerson} />
-            <span>Social</span>
-          </div>
-          {/* <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div> */}
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faTruckMedical} />
-            <span>Safety</span>
-          </div>
-          <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
-          <div className="headerListItem active">
-            <FontAwesomeIcon icon={faLocationDot} />
-            <span>Start a Trip</span>
-          </div>
-          </Badge>
-        </div>
+         <div className="headerList">
+                    <div className="headerListItem active">
+                    <Link to="/" className="linkStyle">
+
+                        <FontAwesomeIcon icon={faRoad} />
+                        <span>Attractions</span> </Link>
+                    </div>
+                    <div className="headerListItem">
+                        <Link to="/soialsharing" className="linkStyle">
+                            <FontAwesomeIcon icon={faPerson} />
+                            <span style={{ marginLeft: '8px' }}>Social</span>
+                        </Link>
+                    </div>
+
+                    <div className="headerListItem">
+                        <Link to="/emergencySafety" className="linkStyle">
+                            <FontAwesomeIcon icon={faTruckMedical} />
+                            <span style={{ marginLeft: '8px' }}>Safety</span>
+                        </Link>
+                    </div>
+                    <div className="headerListItem">
+                        <Link to="/virtualTour" className="linkStyle">
+                            <FontAwesomeIcon icon={faVrCardboard} />
+                            <span style={{ marginLeft: '8px' }}>Virtual Tour</span>
+                        </Link>
+                    </div>
+                    <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
+                        <div className="headerListItem">
+                            <Link to="/planatrip" className="linkStyle">
+                                <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
+                                <span>Start a Trip</span>
+                            </Link>
+                        </div>
+                    </Badge>
+                </div>
         {type !== "list" && (
           <>
             <h1 className="headerTitle">

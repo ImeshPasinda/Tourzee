@@ -7,16 +7,16 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import {
-  faBed,
-  faCalendarDays,
-  faCar,
-  faLocationDot,
+  
+ 
+
+  faVrCardboard, faLocationDot,
   faPerson,
-  faPlane,
-  faTaxi,
-  faTruck,
+  faRoad,
+
+
   faTruckMedical,
-  faVrCardboard,
+
   faLocationPin
 } from "@fortawesome/free-solid-svg-icons";
 import "./headerforVirtualTour.css";
@@ -39,39 +39,38 @@ const HeaderforVirtualTour = () => {
   return (
     <div className="header">
       <div className="headerContainer">
-        <div className="headerList">
+      <div className="headerList">
+          <div className="headerListItem active">
+            <FontAwesomeIcon icon={faRoad} />
+            <span>Attractions</span>
+          </div>
+
           <div className="headerListItem">
-            <Link to="/" className="linkStyle">
-              <FontAwesomeIcon icon={faBed} className="iconStyle" />
-              <span>Stays</span>
+            <Link to="/soialsharing" className="linkStyle">
+              <FontAwesomeIcon icon={faPerson} />
+              <span style={{ marginLeft: '8px' }}>Social</span>
+            </Link>
+          </div>
+
+
+          <div className="headerListItem">
+            <Link to="/emergencySafety" className="linkStyle">
+              <FontAwesomeIcon icon={faTruckMedical} />
+              <span style={{ marginLeft: '8px' }}>Safety</span>
             </Link>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faPerson} />
-            <span>Social</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faTruckMedical} />
-            <span>Safety</span>
-          </div>
-          <div className="headerListItem active">
             <Link to="/virtualTour" className="linkStyle">
               <FontAwesomeIcon icon={faVrCardboard} />
-              <span className="virtual">Virtual Tour</span>
+              <span style={{ marginLeft: '8px' }}>Virtual Tour</span>
             </Link>
           </div>
           <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}>
             <div className="headerListItem">
-              <FontAwesomeIcon icon={faLocationDot} />
-              <span>Start a Trip</span>
+              <Link to="/planatrip" className="linkStyle">
+                <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
+                <span>Start a Trip</span>
+              </Link>
             </div>
           </Badge>
         </div>
