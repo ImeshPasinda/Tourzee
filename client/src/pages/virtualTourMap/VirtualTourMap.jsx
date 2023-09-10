@@ -1,4 +1,3 @@
-import './virtualTourMap.css';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../../components/navbar/Navbar";
@@ -15,9 +14,9 @@ import {
 const googleApiKey = "AIzaSyA44R7M50CvxW25lU6kgdnfptEW-dSsaWs"; // Replace with your actual Google Maps API key
 
 const containerStyle = {
-    marginTop:"40px",
-    marginLeft:"50px",
-    marginRight:"50px",
+  marginTop: "40px",
+  marginLeft: "50px",
+  marginRight: "50px",
   width: "80%",
   height: "400px",
 };
@@ -28,28 +27,26 @@ export default function VirtualTourMap() {
   const searchQuery = location.state ? location.state.title : "";
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8800/api/virtualTour/")
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+    fetchData();
   }, []);
 
-  const filteredData = data.filter((item) =>
-    item.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8800/api/virtualTour/");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const calculateMapCenter = () => {
-    if (filteredData.length === 0) {
+    if (data.length === 0) {
       return { lat: 0, lng: 0 }; // Default center if no data
     }
 
     const bounds = new window.google.maps.LatLngBounds();
 
-    filteredData.forEach((item) => {
+    data.forEach((item) => {
       bounds.extend(new window.google.maps.LatLng(item.latitude, item.longitude));
     });
 
@@ -72,12 +69,12 @@ export default function VirtualTourMap() {
             center={calculateMapCenter()}
             zoom={14}
           >
-            {filteredData.map((item, index) => (
+            {data.map((item, index) => (
               <StreetViewPanorama
                 key={index}
                 position={{
-                  lat: item.latitude,
-                  lng: item.longitude,
+                  lat: parseFloat(item.latitude),
+                  lng: parseFloat(item.longitude),
                 }}
                 visible={true}
               />
