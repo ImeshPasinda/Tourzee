@@ -160,7 +160,7 @@ const TripPage = () => {
                     },
                     {
                       title: data.routeFourTitle,
-                      description: data.routeFourOne,
+                      description: data.routeFour,
                     },
 
                   ]}

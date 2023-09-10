@@ -11,6 +11,8 @@
   flex: 1;
   gap: 10px;
   display: flex;
+  width: 250px;
+  height: 500px;
   flex-direction: column;
 }
 
