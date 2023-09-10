@@ -67,9 +67,8 @@ const HeaderForEmergency = ({ type }) => {
                 <div className="headerList">
                     <div className="headerListItem ">
                     <Link to="/" className="linkStyle">
-
                         <FontAwesomeIcon icon={faRoad} />
-                        <span>Attractions</span> </Link>
+                        <span style={{ marginLeft: '8px' }} >Attractions</span> </Link>
                     </div>
                     <div className="headerListItem">
                         <Link to="/soialsharing" className="linkStyle">

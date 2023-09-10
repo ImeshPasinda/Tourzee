@@ -7,8 +7,8 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import {
-  
- 
+
+
 
   faVrCardboard, faLocationDot,
   faPerson,
@@ -26,11 +26,11 @@ import useFetch from '../../hooks/useFetch';
 
 const HeaderforVirtualTour = () => {
   const [title, setTitle] = useState("");
-  
+
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
-  const handleSearch = () => { 
+  const handleSearch = () => {
     navigate("/virtualTour/virtualTourPlaces", { state: { title } });
   };
 
@@ -39,10 +39,12 @@ const HeaderforVirtualTour = () => {
   return (
     <div className="header">
       <div className="headerContainer">
-      <div className="headerList">
+        <div className="headerList">
           <div className="headerListItem ">
-            <FontAwesomeIcon icon={faRoad} />
-            <span>Attractions</span>
+            <Link to="/" className="linkStyle">
+              <FontAwesomeIcon icon={faRoad} />
+              <span style={{ marginLeft: '8px' }} >Attractions</span>
+            </Link>
           </div>
 
           <div className="headerListItem">
