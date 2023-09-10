@@ -176,7 +176,7 @@ const TripTable = () => {
       fixed: 'right',
       width: 100,
       render: (text, record) => (
-        <Button type="primary" onClick={() => showDeleteConfirmation(record)}>
+        <Button type="primary" onClick={() => showDeleteConfirmation(record)} danger>
           Delete
         </Button>
       ),
