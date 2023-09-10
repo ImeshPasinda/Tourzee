@@ -62,10 +62,13 @@ const Sidebar = () => {
               <span>Virtual Tours</span>
             </li>
           </Link>
+          <Link to="/adminEmergency" style={{ textDecoration: "none" }}>
+
           <li>
             <LocalShippingIcon className="icon" />
             <span>Emergency</span>
           </li>
+          </Link>
           {/* <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
