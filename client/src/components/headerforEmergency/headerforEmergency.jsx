@@ -66,8 +66,10 @@ const HeaderForEmergency = ({ type }) => {
             >
                 <div className="headerList">
                     <div className="headerListItem active">
+                    <Link to="/" className="linkStyle">
+
                         <FontAwesomeIcon icon={faRoad} />
-                        <span>Attractions</span>
+                        <span>Attractions</span> </Link>
                     </div>
                     <div className="headerListItem">
                         <Link to="/soialsharing" className="linkStyle">
@@ -76,10 +78,12 @@ const HeaderForEmergency = ({ type }) => {
                         </Link>
                     </div>
 
-                    {/* <div className="headerListItem">
-                        <FontAwesomeIcon icon={faBed} />
-                        <span>Attractions</span>
-                    </div> */}
+                    <div className="headerListItem">
+                        <Link to="/emergencySafety" className="linkStyle">
+                            <FontAwesomeIcon icon={faTruckMedical} />
+                            <span style={{ marginLeft: '8px' }}>Safety</span>
+                        </Link>
+                    </div>
                     <div className="headerListItem">
                         <Link to="/virtualTour" className="linkStyle">
                             <FontAwesomeIcon icon={faVrCardboard} />
