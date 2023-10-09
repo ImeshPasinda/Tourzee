@@ -16,14 +16,14 @@ import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
 const Headerforplanatrip = ({ type }) => {
-  
+
   const [place, setPlace] = useState('');
 
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
 
-  const handleSearch = () => { 
+  const handleSearch = () => {
     navigate("/trips", { state: { place } });
   };
 
@@ -34,48 +34,48 @@ const Headerforplanatrip = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-         <div className="headerList">
-                    <div className="headerListItem ">
-                    <Link to="/" className="linkStyle">
+        <div className="headerList">
+          <div className="headerListItem ">
+            <Link to="/" className="linkStyle">
 
-                        <FontAwesomeIcon icon={faRoad} />
-                        <span style={{ marginLeft: '8px' }}>Attractions</span> </Link>
-                    </div>
-                    <div className="headerListItem">
-                        <Link to="/soialsharing" className="linkStyle">
-                            <FontAwesomeIcon icon={faPerson} />
-                            <span style={{ marginLeft: '8px' }}>Social</span>
-                        </Link>
-                    </div>
+              <FontAwesomeIcon icon={faRoad} />
+              <span style={{ marginLeft: '8px' }}>Attractions</span> </Link>
+          </div>
+          <div className="headerListItem">
+            <Link to="/soialsharing" className="linkStyle">
+              <FontAwesomeIcon icon={faPerson} />
+              <span style={{ marginLeft: '8px' }}>Social</span>
+            </Link>
+          </div>
 
-                    <div className="headerListItem">
-                        <Link to="/emergencySafety" className="linkStyle">
-                            <FontAwesomeIcon icon={faTruckMedical} />
-                            <span style={{ marginLeft: '8px' }}>Safety</span>
-                        </Link>
-                    </div>
-                    <div className="headerListItem">
-                        <Link to="/virtualTour" className="linkStyle">
-                            <FontAwesomeIcon icon={faVrCardboard} />
-                            <span style={{ marginLeft: '8px' }}>Virtual Tour</span>
-                        </Link>
-                    </div>
-                    {/* <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}> */}
-                        <div className="headerListItem active">
-                            <Link to="/planatrip" className="linkStyle">
-                                <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
-                                <span>Start a Trip</span>
-                            </Link>
-                        </div>
-                    {/* </Badge> */}
-                </div>
+          <div className="headerListItem">
+            <Link to="/emergencySafety" className="linkStyle">
+              <FontAwesomeIcon icon={faTruckMedical} />
+              <span style={{ marginLeft: '8px' }}>Safety</span>
+            </Link>
+          </div>
+          <div className="headerListItem">
+            <Link to="/virtualTour" className="linkStyle">
+              <FontAwesomeIcon icon={faVrCardboard} />
+              <span style={{ marginLeft: '8px' }}>Virtual Tour</span>
+            </Link>
+          </div>
+          {/* <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}> */}
+          <div className="headerListItem active">
+            <Link to="/planatrip" className="linkStyle">
+              <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
+              <span>Start a Trip</span>
+            </Link>
+          </div>
+          {/* </Badge> */}
+        </div>
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-            Build a trip in minutes
+              Build a trip in minutes
             </h1>
             <p className="headerDesc">
-            "Get a personalized itinerary just for you, guided by traveler tips and reviews"
+              "Get a personalized itinerary just for you, guided by traveler tips and reviews"
             </p>
             {!user && <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
