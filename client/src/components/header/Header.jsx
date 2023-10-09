@@ -43,9 +43,10 @@ const Header = ({ type }) => {
 
 
   const handleSearch = () => {
-
-    navigate("/places", { state: { destination } });
+    const capitalizedDestination = destination.charAt(0).toUpperCase() + destination.slice(1);
+    navigate("/places", { state: { destination: capitalizedDestination } });
   };
+  
 
   return (
     <div className="header">

@@ -24,8 +24,10 @@ const Headerforplanatrip = ({ type }) => {
 
 
   const handleSearch = () => {
-    navigate("/trips", { state: { place } });
+    const capitalizedPlace = place.charAt(0).toUpperCase() + place.slice(1);
+    navigate("/trips", { state: { place: capitalizedPlace } });
   };
+  
 
   return (
     <div className="header">
