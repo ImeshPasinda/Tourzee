@@ -14,7 +14,7 @@ import './trip.css'; // Import your custom CSS for styling
 const Trip = () => {
   const location = useLocation();
   const [place, setPlace] = useState(location.state.place);
-  const [selectedDays, setSelectedDays] = useState(1); // Initialize the selected number of days
+  const [selectedDays, setSelectedDays] = useState('all'); // Initialize the selected number of days with 'all'
   const [isLoading, setIsLoading] = useState(true); // Track loading state
 
   const { data, loading, error, reFetch } = useFetch(`/trips?place=${place}`);
@@ -35,12 +35,14 @@ const Trip = () => {
 
   // Filter items based on the selected number of days
   const filteredData = data.filter((item) => {
-    if (selectedDays === 1) {
+    if (selectedDays === 'all') {
       return true; // Show all items
-    } else if (selectedDays === 4) {
+    } else if (selectedDays === '1') {
+      return item.days === 1; // Show items with 1 day
+    } else if (selectedDays === '4+') {
       return item.days >= 4; // Show items with 4 or more days
     } else {
-      return item.days === selectedDays; // Show items with the selected number of days
+      return item.days === parseInt(selectedDays); // Show items with the selected number of days
     }
   });
 
@@ -61,10 +63,11 @@ const Trip = () => {
             </div>
 
             <Radio.Group onChange={handleDaysChange} style={{ marginTop: '15px' }} value={selectedDays}>
-              <Radio value={1}>1 Day</Radio>
-              <Radio value={2}>2 Days</Radio>
-              <Radio value={3}>3 Days</Radio>
-              <Radio value={4}>4+ Days</Radio>
+              <Radio value="all">All</Radio>
+              <Radio value="1">1 Day</Radio>
+              <Radio value="2">2 Days</Radio>
+              <Radio value="3">3 Days</Radio>
+              <Radio value="4+">4+ Days</Radio>
             </Radio.Group>
             <div className="space"></div>
 
