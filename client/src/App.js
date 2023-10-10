@@ -17,6 +17,7 @@ import TripPage from "./pages/tripPage/TripPage";
 import VirtualTour from "./pages/virtualTour/VirtualTour";
 import VirtualTourPlaces from "./pages/virtualTourPlaces/VirtualTourPlaces";
 import VirtualTourMap from "./pages/virtualTourMap/VirtualTourMap"
+import Register from "./pages/register/Register";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/places/:id" element={<Place/>}/>
         <Route path="/trips/:id" element={<TripPage/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
         <Route path="/planatrip" element={<Planatrip/>}/>
         <Route path="/emergencySafety" element={<Emergencysafety/>}/>
         <Route path="/urgentHelp" element={<UrgentHelp/>}/>

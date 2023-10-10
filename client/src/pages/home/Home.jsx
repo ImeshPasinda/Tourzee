@@ -15,6 +15,7 @@ const Home = () => {
       <Navbar />
       <Header/>
       <div className="homeContainer">
+      <h1 className="homeTitle" style={{ paddingTop: '30px' }}>Top 3 most famous landmarks in Sri Lanka</h1>
         <Featured/>
         {/* <h1 className="homeTitle">Browse by property type</h1>
         <PropertyList/> */}
@@ -43,12 +44,12 @@ const Home = () => {
           </p>
           
           <img
-            src="https://www.theglobetrottergp.com/wp-content/uploads/2019/05/oDZ1LpuSxCdJQd5UhbjSA_thumb_60bb.jpg"
+            src="https://thirdeyetraveller.com/wp-content/uploads/COCONUTHILL-7-of-12-2-scaled-scaled.jpg"
             alt="Image Description"
             style={{ maxWidth: '40%', height: 'auto', borderRadius: '10px' }}
           />
         </div>
-        <div style={{paddingTop: '15px',
+        {/* <div style={{paddingTop: '15px',
             paddingLeft: '20px',
             paddingRight: '20px',
             width: '100%',
@@ -58,9 +59,9 @@ const Home = () => {
             gap: '20px',
             zIndex: '1', }}>
           <button className="headerBtn">Visit this Place <FontAwesomeIcon icon= {faArrowRight} style={{ marginLeft: '5px' }} /></button>
-        </div>
+        </div> */}
         
-        <h1 className="homeTitle" style={{ paddingTop: '30px' }}>Homes guests love</h1>
+        <h1 className="homeTitle" style={{ paddingTop: '30px' }}>Popular Places in Sri Lanka</h1>
         <FeaturedPropertiesHome/>
         <MailList/>
         <Footer/>

@@ -106,10 +106,10 @@ const HeaderForEmergency = ({ type }) => {
                         <p className="headerDesc">
                             "Explore Your Travel Experience Safe and Secure"
                         </p>
-                        {!user && <button className="headerBtn">Sign in / Register</button>}
+                        {!user && <Link to="/register" className="linkStyle"><button className="headerBtn">Sign in / Register</button></Link>}
                         <div className="headerSearch">
                             <div className="headerSearchItem">
-                                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                                <FontAwesomeIcon icon={faPerson} className="headerIcon" />
                                 <input
                                     type="text"
                                     placeholder="Where are you now?"
@@ -118,9 +118,9 @@ const HeaderForEmergency = ({ type }) => {
                                 />
                             </div>
 
-
+                            <div className="space"></div>
                             <div className="headerSearchItem">
-                                <button className="headerBtn" onClick={handleSearch}>
+                                <button className="headerBtn">
                                     Search
                                 </button>
                             </div>

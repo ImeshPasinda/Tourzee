@@ -101,7 +101,7 @@ const Header = ({ type }) => {
             <p className="headerDesc">
               "Discover the Wonders of Sri Lanka with Tourzee"
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            {!user && <Link to="/register" className="linkStyle"><button className="headerBtn">Sign in / Register</button></Link>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faRoad} className="headerIcon" />

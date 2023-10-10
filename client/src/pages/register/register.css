@@ -1,10 +1,20 @@
-.login {
+.register {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.inputContainer {
+  margin-bottom: 10px;
+  padding-top: 1px; /* Add padding to the top */
+}
+
+.lContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .lInput{
   height: 30px;
@@ -13,6 +23,7 @@
 
 .lButton {
   border: none;
+  width: 100%;
   padding: 10px 20px;
   background-color: #0071c2;
   color: white;
