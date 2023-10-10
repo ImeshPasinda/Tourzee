@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Spin } from "antd"; // Import Spin component
 import Navbar from "../../components/navbar/Navbar";
 import HeaderforVirtualTour from "../../components/headerforVirtualTour/HeaderforVirtualTour";
 import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { Card } from "antd";
-import { Meta } from "antd/es/list/Item";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
 import './virtualTourPlaces.css';
 
-
 const VirtualTourPlaces = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Add a loading state
   const location = useLocation();
   const searchQuery = location.state ? location.state.title : "";
 
@@ -21,9 +21,11 @@ const VirtualTourPlaces = () => {
       .get("http://localhost:8800/api/virtualTour/")
       .then((response) => {
         setData(response.data);
+        setLoading(false); // Set loading to false when data is fetched
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false on error as well
       });
   }, []);
 
@@ -35,56 +37,60 @@ const VirtualTourPlaces = () => {
     <div>
       <Navbar />
       <HeaderforVirtualTour />
-      <div className="virtual-tour-details"  >
-
-        <div
-          className="card-container"
-          style={{ display: "flex", flexWrap: "wrap" }}
-        >
-          {filteredData.map((item, index) => (
-            <div
-              key={index}
-              style={{
-                width: "25%",
-                marginBottom: '20px',
-                boxSizing: "border-box",
-              }}
-            >
-              <Card
-                hoverable
+      <div className="virtual-tour-details">
+        {/* Use Spin component while loading */}
+        <Spin tip="Loading..." spinning={loading}>
+          <div className="card-container" style={{ display: "flex", flexWrap: "wrap" }}>
+            {filteredData.map((item, index) => (
+              <div
+                key={index}
                 style={{
-                  width: "75%",
-                  marginTop: "20px",
-                  marginLeft: "50px",
-                  marginRight: "50px",
-                  boxSizing: "5px"
+                  width: "25%",
+                  marginBottom: '20px',
+                  boxSizing: "border-box",
                 }}
-                cover={
-                  <img
-                    src={item.photos[0]}
-                    style={{
-                      width: "100%", // Set the width to 100% to make it fill the card
-                      height: "150px", // Adjust the height as needed
-                      objectFit: "cover", // Ensure the image covers the entire space without stretching
-                    }}
-                  />
-                }
               >
-                <Meta title={item.title} description={item.description} />
-                <h4>{item.location}</h4>
-                <Link to={`/virtualTour/${item._id}`}>
-                  <button className="headerBtn" style={{ width: '100%' }}>Explore More</button>
-                </Link>
-              </Card>
-            </div>
-          ))}
-
-        </div>
-
+                <Card
+                  hoverable
+                  style={{
+                    width: "75%",
+                    marginTop: "20px",
+                    marginLeft: "50px",
+                    marginRight: "50px",
+                    boxSizing: "5px"
+                  }}
+                  cover={
+                    <img
+                      src={item.photos[0]}
+                      style={{
+                        width: "100%",
+                        height: "150px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  }
+                >
+                  <h3>{item.title}</h3>
+                  <p style={{ marginBottom: "10px", color: 'black' }}> {item.location} <span style={{ color: 'gray', fontSize: '12px' }}>(location)</span></p>
+                  <p style={{ marginBottom: "30px", color: 'gray', fontSize: '12px' }}>{item.description}</p>
+                  <Link to={`/virtualTour/${item._id}`}>
+                    <button className="headerBtn" style={{ width: '100%' }}>Explore More</button>
+                  </Link>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </Spin>
       </div>
+      <div className ="centered-maillist">
       <MailList />
+      </div>
+      <div className ="centered-footer">
       <Footer />
+    </div>
+     
     </div>
   );
 }
+
 export default VirtualTourPlaces;

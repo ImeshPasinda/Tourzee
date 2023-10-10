@@ -19,6 +19,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
+import Headerforplanatrip from "../../components/headerforplanatrip/Headerforplanatrip";
 
 
 const TripPage = () => {
@@ -60,7 +61,7 @@ const TripPage = () => {
   return (
     <div>
       <Navbar />
-      <Header type="list" />
+      <Headerforplanatrip type="list" />
       <div className="space"></div>
       {loading ? ( // Display the loading effect using Spin
         <Spin tip="Loading...">
