@@ -1,119 +1,58 @@
-// import React, { useState } from 'react';
-
-// import Sidebar from '../../components/sidebar/Sidebar';
-// import Navbar from '../../components/navbar/Navbar';
-// import axios from 'axios';
-
-
-
-// function reports() {
-
-
-
-
-
-//   return (
-//     <div className="new">
-//     <Sidebar />
-//     <div className="newContainer">
-//       <Navbar />
-     
-
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default reports
 import React from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import axios from 'axios';
+import { Card } from 'antd';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
-
-export default function Reports() {
+const Reports = () => {
   return (
     <div className="new">
       <Sidebar />
       <div className="newContainer">
         <Navbar />
+        <div className="card-container">
+          <Card
+            title="User Social Activity Report"
+            bordered={false}
+            style={{
+              width: 300,
+            }}
+            className="custom-card"
+          >
+            <p>A summary of user activity,
+               including the total number of posts, photos shared, 
+               interactions (comments), and reviews provided by each user.</p>
+           
+          </Card>
 
-        {/* Render three instances of BasicCard */}
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Word of the Day
-            </Typography>
-            <Typography variant="h5" component="div">
-              be{bull}nev{bull}o{bull}lent
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
+          <Card
+            title="Virtual Tour Report"
+            bordered={false}
+            style={{
+              width: 300,
+            }}
+            className="custom-card"
+          >
+            <p>Detailed information about a specific virtual tour.</p>
+            
+          </Card>
 
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Another Card
-            </Typography>
-            <Typography variant="h5" component="div">
-              Sample Text
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              noun
-            </Typography>
-            <Typography variant="body2">
-              This is another example card.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
-
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Yet Another Card
-            </Typography>
-            <Typography variant="h5" component="div">
-              Example Text
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              noun
-            </Typography>
-            <Typography variant="body2">
-              This is yet another example card.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
+          <Card
+            title="Another Report"
+            bordered={false}
+            style={{
+              width: 300,
+            }}
+            className="custom-card"
+          >
+            <p>Card content</p>
+            <p>Card content</p>
+            <p>Card content</p>
+          </Card>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default Reports;
