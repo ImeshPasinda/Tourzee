@@ -10,6 +10,7 @@ import Header from '../../components/header/Header';
 import TripItem from '../../components/tripItem/TripItem';
 
 import './trip.css'; // Import your custom CSS for styling
+import Headerforplanatrip from '../../components/headerforplanatrip/Headerforplanatrip';
 
 const Trip = () => {
   const location = useLocation();
@@ -49,7 +50,7 @@ const Trip = () => {
   return (
     <div>
       <Navbar />
-      <Header type="list" />
+      <Headerforplanatrip type="list" />
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listResult">

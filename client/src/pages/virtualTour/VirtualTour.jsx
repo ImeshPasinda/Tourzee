@@ -9,37 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 export default function VirtualTour() {
-  // // Define state variables to store the title, description, and location
-  // const [title, setTitle] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [location, setLocation] = useState("");
-  // const [loading, setLoading] = useState(true); // Add a loading state
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:8800/api/virtualTour");
-  //       if (!response.ok) {
-  //         throw new Error("API request failed");
-  //       }
-  //       const data = await response.json();
-  //       setTitle(data.title);
-  //       setDescription(data.description);
-  //       setLocation(data.location);
-  //       setLoading(false); // Set loading to false when data is fetched
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //       setLoading(false); // Set loading to false on error
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []); // The empty dependency array ensures that the effect runs once when the component mounts
-
-  // if (loading) {
-  //   // Render a loading indicator while waiting for data
-  //   return <div>Loading...</div>;
-  // }
 
   return (
     <div>
@@ -49,7 +18,7 @@ export default function VirtualTour() {
       <div className="homeContainer">
         <h1
           className="homeTitle"
-          style={{ paddingTop: "30px", fontSize: "2em", fontWeight: "bold" }}
+          style={{ paddingTop: "30px" }}
         >
           Virtual Reality In Touring World
         </h1>
@@ -68,7 +37,7 @@ export default function VirtualTour() {
             zIndex: "1",
           }}
         >
-          <p style={{ color: "#888", textAlign: "justify" }}>
+          <p style={{ textAlign: "justify" }}>
             Virtual Reality (VR) is revolutionizing the tourism industry by
             offering immersive virtual tours, 360-degree experiences, and
             live-streamed events, making travel planning, education, and

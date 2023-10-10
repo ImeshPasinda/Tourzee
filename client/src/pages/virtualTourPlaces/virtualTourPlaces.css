@@ -1,7 +1,4 @@
-Add your global styles here if needed
 
-
-  
   .homeTitle{
     width: 1024px;
     font-size: 20px;
@@ -17,22 +14,27 @@ Add your global styles here if needed
     border-radius: 5px; /* You can adjust the value to control the amount of rounding */
   }
 
-  
-  
-
-.virtual-tour-details {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-/* Set a minimum height to take up the full viewport height */
-  margin: 150px; /* Center horizontally within the page */
-}
-
 .card-container {
-  margin-top: 0%;
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap; /* Allow cards to wrap to the next row */
   justify-content: center; /* Center horizontally within the container */
-  gap: 10px; /* Adjust the gap between cards as needed */
+  gap: 20px; /* Adjust the gap between cards as needed */
 }
 
+.centered-footer {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* This centers the div vertically in the viewport */
+}
+
+.centered-maillist {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* This centers the div vertically in the viewport */
+}
