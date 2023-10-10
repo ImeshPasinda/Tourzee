@@ -18,6 +18,7 @@ import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import PlaceIcon from '@mui/icons-material/Place';
 import LocalAirportIcon from '@mui/icons-material/LocalAirport';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -73,6 +74,12 @@ const Sidebar = () => {
           <li>
             <ManIcon className="icon" />
             <span>Social</span>
+          </li>
+          </Link>
+          <Link to="/reports" style={{ textDecoration: "none" }}>
+          <li>
+            <SummarizeIcon className="icon" />
+            <span>Reports</span>
           </li>
           </Link>
           {/* <p className="title">USEFUL</p>
