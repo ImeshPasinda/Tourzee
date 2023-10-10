@@ -21,7 +21,7 @@ import PlaceTable from "./pages/placeTable/PlaceTable";
 import NewTrip from "./pages/newTrip/NewTrip";
 import NewVirtualTour from "./pages/newVirtualTour/NewVirtualTour";
 import VirtualTour from "./pages/virtualTour/VirtualTour"
-
+import Reports from "./pages/reports/reportsPage";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -226,6 +226,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminSBYG />
+              </ProtectedRoute>
+            }
+          />
+            <Route
+            path="reports"
+            element={
+              <ProtectedRoute>
+                <Reports />
               </ProtectedRoute>
             }
           />
