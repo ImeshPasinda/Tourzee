@@ -1,4 +1,4 @@
-/* Add your global styles here if needed */
+Add your global styles here if needed
 
 
   
@@ -25,28 +25,14 @@
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
 /* Set a minimum height to take up the full viewport height */
-  margin: 10px; /* Center horizontally within the page */
+  margin: 150px; /* Center horizontally within the page */
 }
 
 .card-container {
-  margin-top: 50px;
+  margin-top: 0%;
   display: flex;
   flex-wrap: wrap; /* Allow cards to wrap to the next row */
   justify-content: center; /* Center horizontally within the container */
-  gap: 20px; /* Adjust the gap between cards as needed */
-}
-.card-container > div {
-  
-  width: 25%;
-  height: 250px;
-  padding: 10px;
-  box-sizing: border-box;
+  gap: 10px; /* Adjust the gap between cards as needed */
 }
 
-.card {
-  /* Reduce the width of the card content */
-  width: 100%;
-  /* Adjust the height as needed */
-  height: 250px; /* You can change this value to make the cards shorter */
-  /* Add any additional card-specific styles here */
-}

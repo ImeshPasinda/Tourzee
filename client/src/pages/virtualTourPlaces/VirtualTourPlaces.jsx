@@ -7,23 +7,11 @@ import Footer from "../../components/footer/Footer";
 import { Card } from "antd";
 import { Meta } from "antd/es/list/Item";
 import { useLocation } from "react-router-dom";
-import {Link} from "react-router-dom"
-import {
-  GoogleMap,
-  StreetViewPanorama,
-  LoadScript,
-} from "@react-google-maps/api";
+import { Link } from "react-router-dom"
+import './virtualTourPlaces.css';
 
 
-
-const googleApiKey = "AIzaSyA44R7M50CvxW25lU6kgdnfptEW-dSsaWs"; // Replace with your actual Google Maps API key
-
-const containerStyle = {
-  width: "100%",
-  height: "400px",
-};
-
-export default function VirtualTourPlaces() {
+const VirtualTourPlaces = () => {
   const [data, setData] = useState([]);
   const location = useLocation();
   const searchQuery = location.state ? location.state.title : "";
@@ -47,8 +35,8 @@ export default function VirtualTourPlaces() {
     <div>
       <Navbar />
       <HeaderforVirtualTour />
-      <div className="virtual-tour-details" style={{paddingLeft : '100px' ,paddingRight : '100px' }} >
-        <Link to="/virtualTour/virtualTourPlaces/virtualTourMap" style={{ textDecoration: "none" }}>
+      <div className="virtual-tour-details"  >
+
         <div
           className="card-container"
           style={{ display: "flex", flexWrap: "wrap" }}
@@ -58,7 +46,7 @@ export default function VirtualTourPlaces() {
               key={index}
               style={{
                 width: "25%",
-                padding: "10px",
+                marginBottom: '20px',
                 boxSizing: "border-box",
               }}
             >
@@ -66,11 +54,10 @@ export default function VirtualTourPlaces() {
                 hoverable
                 style={{
                   width: "75%",
-                  marginTop: "100px",
+                  marginTop: "20px",
                   marginLeft: "50px",
                   marginRight: "50px",
-                 
-                  boxSizing:"5px"
+                  boxSizing: "5px"
                 }}
                 cover={
                   <img
@@ -85,17 +72,19 @@ export default function VirtualTourPlaces() {
               >
                 <Meta title={item.title} description={item.description} />
                 <h4>{item.location}</h4>
+                <Link to={`/virtualTour/${item._id}`}>
+                  <button className="headerBtn" style={{ width: '100%' }}>Explore More</button>
+                </Link>
               </Card>
             </div>
           ))}
-         
-        </div>
-        </Link>
-      </div>
 
-     
+        </div>
+
+      </div>
       <MailList />
       <Footer />
     </div>
   );
 }
+export default VirtualTourPlaces;

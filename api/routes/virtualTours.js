@@ -20,7 +20,7 @@ router.put("/:id",  updateVirtualTour);
 router.delete("/:id",  deleteVirtualTour);
 
 // GET
-router.get("/:id", getVirtualTour);
+router.get("/find/:id", getVirtualTour);
 
 // GET ALL
 
