@@ -127,12 +127,6 @@ const NewTrip = () => {
       placeholder: "Enter latitude",
 
     },
-    featured: {
-      label: "Featured",
-      name: "featured",
-      initialValue: false, // Set the initial value to false
-
-    },
     routeOneTitle: {
       label: "Add first route place name",
       name: "routeOneTitle",
@@ -181,6 +175,13 @@ const NewTrip = () => {
       rules: [{ required: true, message: "Please enter fourth route place description" }],
       placeholder: "Enter fourth route place description",
     },
+    featured: {
+      label: "Featured",
+      name: "featured",
+      initialValue: false, // Set the initial value to false
+
+    },
+    
 
   };
 

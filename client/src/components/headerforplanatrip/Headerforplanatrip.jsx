@@ -79,7 +79,7 @@ const Headerforplanatrip = ({ type }) => {
             <p className="headerDesc">
               "Get a personalized itinerary just for you, guided by traveler tips and reviews"
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            {!user && <Link to="/register" className="linkStyle"><button className="headerBtn">Sign in / Register</button></Link>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faLocationPin} className="headerIcon" />

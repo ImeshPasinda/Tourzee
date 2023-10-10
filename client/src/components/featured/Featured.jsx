@@ -2,10 +2,8 @@ import useFetch from "../../hooks/useFetch";
 import "./featured.css";
 
 const Featured = () => {
-  const { data, loading, error } = useFetch(
-    "/places/countByCity?cities=berlin,madrid,london"
-  );
-
+  
+  const { data, loading, error } = useFetch('/trips');
   return (
     <div className="featured">
       {loading ? (
@@ -19,8 +17,8 @@ const Featured = () => {
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Berlin</h1>
-              <h2>{data[0]} properties</h2>
+              <h1>Sigiriya</h1>
+              
             </div>
           </div>
 
@@ -31,8 +29,8 @@ const Featured = () => {
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Madrid</h1>
-              <h2>{data[1]} properties</h2>
+              <h1>Dalada Maligawa</h1>
+              
             </div>
           </div>
           <div className="featuredItem">
@@ -42,8 +40,8 @@ const Featured = () => {
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>London</h1>
-              <h2>{data[2]} properties</h2>
+              <h1>Nine Arch Bridge</h1>
+             
             </div>
           </div>
         </>

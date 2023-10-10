@@ -6,7 +6,7 @@ import './featuredPlanatrip.css';
 
 const FeaturedPlanatrip = () => {
   const { data, loading, error } = useFetch('/trips');
-  const filteredData = data.filter((trip) => trip.rating === 4); // Filter trips with rating 4
+  const filteredData = data.filter((trip) => trip.featured === true); 
   const displayedData = filteredData.slice(0, 4); // Slice the first 4 items from the filtered data
 
   return (

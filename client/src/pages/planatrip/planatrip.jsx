@@ -39,9 +39,9 @@ const Planatrip = () => {
 
 
           <section>
-            <p>"Welcome to Tourzee, your gateway to seamless travel planning. Dive into a world of exploration with our extensive collection of thoughtfully curated trip plans, tailored to suit adventurers, culture enthusiasts, relaxation seekers, and everyone in between. We cater to all budgets, from economical to luxurious, ensuring travel is accessible to all.<br /><br />
+            <p>Welcome to Tourzee, your gateway to seamless travel planning. Dive into a world of exploration with our extensive collection of thoughtfully curated trip plans, tailored to suit adventurers, culture enthusiasts, relaxation seekers, and everyone in between. We cater to all budgets, from economical to luxurious, ensuring travel is accessible to all.<br /><br />
               Our detailed itineraries offer day-by-day adventures, taking the guesswork out of planning. Interactive maps provide a visual guide, making navigation a breeze as you explore dream destinations, from serene beaches to vibrant cities.<br /><br />
-              Safety is our priority; our trip plans include essential emergency contacts, ensuring peace of mind. Embark on your next adventure confidently with [Your Website Name], where unforgettable travel experiences await. Start your journey today and make your travel dreams a reality."</p>
+              Safety is our priority; our trip plans include essential emergency contacts, ensuring peace of mind. Embark on your next adventure confidently with Tourzee, where unforgettable travel experiences await. Start your journey today and make your travel dreams a reality.</p>
           </section>
 
           <img
