@@ -1,17 +1,58 @@
 import express from "express";
 import {
-  createVirtualTour,
   deleteVirtualTour,
   getVirtualTour,
   updateVirtualTour,
 } from "../controllers/virtualTour.js";
 import VirtualTour from "../models/VirtualTour.js";
-// import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
-// CREATE
-router.post("/",  createVirtualTour);
+
+
+router.post('/', async (req, res) => {
+  try {
+    // Extract the data for the new place from the request body
+    const {
+      title,
+      description,
+      location,
+      photos,
+      latitude,
+      longitude,
+      
+    } = req.body;
+
+    
+    const newVirtualTour = new VirtualTour({
+      title,
+      description,
+      location,
+      photos,
+      latitude,
+      longitude,
+    });
+
+    
+    const savedVirtualTour = await newVirtualTour.save();
+
+    res.status(201).json(savedVirtualTour);
+  } catch (error) {
+    res.status(400).json({ message: 'Could not create VirtualTour', error: error.message });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 // UPDATE
 router.put("/:id",  updateVirtualTour);
@@ -32,6 +73,9 @@ router.get("/", async (req, res) => {
       return res.status(400).json({ message: error });
   }
 });
+
+
+
 
 
 export default router;
