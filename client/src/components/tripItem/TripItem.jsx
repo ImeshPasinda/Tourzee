@@ -13,8 +13,8 @@ const TripItem = ({ item }) => {
     }
     return words.slice(0, limit).join(' ') + '...';
   };
-  const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
-
+  
+const [value, setValue] = useState(item.rating);
   const truncatedDescription = truncateDescription(item.descshort, 20);
   <Space
     direction="vertical"
@@ -25,7 +25,7 @@ const TripItem = ({ item }) => {
   ></Space>
   const text = item.days
 
-  const [value, setValue] = useState(item.rating);
+  
 
   return (
     <Badge.Ribbon text={`${text} Days Plan`}>

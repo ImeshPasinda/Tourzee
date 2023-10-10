@@ -98,7 +98,7 @@ const TripPage = () => {
             {/* <button className="virtualBtn">
               Est. LKR {data.budget}
             </button> */}
-            <h1 className="placeTitle" style={{ fontSize: '30px' }}>{data.tripName} {data.days}day Plan</h1>
+            <h1 className="placeTitle" style={{ fontSize: '30px' }}>{data.tripName} {data.days} day Plan</h1>
             <div className="placeAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.place}</span>
