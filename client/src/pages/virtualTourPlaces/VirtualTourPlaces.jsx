@@ -64,7 +64,7 @@ const VirtualTourPlaces = () => {
                       src={item.photos[0]}
                       style={{
                         width: "100%",
-                        height: "150px",
+                        height: "200px",
                         objectFit: "cover",
                       }}
                     />
