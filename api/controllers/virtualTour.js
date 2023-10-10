@@ -1,16 +1,16 @@
 import VirtualTour from "../models/VirtualTour.js";
 import { createError } from "../utils/error.js";
 
-export const createVirtualTour = async (req, res, next) => {
-  const newVirtualTour = new VirtualTour(req.body);
+// export const createVirtualTour = async (req, res, next) => {
+//   const newVirtualTour = new VirtualTour(req.body);
 
-  try {
-    const savedVirtualTour = await newVirtualTour.save();
-    res.status(200).json(savedVirtualTour);
-  } catch (err) {
-    next(err);
-  }
-};
+//   try {
+//     const savedVirtualTour = await newVirtualTour.save();
+//     res.status(200).json(savedVirtualTour);
+//   } catch (err) {
+//     next(err);
+//   }
+// };
 
 export const updateVirtualTour = async (req, res, next) => {
   try {

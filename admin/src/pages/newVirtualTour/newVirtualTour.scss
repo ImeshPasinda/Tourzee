@@ -1,0 +1,61 @@
+.new {
+  width: 100%;
+  display: flex;
+
+  .newVirtualTourContainer {
+    flex: 6;
+    
+
+    .top,
+    .bottomPlace {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 30px;
+      margin: 20px;
+      border-radius: 25px;
+
+      .left {
+        flex: 1;
+        text-align: center;
+
+        img {
+          width: 280px;
+          height: 200px;
+          margin-left: 20%;
+          border-radius: 10%;
+          object-fit: cover;
+        }
+      }
+
+     
+    }
+  }
+}
+/* Add custom styles for the file input */
+.custom-file-input {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #007bff; /* Change to your desired background color */
+  color: #fff; /* Change to your desired text color */
+  padding: 6px 12px;
+  border: 1px solid #007bff; /* Change to your desired border style and color */
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Hide the actual file input element */
+.custom-file-input input[type="file"] {
+  position: absolute;
+  font-size: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Style for the "Choose Files" label */
+.custom-file-input label {
+  cursor: pointer;
+}
