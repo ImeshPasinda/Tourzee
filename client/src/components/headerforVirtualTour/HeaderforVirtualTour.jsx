@@ -24,7 +24,7 @@ import useFetch from '../../hooks/useFetch';
 
 
 
-const HeaderforVirtualTour = () => {
+const HeaderforVirtualTour = ({ type }) => {
   const [title, setTitle] = useState("");
 
   const navigate = useNavigate();
@@ -38,8 +38,13 @@ const HeaderforVirtualTour = () => {
 
   return (
     <div className="header">
-      <div className="headerContainer">
+      <div
+        className={
+          type === "list" ? "headerContainer listMode" : "headerContainer"
+        }
+      >
         <div className="headerList">
+
           <div className="headerListItem ">
             <Link to="/" className="linkStyle">
               <FontAwesomeIcon icon={faRoad} />
@@ -68,36 +73,40 @@ const HeaderforVirtualTour = () => {
             </Link>
           </div>
           {/* <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}> */}
-            <div className="headerListItem">
-              <Link to="/planatrip" className="linkStyle">
-                <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
-                <span>Start a Trip</span>
-              </Link>
-            </div>
+          <div className="headerListItem">
+            <Link to="/planatrip" className="linkStyle">
+              <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
+              <span>Start a Trip</span>
+            </Link>
+          </div>
           {/* </Badge> */}
         </div>
-        <h1 className="headerTitle">Explore Our Virtual Tour</h1>
-        <p className="headerDesc">
-          "Embark on a transformative journey of exploration, interaction, and immersive experiences as you step into our virtual country"
-        </p>
-        {!user && <Link to="/register" className="linkStyle"><button className="headerBtn">Sign in / Register</button></Link>}
-        <div className="headerSearch">
-          <div className="headerSearchItem">
-            <FontAwesomeIcon icon={faLocationPin} className="headerIcon" />
-            <input
-              type="text"
-              placeholder="Where do you plan to go?"
-              className="headerSearchInput"
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="space"></div>
-          <div className="headerSearchItem">
-            <button className="headerBtn" onClick={handleSearch}>
-              Search
-            </button>
-          </div>
-        </div>
+        {type !== "list" && (
+          <>
+            <h1 className="headerTitle">Explore Our Virtual Tour</h1>
+            <p className="headerDesc">
+              "Embark on a transformative journey of exploration, interaction, and immersive experiences as you step into our virtual country"
+            </p>
+            {!user && <Link to="/register" className="linkStyle"><button className="headerBtn">Sign in / Register</button></Link>}
+            <div className="headerSearch">
+              <div className="headerSearchItem">
+                <FontAwesomeIcon icon={faLocationPin} className="headerIcon" />
+                <input
+                  type="text"
+                  placeholder="Where do you plan to go?"
+                  className="headerSearchInput"
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+              <div className="space"></div>
+              <div className="headerSearchItem">
+                <button className="headerBtn" onClick={handleSearch}>
+                  Search
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

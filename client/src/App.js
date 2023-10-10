@@ -37,9 +37,7 @@ function App() {
         <Route path="/destinationsemergency" element={<DestinationsEmergency/>}/>
         <Route path="/virtualTour" element={<VirtualTour/>}/>       
         <Route path="/virtualTour/virtualTourPlaces" element={<VirtualTourPlaces/>}/>
-        <Route path="/virtualTour/virtualTourPlaces/virtualTourMap" element={<VirtualTourMap/>}/>
-
-
+        <Route path="/virtualTour/:id" element={<VirtualTourMap/>}/>
       </Routes>
     </BrowserRouter>
   );
