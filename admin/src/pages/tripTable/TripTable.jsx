@@ -3,7 +3,7 @@ import { Table, Button, Modal, Form, Input, InputNumber, Switch } from 'antd';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import useFetch from '../../hooks/useFetch';
-import { PlusOutlined  } from '@ant-design/icons'
+import { PlusOutlined } from '@ant-design/icons'
 import './tripTable.scss';
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -240,13 +240,15 @@ const TripTable = () => {
   };
 
   const handleSearch = (value) => {
-    const filtered = data.filter(item => {
-      const name = item.name.toLowerCase();
+    const filtered = data.filter((item) => {
+      const tripName = item.tripName.toLowerCase();
       const searchValue = value.toLowerCase();
-      return name.includes(searchValue);
+      return tripName.includes(searchValue);
     });
-    setFilteredData(filtered);
+    setFilteredData(filtered); // Update filteredData, not data
   };
+
+
 
   useEffect(() => {
     setFilteredData(data);
@@ -260,7 +262,7 @@ const TripTable = () => {
         <Navbar />
 
         <div className="bottomTrip">
-        <div className="search-bar">
+          <div className="search-bar">
             <Search
               placeholder="Search trip name"
               onSearch={handleSearch}
@@ -271,19 +273,19 @@ const TripTable = () => {
           </div>
           <br />
           <Table
-            dataSource={data}
+            dataSource={filteredData} // Use filteredData here
             columns={columns}
             loading={loading}
             pagination={false}
           />
           <br />
           <Link to="/trips/new">
-           <Button type="primary"  icon={<PlusOutlined  />} size={size}>
-            Add Trip Plan
-          </Button>
+            <Button type="primary" icon={<PlusOutlined />} size={size}>
+              Add Trip Plan
+            </Button>
           </Link>
         </div>
-        
+
       </div>
 
       <Modal

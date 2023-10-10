@@ -1,9 +1,15 @@
+import React, { useState } from 'react';
 import useFetch from "../../hooks/useFetch";
 import "./featured.css";
+import { Rate } from 'antd';
+const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 const Featured = () => {
-  
   const { data, loading, error } = useFetch('/trips');
+  const [value1, setValue1] = useState(5); // Separate state for the first Rate
+  const [value2, setValue2] = useState(5); // Separate state for the second Rate
+  const [value3, setValue3] = useState(5); // Separate state for the third Rate
+
   return (
     <div className="featured">
       {loading ? (
@@ -17,8 +23,17 @@ const Featured = () => {
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Sigiriya</h1>
-              
+              <h3>Sigiriya</h3>
+              <span style={{ fontSize: '14px' }}>
+                <Rate
+                  tooltips={desc}
+                  disabled
+                  onChange={setValue1} // Use setValue1 for the first Rate
+                  value={value1}
+                  style={{ fontSize: '14px' }}
+                />
+                {value1 ? <span className="ant-rate-text">{desc[value1 - 1]}</span> : ''}
+              </span>
             </div>
           </div>
 
@@ -29,10 +44,20 @@ const Featured = () => {
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Dalada Maligawa</h1>
-              
+              <h3>Dalada Maligawa</h3>
+              <span style={{ fontSize: '14px' }}>
+                <Rate
+                  tooltips={desc}
+                  disabled
+                  onChange={setValue2} // Use setValue2 for the second Rate
+                  value={value2}
+                  style={{ fontSize: '14px' }}
+                />
+                {value2 ? <span className="ant-rate-text">{desc[value2 - 1]}</span> : ''}
+              </span>
             </div>
           </div>
+
           <div className="featuredItem">
             <img
               src="https://www.orienthotelsl.com/wp-content/uploads/2023/02/Nine-Arches-Bridge-Ella-800x600-1.webp"
@@ -40,8 +65,17 @@ const Featured = () => {
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Nine Arch Bridge</h1>
-             
+              <h3>Nine Arch Bridge</h3>
+              <span style={{ fontSize: '14px' }}>
+                <Rate
+                  tooltips={desc}
+                  disabled
+                  onChange={setValue3} // Use setValue3 for the third Rate
+                  value={value3}
+                  style={{ fontSize: '14px' }}
+                />
+                {value3 ? <span className="ant-rate-text">{desc[value3 - 1]}</span> : ''}
+              </span>
             </div>
           </div>
         </>
