@@ -1,14 +1,42 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Table, Tag, Space } from 'antd';
+import axios from 'axios';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import { Card, Modal, Button } from 'antd';
 import { Grid } from '@mui/material';
 
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'username',
+    key: 'username',
+    render: (text) => <a>{text}</a>,
+  },
+  {
+    title: 'Email',
+    dataIndex: 'email',
+    key: 'email',
+  },
+  {
+    title: 'Country',
+    dataIndex: 'country',
+    key: 'country',
+  },
+  {
+    title: 'Phone',
+    dataIndex: 'phone',
+    key: 'phone',
+  },
+];
+
 const Reports = () => {
   const [userReportVisible, setUserReportVisible] = useState(false);
   const [tourReportVisible, setTourReportVisible] = useState(false);
   const [tripReportVisible, setTripReportVisible] = useState(false);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const showUserReportModal = () => {
     setUserReportVisible(true);
@@ -61,6 +89,23 @@ const Reports = () => {
     window.print();
   };
 
+  useEffect(() => {
+    // Fetch user data from your API endpoint
+    axios.get('http://localhost:8800/api/users/') // Replace with your API endpoint
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  // Calculate the total number of users and unique countries
+  const totalUsers = data.length;
+  const uniqueCountries = [...new Set(data.map((user) => user.country))].length;
+
   return (
     <div className="new">
       <Sidebar />
@@ -87,7 +132,6 @@ const Reports = () => {
                 <p>A summary of user activity,
                   including the total number of posts, photos,
                   interactions.</p>
-
               </Card>
             </Grid>
 
@@ -99,35 +143,31 @@ const Reports = () => {
                 }
                 title="Virtual Tour Report"
                 bordered={false}
-
                 style={{
                   width: 300,
                 }}
                 className="custom-card"
-
               >
                 <p>Detailed information about virtual tours.</p>
-
               </Card>
             </Grid>
+
             <Grid item xs={12} sm={6} md={4}>
               <Card
                 type="inner"
                 extra={
                   <Button onClick={showTripReportModal}>More</Button>
                 }
-                title="Trip Plan Report"
+                title="User Details Report"
                 bordered={false}
                 style={{
                   width: 300,
                 }}
                 className="custom-card"
               >
-                <p>Detailed information about trip plans</p>
-
+                <p>Detailed information about the users registered in the system.</p>
               </Card>
             </Grid>
-
           </Grid>
         </div>
       </div>
@@ -165,12 +205,12 @@ const Reports = () => {
           </Button>,
         ]}
       >
-         Tourzee-Interactive Tour Guide 
+        Tourzee-Interactive Tour Guide 
       </Modal>
 
       {/* Trip Plan Report Modal */}
       <Modal
-        title="Trip Plan Report"
+        title="User Details Report"
         visible={tripReportVisible}
         onOk={handleTripReportOk}
         onCancel={handleTripReportCancel}
@@ -182,8 +222,13 @@ const Reports = () => {
             OK
           </Button>,
         ]}
-      >
-       Tourzee-Interactive Tour Guide 
+      > Tourzee-Interactive Tour Guide <br></br>2023<br></br>
+        <Table columns={columns} dataSource={data} loading={loading} />
+        
+        <div style={{ marginTop: '20px' }}>
+          <p>Total Users: {totalUsers}</p>
+          <p>Unique Countries: {uniqueCountries}</p>
+        </div>
       </Modal>
     </div>
   );
