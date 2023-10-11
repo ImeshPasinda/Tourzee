@@ -31,10 +31,33 @@ const columns = [
   },
 ];
 
+
+const tripColumns = [
+  {
+    title: 'Trip Name',
+    dataIndex: 'tripName',
+    key: 'tripName',
+  },
+  {
+    title: 'Place',
+    dataIndex: 'place',
+    key: 'place',
+  },
+  {
+    title: 'Days',
+    dataIndex: 'days',
+    key: 'days',
+  },
+  // Add more columns for other fields as needed
+];
+
 const Reports = () => {
   const [userReportVisible, setUserReportVisible] = useState(false);
   const [tourReportVisible, setTourReportVisible] = useState(false);
   const [tripReportVisible, setTripReportVisible] = useState(false);
+  const [additionalModalVisible, setAdditionalModalVisible] = useState(false);
+  const [tripData, setTripData] = useState([]);
+  const [tripLoading, setTripLoading] = useState(true);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -75,20 +98,31 @@ const Reports = () => {
   };
 
   const handlePrintUserReport = () => {
-    // Print the User Social Activity Report modal content
     window.print();
   };
 
   const handlePrintTourReport = () => {
-    // Print the Virtual Tour Report modal content
     window.print();
   };
 
   const handlePrintTripReport = () => {
-    // Print the Trip Plan Report modal content
     window.print();
   };
+  // Additional modal functions
+  const showAdditionalModal = () => {
+    setAdditionalModalVisible(true);
+  };
 
+  const handleAdditionalModalOk = () => {
+    setAdditionalModalVisible(false);
+  };
+
+  const handleAdditionalModalCancel = () => {
+    setAdditionalModalVisible(false);
+  };
+  const handlePrintAdditionalReport = () => {
+    window.print();
+  };
   useEffect(() => {
     // Fetch user data from your API endpoint
     axios.get('http://localhost:8800/api/users/') // Replace with your API endpoint
@@ -101,7 +135,18 @@ const Reports = () => {
         setLoading(false);
       });
   }, []);
-
+  // Function to fetch Trip data
+  const fetchTripData = () => {
+    axios.get('http://localhost:8800/api/trips/') // Replace with your API endpoint for trips
+      .then((response) => {
+        setTripData(response.data);
+        setTripLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching trip data:', error);
+        setTripLoading(false);
+      });
+  };
   // Calculate the total number of users and unique countries
   const totalUsers = data.length;
   const uniqueCountries = [...new Set(data.map((user) => user.country))].length;
@@ -168,6 +213,22 @@ const Reports = () => {
                 <p>Detailed information about the users registered in the system.</p>
               </Card>
             </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card
+                type="inner"
+                extra={
+                  <Button onClick={showAdditionalModal}>More</Button>
+                }
+                title="Trip Plans and Places Report"
+                bordered={false}
+                style={{
+                  width: 300,
+                }}
+                className="custom-card"
+              >
+                <p>Detailed information about the Trip Plans and Places.</p>
+              </Card>
+            </Grid>
           </Grid>
         </div>
       </div>
@@ -229,6 +290,25 @@ const Reports = () => {
           <p>Total Users: {totalUsers}</p>
           <p>Unique Countries: {uniqueCountries}</p>
         </div>
+      </Modal>
+
+        {/* Additional Modal */}
+        <Modal
+        title="Trip Plans and Places Report"
+        visible={additionalModalVisible}
+        onOk={handleAdditionalModalOk}
+        onCancel={handleAdditionalModalCancel}
+        footer={[
+          <Button key="print" onClick={handlePrintAdditionalReport}>
+            Print
+          </Button>,
+          <Button key="ok" onClick={handleTripReportOk}>
+            OK
+          </Button>,
+        ]}
+      > Tourzee-Interactive Tour Guide <br></br>2023<br></br>
+              <Table columns={tripColumns} dataSource={tripData} loading={tripLoading} />
+
       </Modal>
     </div>
   );
