@@ -111,6 +111,7 @@ const Reports = () => {
   // Additional modal functions
   const showAdditionalModal = () => {
     setAdditionalModalVisible(true);
+    fetchTripData();
   };
 
   const handleAdditionalModalOk = () => {
