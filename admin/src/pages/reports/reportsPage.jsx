@@ -88,6 +88,7 @@ const Reports = () => {
   const [totalTrips, setTotalTrips] = useState(0); // State for total trips
   const [totalVirtualTours, setTotalVirtualTours] = useState(0);
   const [uniqueLocations, setUniqueLocations] = useState([]);
+  const [categorizedTrips, setCategorizedTrips] = useState([]);
 
   const showUserReportModal = () => {
     setUserReportVisible(true);
@@ -159,6 +160,31 @@ const Reports = () => {
     return uniqueLocations.length;
   }
 
+  function categorizeTripsByDays(data) {
+    const categorizedTrips = {
+      oneDayTrips: [],
+      twoDaysTrips: [],
+      threeDaysTrips: [],
+      // Add more categories as needed
+    };
+
+    data.forEach((trip) => {
+      switch (trip.days) {
+        case 1:
+          categorizedTrips.oneDayTrips.push(trip);
+          break;
+        case 2:
+          categorizedTrips.twoDaysTrips.push(trip);
+          break;
+        case 3:
+          categorizedTrips.threeDaysTrips.push(trip);
+          break;
+        // Add more cases for other day categories
+      }
+    });
+
+    return categorizedTrips;
+  }
 
 
 
@@ -182,7 +208,8 @@ const Reports = () => {
         setTripData(response.data);
         setTripLoading(false);
         setTotalTrips(response.data.length);
-
+        const categorizedTrips = categorizeTripsByDays(response.data);
+        setCategorizedTrips(categorizedTrips);
       })
       .catch((error) => {
         console.error('Error fetching trip data:', error);
@@ -375,12 +402,22 @@ const Reports = () => {
             OK
           </Button>,
         ]}
-      > Tourzee-Interactive Tour Guide <br></br>2023<br></br>
-        <Table columns={tripColumns} dataSource={tripData} loading={tripLoading} />
-
+      > Tourzee-Interactive Tour Guide   <br></br>2023
+        <br></br>
+        <hr></hr>
+        <br></br>
+        <h3>Trips Categorized by Days</h3>
+        <h4>One-Day Trips</h4>
+        <Table columns={tripColumns} dataSource={categorizedTrips.oneDayTrips} loading={tripLoading} />
+        <br></br>
+        <h4>Two-Days Trips</h4>
+        <Table columns={tripColumns} dataSource={categorizedTrips.twoDaysTrips} loading={tripLoading} />
+        <br></br>
+        <h4>Three-Days Trips</h4>
+        <Table columns={tripColumns} dataSource={categorizedTrips.threeDaysTrips} loading={tripLoading} />
+        <br></br>
         <div style={{ marginTop: '20px' }}>
           <p>Total Trip Plans: {totalTrips}</p>
-          <p>Unique Locations: { }</p>
         </div>
       </Modal>
     </div>
