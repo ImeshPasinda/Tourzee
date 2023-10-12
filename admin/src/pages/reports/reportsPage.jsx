@@ -74,6 +74,26 @@ const virtualTourColumns = [
   //   key: 'longitude',
   // },
 ];
+
+const userPostsColumns = [
+  {
+    title: 'Title',
+    dataIndex: 'title',
+    key: 'title',
+  },
+  {
+    title: 'Content',
+    dataIndex: 'content',
+    key: 'content',
+  },
+  {
+    title: 'Likes',
+    dataIndex: 'likes',
+    key: 'likes',
+  },
+];
+
+
 const Reports = () => {
   const [userReportVisible, setUserReportVisible] = useState(false);
   const [tourReportVisible, setTourReportVisible] = useState(false);
@@ -89,8 +109,12 @@ const Reports = () => {
   const [totalVirtualTours, setTotalVirtualTours] = useState(0);
   const [uniqueLocations, setUniqueLocations] = useState([]);
   const [categorizedTrips, setCategorizedTrips] = useState([]);
+  const [userPosts, setUserPosts] = useState([]);
+  const [userPostsLoading, setUserPostsLoading] = useState(true);
+
 
   const showUserReportModal = () => {
+    fetchUserPosts(); // Call the function to fetch user posts
     setUserReportVisible(true);
   };
 
@@ -235,6 +259,19 @@ const Reports = () => {
       });
   };
 
+  // Fetch user posts from your API endpoint
+  const fetchUserPosts = () => {
+    axios.get('http://localhost:8800/api/Post/') // Replace with your API endpoint for user posts
+      .then((response) => {
+        setUserPosts(response.data);
+        setUserPostsLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching user posts:', error);
+        setUserPostsLoading(false);
+      });
+  };
+
   // Calculate the total number of users and unique countries
   const totalUsers = data.length;
   const uniqueCountries = [...new Set(data.map((user) => user.country))].length;
@@ -337,6 +374,12 @@ const Reports = () => {
         ]}
       >
         Tourzee-Interactive Tour Guide
+        <br></br>2023
+        <br></br>
+        <hr></hr>
+        <br></br>
+        <Table columns={userPostsColumns} dataSource={userPosts} loading={userPostsLoading} />
+
       </Modal>
 
       {/* Virtual Tour Report Modal */}
@@ -379,7 +422,11 @@ const Reports = () => {
             OK
           </Button>,
         ]}
-      > Tourzee-Interactive Tour Guide <br></br>2023<br></br>
+      > Tourzee-Interactive Tour Guide 
+       <br></br>2023
+        <br></br>
+        <hr></hr>
+        <br></br>
         <Table columns={columns} dataSource={data} loading={loading} />
 
         <div style={{ marginTop: '20px' }}>
@@ -402,7 +449,8 @@ const Reports = () => {
             OK
           </Button>,
         ]}
-      > Tourzee-Interactive Tour Guide   <br></br>2023
+      > Tourzee-Interactive Tour Guide
+        <br></br>2023
         <br></br>
         <hr></hr>
         <br></br>
