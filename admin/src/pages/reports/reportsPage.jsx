@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Table, Tag, Space } from 'antd';
+import { Table } from 'antd';
 import axios from 'axios';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
@@ -48,9 +48,32 @@ const tripColumns = [
     dataIndex: 'days',
     key: 'days',
   },
-  // Add more columns for other fields as needed
 ];
 
+
+const virtualTourColumns = [
+  {
+    title: 'Title',
+    dataIndex: 'title',
+    key: 'title',
+  },
+
+  {
+    title: 'Location',
+    dataIndex: 'location',
+    key: 'location',
+  },
+  // {
+  //   title: 'Latitude',
+  //   dataIndex: 'latitude',
+  //   key: 'latitude',
+  // },
+  // {
+  //   title: 'Longitude',
+  //   dataIndex: 'longitude',
+  //   key: 'longitude',
+  // },
+];
 const Reports = () => {
   const [userReportVisible, setUserReportVisible] = useState(false);
   const [tourReportVisible, setTourReportVisible] = useState(false);
@@ -60,6 +83,11 @@ const Reports = () => {
   const [tripLoading, setTripLoading] = useState(true);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [virtualTourData, setVirtualTourData] = useState([]); // State to hold virtual tour data
+  const [virtualTourLoading, setVirtualTourLoading] = useState(true);
+  const [totalTrips, setTotalTrips] = useState(0); // State for total trips
+  const [totalVirtualTours, setTotalVirtualTours] = useState(0);
+  const [uniqueLocations, setUniqueLocations] = useState([]);
 
   const showUserReportModal = () => {
     setUserReportVisible(true);
@@ -67,6 +95,7 @@ const Reports = () => {
 
   const showTourReportModal = () => {
     setTourReportVisible(true);
+    fetchVirtualTourData();
   };
 
   const showTripReportModal = () => {
@@ -124,6 +153,16 @@ const Reports = () => {
   const handlePrintAdditionalReport = () => {
     window.print();
   };
+
+  function calculateUniqueLocations(data) {
+    const uniqueLocations = [...new Set(data.map((tour) => tour.location))];
+    return uniqueLocations.length;
+  }
+
+
+
+
+
   useEffect(() => {
     // Fetch user data from your API endpoint
     axios.get('http://localhost:8800/api/users/') // Replace with your API endpoint
@@ -142,12 +181,33 @@ const Reports = () => {
       .then((response) => {
         setTripData(response.data);
         setTripLoading(false);
+        setTotalTrips(response.data.length);
+
       })
       .catch((error) => {
         console.error('Error fetching trip data:', error);
         setTripLoading(false);
       });
   };
+
+  // Function to fetch virtual tour data
+  const fetchVirtualTourData = () => {
+    axios.get('http://localhost:8800/api/virtualTour/') // Replace with your API endpoint for virtual tours
+      .then((response) => {
+        setVirtualTourData(response.data);
+
+        setVirtualTourLoading(false);
+        // Calculate the total number of virtual tours
+        setTotalVirtualTours(response.data.length);
+        const uniqueLocations = calculateUniqueLocations(response.data);
+        setUniqueLocations(uniqueLocations);
+      })
+      .catch((error) => {
+        console.error('Error fetching virtual tour data:', error);
+        setVirtualTourLoading(false);
+      });
+  };
+
   // Calculate the total number of users and unique countries
   const totalUsers = data.length;
   const uniqueCountries = [...new Set(data.map((user) => user.country))].length;
@@ -249,7 +309,7 @@ const Reports = () => {
           </Button>,
         ]}
       >
-        Tourzee-Interactive Tour Guide 
+        Tourzee-Interactive Tour Guide
       </Modal>
 
       {/* Virtual Tour Report Modal */}
@@ -267,7 +327,15 @@ const Reports = () => {
           </Button>,
         ]}
       >
-        Tourzee-Interactive Tour Guide 
+        Tourzee-Interactive Tour Guide
+        <br></br>2023
+        <br></br>
+        <hr></hr>
+        <br></br>
+        <Table columns={virtualTourColumns} dataSource={virtualTourData} loading={virtualTourLoading} />
+        <div style={{ marginTop: '20px' }}>
+          <p>Total Virtual Tours: {totalVirtualTours}</p>
+          <p>Total Unique Locations: {uniqueLocations}</p>        </div>
       </Modal>
 
       {/* Trip Plan Report Modal */}
@@ -286,15 +354,15 @@ const Reports = () => {
         ]}
       > Tourzee-Interactive Tour Guide <br></br>2023<br></br>
         <Table columns={columns} dataSource={data} loading={loading} />
-        
+
         <div style={{ marginTop: '20px' }}>
           <p>Total Users: {totalUsers}</p>
           <p>Unique Countries: {uniqueCountries}</p>
         </div>
       </Modal>
 
-        {/* Additional Modal */}
-        <Modal
+      {/* Additional Modal */}
+      <Modal
         title="Trip Plans and Places Report"
         visible={additionalModalVisible}
         onOk={handleAdditionalModalOk}
@@ -308,8 +376,12 @@ const Reports = () => {
           </Button>,
         ]}
       > Tourzee-Interactive Tour Guide <br></br>2023<br></br>
-              <Table columns={tripColumns} dataSource={tripData} loading={tripLoading} />
+        <Table columns={tripColumns} dataSource={tripData} loading={tripLoading} />
 
+        <div style={{ marginTop: '20px' }}>
+          <p>Total Trip Plans: {totalTrips}</p>
+          <p>Unique Locations: { }</p>
+        </div>
       </Modal>
     </div>
   );
