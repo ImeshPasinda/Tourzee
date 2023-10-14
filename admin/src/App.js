@@ -22,6 +22,7 @@ import NewTrip from "./pages/newTrip/NewTrip";
 import NewVirtualTour from "./pages/newVirtualTour/NewVirtualTour";
 import VirtualTour from "./pages/virtualTour/VirtualTour"
 import Reports from "./pages/reports/reportsPage";
+import AdminPostManagemnet from "./pages/socialSharing/AdminPostManagement";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -237,6 +238,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="adminposts"
+            element={
+              <ProtectedRoute>
+                <AdminPostManagemnet />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

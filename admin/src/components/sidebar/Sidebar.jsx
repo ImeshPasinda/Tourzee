@@ -70,18 +70,18 @@ const Sidebar = () => {
             <span>Emergency</span>
           </li>
           </Link>
-          <Link to="/adminPost" style={{ textDecoration: "none" }}>
-          <li>
-            <ManIcon className="icon" />
-            <span>Social</span>
-          </li>
-          </Link>
           <Link to="/reports" style={{ textDecoration: "none" }}>
           <li>
             <SummarizeIcon className="icon" />
             <span>Reports</span>
           </li>
           </Link>
+          <Link to="/adminposts" style={{ textDecoration: "none" }}>
+          <li>
+            <ManIcon className="icon" />
+            <span>Social</span>
+          </li>
+          </Link>
           {/* <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />

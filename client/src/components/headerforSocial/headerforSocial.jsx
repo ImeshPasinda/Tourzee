@@ -1,61 +1,33 @@
 import {
-    faBed,
-    faCalendarDays,
-    faCar,
     faLocationDot,
-    faPerson,
     faRoad,
+    faVrCardboard,
+    faLocationPin,
+    faPerson,
     faTruckMedical,
-    faVrCardboard
 } from "@fortawesome/free-solid-svg-icons";
 import Badge from '@mui/material/Badge';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./headerforEmergency.css";
-import { DateRange } from "react-date-range";
+import "./headerforSocial.css";
 import { useContext, useState } from "react";
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
-import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+// import { TripsContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
-const HeaderForEmergency = ({ type }) => {
-    const [destination, setDestination] = useState("");
-    const [openDate, setOpenDate] = useState(false);
-    const [dates, setDates] = useState([
-        {
-            startDate: new Date(),
-            endDate: new Date(),
-            key: "selection",
-        },
-    ]);
-    const [openOptions, setOpenOptions] = useState(false);
-    const [options, setOptions] = useState({
-        adult: 1,
-        children: 0,
-        room: 1,
-    });
+const HeaderforSocial = ({ type }) => {
+
+    const [place, setPlace] = useState('');
 
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
 
 
-    const handleOption = (name, operation) => {
-        setOptions((prev) => {
-            return {
-                ...prev,
-                [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
-            };
-        });
-    };
-
-
-
     const handleSearch = () => {
+        const capitalizedPlace = place.charAt(0).toUpperCase() + place.slice(1);
 
-        navigate("/places", { state: { destination, dates, options } });
     };
+
 
     return (
         <div className="header">
@@ -66,18 +38,19 @@ const HeaderForEmergency = ({ type }) => {
             >
                 <div className="headerList">
                     <div className="headerListItem ">
-                    <Link to="/" className="linkStyle">
-                        <FontAwesomeIcon icon={faRoad} />
-                        <span style={{ marginLeft: '8px' }} >Attractions</span> </Link>
+                        <Link to="/" className="linkStyle">
+
+                            <FontAwesomeIcon icon={faRoad} />
+                            <span style={{ marginLeft: '8px' }}>Attractions</span> </Link>
                     </div>
-                    <div className="headerListItem">
+                    <div className="headerListItem active">
                         <Link to="/socialsharing" className="linkStyle">
                             <FontAwesomeIcon icon={faPerson} />
                             <span style={{ marginLeft: '8px' }}>Social</span>
                         </Link>
                     </div>
 
-                    <div className="headerListItem active">
+                    <div className="headerListItem">
                         <Link to="/emergencySafety" className="linkStyle">
                             <FontAwesomeIcon icon={faTruckMedical} />
                             <span style={{ marginLeft: '8px' }}>Safety</span>
@@ -90,37 +63,36 @@ const HeaderForEmergency = ({ type }) => {
                         </Link>
                     </div>
                     {/* <Badge badgeContent={100} classes={{ badge: 'custom-badge' }}> */}
-                        <div className="headerListItem">
-                            <Link to="/planatrip" className="linkStyle">
-                                <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
-                                <span>Start a Trip</span>
-                            </Link>
-                        </div>
+                    <div className="headerListItem ">
+                        <Link to="/planatrip" className="linkStyle">
+                            <FontAwesomeIcon icon={faLocationDot} className="iconStyle" />
+                            <span>Start a Trip</span>
+                        </Link>
+                    </div>
                     {/* </Badge> */}
                 </div>
                 {type !== "list" && (
                     <>
                         <h1 className="headerTitle">
-                            Tourzee - Safety and Emergency Assistance Service
+                            Tourzee - Social Sharing and Community Integration
                         </h1>
                         <p className="headerDesc">
-                            "Explore Your Travel Experience Safe and Secure"
+                            "Embark on a journey with us"
                         </p>
                         {!user && <Link to="/register" className="linkStyle"><button className="headerBtn">Sign in / Register</button></Link>}
                         <div className="headerSearch">
                             <div className="headerSearchItem">
-                                <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+                                <FontAwesomeIcon icon={faLocationPin} className="headerIcon" />
                                 <input
                                     type="text"
-                                    placeholder="Where are you now?"
+                                    placeholder="Where do you plan to go?"
                                     className="headerSearchInput"
-                                    onChange={(e) => setDestination(e.target.value)}
+                                    onChange={(e) => setPlace(e.target.value)}
                                 />
                             </div>
-
                             <div className="space"></div>
                             <div className="headerSearchItem">
-                                <button className="headerBtn">
+                                <button className="headerBtn" onClick={handleSearch}>
                                     Search
                                 </button>
                             </div>
@@ -132,4 +104,4 @@ const HeaderForEmergency = ({ type }) => {
     );
 };
 
-export default HeaderForEmergency;
+export default HeaderforSocial;

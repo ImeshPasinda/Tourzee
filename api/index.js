@@ -10,6 +10,7 @@ import safetyRoute from './routes/safetyRoute.js'; // Import the new route
 import emergencyContactRoute from './routes/emergencyContactRoute.js'; // Import the new route
 import tripsRoute from "./routes/trips.js";
 import virtualToursRoute from "./routes/virtualTours.js" // Import the new route
+import postsRoute from "./routes/postRoute.js";
 
 import cookieParser from "cookie-parser";
 
@@ -45,6 +46,7 @@ app.use('/api/destinationsafetytips', safetyRoute); // Add the new route
 app.use('/api/emergencyContacts', emergencyContactRoute); // Add the new route
 app.use('/api/trips', tripsRoute); // Add the new route
 app.use('/api/virtualTour',virtualToursRoute);// Add the new route
+app.use('/api/posts', postsRoute); // Add the posts route
 
 
 app.use((err, req, res, next) => {
