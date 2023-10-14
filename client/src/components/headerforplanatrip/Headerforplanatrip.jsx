@@ -44,7 +44,7 @@ const Headerforplanatrip = ({ type }) => {
               <span style={{ marginLeft: '8px' }}>Attractions</span> </Link>
           </div>
           <div className="headerListItem">
-            <Link to="/soialsharing" className="linkStyle">
+            <Link to="/socialsharing" className="linkStyle">
               <FontAwesomeIcon icon={faPerson} />
               <span style={{ marginLeft: '8px' }}>Social</span>
             </Link>

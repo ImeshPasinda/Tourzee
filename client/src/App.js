@@ -18,26 +18,31 @@ import VirtualTour from "./pages/virtualTour/VirtualTour";
 import VirtualTourPlaces from "./pages/virtualTourPlaces/VirtualTourPlaces";
 import VirtualTourMap from "./pages/virtualTourMap/VirtualTourMap"
 import Register from "./pages/register/Register";
+import SocialSharing from "./pages/SocialSharing/SocialSharing";
+import SocialSharingMain from "./pages/SocialSharingMain/SocialSharingMain";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/places" element={<List/>}/>
-        <Route path="/trips" element={<Trip/>}/>
-        <Route path="/places/:id" element={<Place/>}/>
-        <Route path="/trips/:id" element={<TripPage/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/planatrip" element={<Planatrip/>}/>
-        <Route path="/emergencySafety" element={<Emergencysafety/>}/>
-        <Route path="/urgentHelp" element={<UrgentHelp/>}/>
-        <Route path="/safetybeforego" element={<Safetybeforego/>}/>
-        <Route path="/destinationsemergency" element={<DestinationsEmergency/>}/>
-        <Route path="/virtualTour" element={<VirtualTour/>}/>       
-        <Route path="/virtualTour/virtualTourPlaces" element={<VirtualTourPlaces/>}/>
-        <Route path="/virtualTour/:id" element={<VirtualTourMap/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/places" element={<List />} />
+        <Route path="/trips" element={<Trip />} />
+        <Route path="/places/:id" element={<Place />} />
+        <Route path="/trips/:id" element={<TripPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/planatrip" element={<Planatrip />} />
+        <Route path="/emergencySafety" element={<Emergencysafety />} />
+        <Route path="/urgentHelp" element={<UrgentHelp />} />
+        <Route path="/safetybeforego" element={<Safetybeforego />} />
+        <Route path="/destinationsemergency" element={<DestinationsEmergency />} />
+        <Route path="/virtualTour" element={<VirtualTour />} />
+        <Route path="/virtualTour/virtualTourPlaces" element={<VirtualTourPlaces />} />
+        <Route path="/virtualTour/:id" element={<VirtualTourMap />} />
+        <Route path="/socialsharing" element={<SocialSharing />} />
+        <Route path="/socialmain" element={<SocialSharingMain />} />
+
       </Routes>
     </BrowserRouter>
   );

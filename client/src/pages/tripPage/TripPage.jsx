@@ -32,7 +32,8 @@ const TripPage = () => {
   const { data, loading, error } = useFetch(`/trips/find/${id}`);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-
+console.log(data
+  )
   const handleOpen = (i) => {
     setSlideNumber(i);
     setOpen(true);
