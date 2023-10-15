@@ -201,11 +201,10 @@ function AdminDestinationEmergency() {
             </Table>
           </TableContainer>
 
-          <div className="button-container">
+         <br></br>
             <Button type="primary" onClick={showAddModal}>
               Add Advice Levels
             </Button>
-          </div>
 
           <Modal visible={isModalOpen} onOk={editingTip ? handleEditSave : handleOk} onCancel={handleCancel}>
             <Form form={form} layout="vertical">
