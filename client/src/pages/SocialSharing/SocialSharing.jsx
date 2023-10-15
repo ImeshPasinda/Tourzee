@@ -23,14 +23,7 @@ const SocialSharing = () => {
           }}
         >
 
-          <div style={{ display: 'flex', gap: '20px' }}>
-            <Link to="/socialmain">
-              <button className="headerBtn">Tour Gallery<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
-            </Link>
-            <Link to="/createpost">
-              <button className="headerBtn">Share yours Memories<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
-            </Link>
-          </div>
+          
         </div>
         <div
           style={{
@@ -47,19 +40,25 @@ const SocialSharing = () => {
         >
 
           <br />
-          <p style={{ color: '#888' }}>
-            Share your travel experiences effortlessly!
-            Our social sharing feature lets you create and post about your memorable attractions,
-            complete with photos and descriptions, allowing you to inspire and connect with fellow travelers worldwide.
+          <div style={{ display: 'flex', flexDirection: 'column' , gap: '50px'}}>
+  <p style={{ color: '#888' }}>
+    Share your travel experiences effortlessly!
+    Our social sharing feature lets you create and post about your memorable attractions,
+    complete with photos and descriptions, allowing you to inspire and connect with fellow travelers worldwide.
 
-            <br />
-            <br />
+    <br />
+    <br />
 
-            Connect with a global community of adventurers through our community integration feature! <br />
-            Comment, ask questions, and offer advice to fellow explorers, plus rate attractions to uncover hidden gems.
-            Forge friendships, exchange stories, and create a supportive network of travel enthusiasts.
-            Join our vibrant community and let the journey continue!
-          </p>
+    Connect with a global community of adventurers through our community integration feature! <br />
+    Comment, ask questions, and offer advice to fellow explorers, plus rate attractions to uncover hidden gems.
+    Forge friendships, exchange stories, and create a supportive network of travel enthusiasts.
+    Join our vibrant community and let the journey continue!
+  </p>
+  <Link to="/socialmain">
+    <button className="headerBtn">Tour Gallery<FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '5px' }} /></button>
+  </Link>
+</div>
+
           <img
             src="https://img.freepik.com/free-vector/travel-destination-choosing-accommodation-booking-system_335657-2503.jpg?size=626&ext=jpg&ga=GA1.1.1164833521.1694068753&semt=ais"
             alt="Image Description"
@@ -68,6 +67,7 @@ const SocialSharing = () => {
         </div>
         
       </div>
+      
       <div className ="centered-maillist">
       <MailList />
       </div>

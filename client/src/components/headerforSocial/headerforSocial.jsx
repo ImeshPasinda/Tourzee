@@ -80,7 +80,7 @@ const HeaderforSocial = ({ type }) => {
                             "Embark on a journey with us"
                         </p>
                         {!user && <Link to="/register" className="linkStyle"><button className="headerBtn">Sign in / Register</button></Link>}
-                        <div className="headerSearch">
+                        {/* <div className="headerSearch">
                             <div className="headerSearchItem">
                                 <FontAwesomeIcon icon={faLocationPin} className="headerIcon" />
                                 <input
@@ -96,7 +96,7 @@ const HeaderforSocial = ({ type }) => {
                                     Search
                                 </button>
                             </div>
-                        </div>
+                        </div> */}
                     </>
                 )}
             </div>
