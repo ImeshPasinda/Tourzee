@@ -68,7 +68,7 @@ function AdminDestinationEmergency() {
         setIsModalOpen(false);
 
         // Refetch the data to update the UI after successful creation
-        // fetchData();
+         fetchData();
       } else {
         console.error('Failed to create safety tip.');
       }
@@ -95,7 +95,7 @@ function AdminDestinationEmergency() {
         setEditingTip(null);
 
         // Refetch the data to update the UI after successful update
-        // fetchData();
+         fetchData();
       } else {
         console.error('Failed to update safety tip.');
       }
@@ -104,6 +104,20 @@ function AdminDestinationEmergency() {
     }
   };
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:8800/api/destinationsafetytips/');
+      if (response.status === 200) {
+        // If the request is successful (status code 200), update the safetyTips state with the data.
+        setSafetyTips(response.data.safetyTips);
+      } else {
+        console.error('API request failed with status:', response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  
   const columns = [
     { field: 'destination', headerName: 'Destination', flex: 1 },
     { field: 'location', headerName: 'Location', flex: 1 },
