@@ -15,6 +15,8 @@ const TripTable = () => {
 
   const { data, loading, error, refetch } = useFetch("/emergencyfacilities");
 
+  
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -24,6 +26,8 @@ const TripTable = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  
 
   const handleOk = async () => {
     try {
@@ -151,16 +155,15 @@ const TripTable = () => {
     {
       title: 'Delete',
       render: (text, record) => (
-        <Popconfirm
-          title="Are you sure you want to delete this facility?"
-          onConfirm={() => handleDeleteClick(record._id)}
-          okText="Yes"
-          cancelText="No"
+        <Button
+          type="primary"
+          onClick={() => handleDeleteClick(record._id)}
         >
-          <Button type="primary">Delete</Button>
-        </Popconfirm>
+          Delete
+        </Button>
       ),
     },
+    
 
   ];
 
