@@ -1,16 +1,7 @@
 import Place from "../models/Place.js";
 import Room from "../models/Room.js";
 
-// export const createPlace = async (req, res, next) => {
-//   const newPlace = new Place(req.body);
 
-//   try {
-//     const savedPlace = await newPlace.save();
-//     res.status(200).json(savedPlace);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
 export const updatePlace = async (req, res, next) => {
   try {
     const updatedPlace = await Place.findByIdAndUpdate(
