@@ -111,12 +111,18 @@ const CommentSection = () => {
                     </div>
                     <div className="postCenter">
                         <span className="postText">{post?.desc}</span>
-                        <div className="postCommentImg">
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
                             {post.photos.map((photo, index) => (
-                                <img key={index} src={photo} alt={`Photo ${index}`} />
+                                <img
+                                    key={index}
+                                    src={photo}
+                                    alt={`Photo ${index}`}
+                                    style={{ maxWidth: '100%', height: 'auto', marginBottom: '10px' }}
+                                />
                             ))}
                         </div>
                     </div>
+
                     <div className='postCommentContent'>
                         <Typography variant="body3" color="text.primary">
                             {post.content}
@@ -149,7 +155,7 @@ const CommentSection = () => {
                 </Form.Item>
             </Form>
             <div>
-               
+
 
                 <List
                     itemLayout="vertical"
@@ -163,7 +169,7 @@ const CommentSection = () => {
                     dataSource={comments}
                     footer={
                         <div>
-                            <b>{post.title}</b> Comments Section
+                            <b>Tourzee</b> Comments Section
                         </div>
                     }
                     renderItem={(comment) => (
@@ -174,14 +180,14 @@ const CommentSection = () => {
                                 <IconText icon={LikeOutlined} text="0" key="list-vertical-like-o" />,
                                 <IconText icon={MessageOutlined} text="0" key="list-vertical-message" />,
                             ]}
-                            
+
                         >
                             <List.Item.Meta
-                            avatar={
-                                <Avatar style={{ backgroundColor: '#003580' }} aria-label="recipe">
-                                    {comment.username ? comment.username[0].toUpperCase() : ''}
-                                </Avatar>
-                            }
+                                avatar={
+                                    <Avatar style={{ backgroundColor: '#003580' }} aria-label="recipe">
+                                        {comment.username ? comment.username[0].toUpperCase() : ''}
+                                    </Avatar>
+                                }
                                 title={comment.username}
                                 description={comment.comment}
                             />
