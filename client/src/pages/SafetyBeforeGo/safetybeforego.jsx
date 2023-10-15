@@ -45,6 +45,7 @@ const Safetybeforego = () => {
         // Make the API request with the API key and specify the location (Sri Lanka in this case)
         const response = await fetch(`${apiUrl}?q=Sri Lanka&appid=${apiKey}`);
         const data = await response.json();
+        console.log(data)
 
         // Set the weather data to state
         setWeatherData(data);
@@ -97,8 +98,9 @@ const Safetybeforego = () => {
                     Current Weather in Sri Lanka
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    Temperature: {weatherData.main.temp}°C
+                    Temperature: {(weatherData.main.temp - 273.15).toFixed(2)}°C
                   </Typography>
+
                   <Typography variant="body2" color="textSecondary">
                     Weather: {weatherData.weather[0].description}
                   </Typography>
@@ -219,20 +221,20 @@ const Safetybeforego = () => {
             </AccordionSummary>
             <AccordionDetails>
 
-         
-                  <InfoIcon color="primary" style={{ marginRight: '10px' }} />
-                  You'll need a visa in the form of an Electronic Travel Authority to enter Sri Lanka.<br></br><br></br>
-                
-                  <InfoIcon color="primary" style={{ marginRight: '10px' }} />
-                  Sri Lanka has introduced Digital Arrival & Departure Cards, which can be completed three days prior to travel.<br></br><br></br>
-                
-                  <InfoIcon color="primary" style={{ marginRight: '10px' }} />
-                  Entry and exit conditions can change at short notice. You should contact the nearest high commission, 
-                  embassy, or consulate of Sri Lanka for the latest details.<br></br><br></br>
-               
-                  <InfoIcon color="primary" style={{ marginRight: '10px' }} />
-                  Airlines may require proof of certain vaccinations to travel. Check requirements with individual airlines prior to travel.<br></br><br></br>
-                
+
+              <InfoIcon color="primary" style={{ marginRight: '10px' }} />
+              You'll need a visa in the form of an Electronic Travel Authority to enter Sri Lanka.<br></br><br></br>
+
+              <InfoIcon color="primary" style={{ marginRight: '10px' }} />
+              Sri Lanka has introduced Digital Arrival & Departure Cards, which can be completed three days prior to travel.<br></br><br></br>
+
+              <InfoIcon color="primary" style={{ marginRight: '10px' }} />
+              Entry and exit conditions can change at short notice. You should contact the nearest high commission,
+              embassy, or consulate of Sri Lanka for the latest details.<br></br><br></br>
+
+              <InfoIcon color="primary" style={{ marginRight: '10px' }} />
+              Airlines may require proof of certain vaccinations to travel. Check requirements with individual airlines prior to travel.<br></br><br></br>
+
             </AccordionDetails>
           </Accordion>
 
