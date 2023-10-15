@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, List, Space } from 'antd';
 import './commentSection.css'; // Import the CSS file
 import { useParams } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
@@ -8,6 +8,7 @@ import CardHeader from '@mui/material/CardHeader';
 import { useContext } from "react";
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
+import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 const { TextArea } = Input;
 
 const CommentSection = () => {
@@ -61,7 +62,7 @@ const CommentSection = () => {
                 if (response.status === 200) {
                     setComments(response.data);
                     setCommentCount(response.data.length);
-                    
+
                 }
             } catch (error) {
                 console.error('Error fetching comments:', error);
@@ -71,6 +72,13 @@ const CommentSection = () => {
         // Call the fetchComments function when the component mounts
         fetchComments();
     }, [id]);
+
+    const IconText = ({ icon, text }) => (
+        <Space>
+            {React.createElement(icon)}
+            {text}
+        </Space>
+    );
 
     return (
         <div className="form-container">
@@ -97,14 +105,7 @@ const CommentSection = () => {
 
 
                             />
-                            {/* <img
-              className="postProfileImg"
-              src={Users.filter((u) => u.id === post?.userId)[0].img}
-              alt=""
-            />
-            <span className="postUsername">
-              {Users.filter((u) => u.id === post?.userId)[0].username}
-            </span> */}
+
                             <span className="postDate">{post?.date}</span>
                         </div>
                     </div>
@@ -148,12 +149,47 @@ const CommentSection = () => {
                 </Form.Item>
             </Form>
             <div>
-                {/* Display comments here */}
-                {comments.map((comment, index) => (
-                    <div key={index}>
-                        <p>{comment.username} says: {comment.comment}</p>
-                    </div>
-                ))}
+               
+
+                <List
+                    itemLayout="vertical"
+                    size="large"
+                    pagination={{
+                        onChange: (page) => {
+                            console.log(page);
+                        },
+                        pageSize: 3,
+                    }}
+                    dataSource={comments}
+                    footer={
+                        <div>
+                            <b>{post.title}</b> Comments Section
+                        </div>
+                    }
+                    renderItem={(comment) => (
+                        <List.Item
+                            key={comment.id} // Replace 'id' with the actual unique identifier for each comment
+                            actions={[
+                                <IconText icon={StarOutlined} text="0" key="list-vertical-star-o" />,
+                                <IconText icon={LikeOutlined} text="0" key="list-vertical-like-o" />,
+                                <IconText icon={MessageOutlined} text="0" key="list-vertical-message" />,
+                            ]}
+                            
+                        >
+                            <List.Item.Meta
+                            avatar={
+                                <Avatar style={{ backgroundColor: '#003580' }} aria-label="recipe">
+                                    {comment.username ? comment.username[0].toUpperCase() : ''}
+                                </Avatar>
+                            }
+                                title={comment.username}
+                                description={comment.comment}
+                            />
+                            {comment.content}
+                        </List.Item>
+                    )}
+                />
+
             </div>
 
 
