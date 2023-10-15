@@ -1,6 +1,6 @@
 # Tourzee - Your Ultimate Tour Guide Web Application 🌍📱
 
-![Tourzee Logo](link_to_your_logo.png)
+![Tourzee Logo](https://github.com/ImeshPasinda/Tourzee/blob/dev/logo.png)
 
 Tourzee is a web application built with the MERN stack that aims to revolutionize the tourist experience in Sri Lanka. Whether you're a traveler looking for an unforgettable adventure or a local who wants to explore your own backyard, Tourzee has you covered. 🌴
 
@@ -38,21 +38,21 @@ Tourzee is built using the following technologies:
 ## Team
 Tourzee is the brainchild of a dedicated team of developers and visionaries:
 
-- [Darshi Buddhin](https://github.com/darshibuddhin)
-- [Dinithi Mensia](https://github.com/dinithimensia)
-- [Kimuthuu](https://github.com/kimuthuu)
-- [Imesh](https://github.com/imesh)
+- [Imesh Pasinda](https://github.com/imeshpasinda)
+- [Darshi Buddhini](https://github.com/darshibuddhini)
+- [Dinithi Mendis](https://github.com/dinithi27)
+- [Kimuthu Gamage](https://github.com/kimuthuug)
 
 ## How to Use
 1. Clone the repository.
-2. Install the necessary dependencies using `npm install`.
+2. Install the necessary dependencies to `client & admin` using `npm install`.
 3. Set up your Google Maps API key.
-4. Run the app using `npm start`.
-5. Explore and enjoy your Sri Lankan adventure!
+4. Run the client & admin using `npm start`.
+5. Run the api using `npm run dev`.
+6. Explore and enjoy your Sri Lankan adventure!
 
 ## License
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg), so feel free to use and modify it as needed.
 
 Start your journey with Tourzee today and make the most of your Sri Lankan tour! 🌞🌴
 
-[Add any badges or additional information here, such as build status, links to a live demo, etc.]
