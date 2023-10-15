@@ -29,7 +29,7 @@ const CommentSection = () => {
                 // Comment creation was successful
                 // You can reset the comment input field or perform any other necessary actions
                 setComment('');
-                fetchComments();
+                // fetchComments();
             }
         } catch (error) {
             console.error('Error creating comment:', error);
@@ -53,32 +53,24 @@ const CommentSection = () => {
         fetchPostData();
     }, [id]);
 
+
     useEffect(() => {
-        // Make an API call to fetch the comment count from your server
-        async function fetchCommentCount() {
+        const fetchComments = async () => {
             try {
-                const response = await axios.get(`http://localhost:8800/api/comments/count/${id}`);
+                const response = await axios.get(`http://localhost:8800/api/comments/pid/${id}`);
                 if (response.status === 200) {
-                    setCommentCount(response.data.count);
+                    setComments(response.data);
+                    setCommentCount(response.data.length);
+                    
                 }
             } catch (error) {
-                console.error('Error fetching comment count:', error);
+                console.error('Error fetching comments:', error);
             }
-        }
+        };
 
-        fetchCommentCount();
+        // Call the fetchComments function when the component mounts
+        fetchComments();
     }, [id]);
-
-    const fetchComments = async () => {
-        try {
-            const response = await axios.get(`http://localhost:8800/api/comments/${id}`);
-            if (response.status === 200) {
-                setComments(response.data);
-            }
-        } catch (error) {
-            console.error('Error fetching comments:', error);
-        }
-    };
 
     return (
         <div className="form-container">
