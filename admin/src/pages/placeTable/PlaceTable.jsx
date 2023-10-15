@@ -12,6 +12,7 @@ import "./placeTable.scss";
 const { Search } = Input;
 
 const PlaceTable = () => {
+  
   const { data, loading, error , refetch} = useFetch("/places");
   const [filteredData, setFilteredData] = useState(data);
   const [editModalVisible, setEditModalVisible] = useState(false);
