@@ -52,7 +52,7 @@ const AdminEmergency = () => {
 
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
+            {/* <Grid item xs={12} sm={6} md={4}>
               <Card
                 type="inner"
                 extra={<a href="#">More</a>}
@@ -66,7 +66,7 @@ const AdminEmergency = () => {
                 <p>Detailed information about trip plans </p>
 
               </Card>
-            </Grid>
+            </Grid> */}
 
           </Grid>
 
