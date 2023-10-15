@@ -21,22 +21,38 @@ const CommentSection = () => {
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
     const handleCommentSubmit = async () => {
-        try {
-            const response = await axios.post(`http://localhost:8800/api/comments/${id}`, {
-                comment: comment,
-                username: user.username, // You can replace this with the actual username if available
-            });
+        // Validate the comment input
+        const form = await formRef.validateFields();
 
-            if (response.status === 201) {
-                // Comment creation was successful
-                // You can reset the comment input field or perform any other necessary actions
-                setComment('');
-                // fetchComments();
+        if (form) {
+            try {
+                const response = await axios.post(`http://localhost:8800/api/comments/${id}`, {
+                    comment: comment,
+                    username: user.username, // You can replace this with the actual username if available
+                });
+
+                if (response.status === 201) {
+                    // Comment creation was successful
+                    // Add the new comment to the comments state and clear the input field
+                    const newComment = {
+                        id: response.data.id, // Replace with the actual ID from the response
+                        username: user.username, // Replace with the actual username
+                        comment: comment,
+                        content: '', // You can update this if needed
+                    };
+
+                    setComments([...comments, newComment]);
+                    setComment('');
+
+                    // fetchComments(); // If needed, fetch all comments again
+                }
+            } catch (error) {
+                console.error('Error creating comment:', error);
             }
-        } catch (error) {
-            console.error('Error creating comment:', error);
         }
     };
+
+    const [formRef] = Form.useForm();
 
 
     useEffect(() => {
@@ -86,15 +102,7 @@ const CommentSection = () => {
 
     return (
         <div className="form-container">
-            {/* Display the fetched post data */}
-            {/* <div>
-        <h2>{post.title}</h2> */}
-            {/* Render other post data as needed */}
-            {/* {post.photos.map((photo, index) => (
-          <img key={index} src={photo} alt={`Photo ${index}`} />
-        ))}
-      </div> */}
-
+           
             <div className="post">
                 <div className="postWrapper">
                     <div className="postTop">
@@ -144,8 +152,16 @@ const CommentSection = () => {
 
 
             <h1 style={{ marginTop: '75px' }}>({commentCount}) Comments</h1>
-            <Form>
-                <Form.Item >
+            <Form form={formRef}>
+                <Form.Item
+                    name="comment"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please add your comment.',
+                        },
+                    ]}
+                >
                     <TextArea
                         rows={4}
                         placeholder="Add your comment..."
@@ -153,10 +169,10 @@ const CommentSection = () => {
                         className="comment-textarea"
                         onChange={(e) => setComment(e.target.value)}
                     />
-                    <Button type="primary" className="comment-button" onClick={handleCommentSubmit}>
-                        Comment
-                    </Button>
                 </Form.Item>
+                <Button type="primary" className="comment-button" onClick={handleCommentSubmit}>
+                    Comment
+                </Button>
             </Form>
             <div>
 
