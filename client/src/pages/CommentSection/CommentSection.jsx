@@ -18,6 +18,7 @@ const CommentSection = () => {
     const [comment, setComment] = useState('');
     const [commentCount, setCommentCount] = useState(0);
     const [comments, setComments] = useState([]);
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
     const handleCommentSubmit = async () => {
         try {
@@ -36,6 +37,7 @@ const CommentSection = () => {
             console.error('Error creating comment:', error);
         }
     };
+
 
     useEffect(() => {
         async function fetchPostData() {
@@ -79,6 +81,8 @@ const CommentSection = () => {
             {text}
         </Space>
     );
+
+
 
     return (
         <div className="form-container">

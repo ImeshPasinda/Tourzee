@@ -112,7 +112,7 @@ const Reports = () => {
   const [categorizedTrips, setCategorizedTrips] = useState([]);
   const [userPosts, setUserPosts] = useState([]);
   const [userPostsLoading, setUserPostsLoading] = useState(true);
-
+  const [totalPosts, setTotalPosts] = useState(0);
 
   const showUserReportModal = () => {
     fetchUserPosts(); // Call the function to fetch user posts
@@ -266,6 +266,8 @@ const Reports = () => {
       .then((response) => {
         setUserPosts(response.data.posts);
         setUserPostsLoading(false);
+        // Calculate the total number of posts
+        setTotalPosts(response.data.posts.length);
       })
       .catch((error) => {
         console.error('Error fetching user posts:', error);
@@ -380,6 +382,9 @@ const Reports = () => {
         <hr></hr>
         <br></br>
         <Table columns={userPostsColumns} dataSource={userPosts} loading={userPostsLoading} />
+        <div style={{ marginTop: '20px' }}>
+          <p>Total Posts: {totalPosts}</p>
+                </div>
       </Modal>
 
       {/* Virtual Tour Report Modal */}
