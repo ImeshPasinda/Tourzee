@@ -7,7 +7,7 @@ import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { Card } from "antd";
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import './virtualTourPlaces.css';
 
 const VirtualTourPlaces = () => {
@@ -41,54 +41,58 @@ const VirtualTourPlaces = () => {
         {/* Use Spin component while loading */}
         <Spin tip="Loading..." spinning={loading}>
           <div className="card-container" style={{ display: "flex", flexWrap: "wrap" }}>
-            {filteredData.map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  width: "25%",
-                  marginBottom: '20px',
-                  boxSizing: "border-box",
-                }}
-              >
-                <Card
-                  hoverable
+            {filteredData.length === 0 ? (
+              // Check if there are no search results
+              <p>No results found for your search.</p>
+            ) : (
+              filteredData.map((item, index) => (
+                <div
+                  key={index}
                   style={{
-                    width: "75%",
-                    marginTop: "20px",
-                    marginLeft: "50px",
-                    marginRight: "50px",
-                    boxSizing: "5px"
+                    width: "25%",
+                    marginBottom: '20px',
+                    boxSizing: "border-box",
                   }}
-                  cover={
-                    <img
-                      src={item.photos[0]}
-                      style={{
-                        width: "100%",
-                        height: "200px",
-                        objectFit: "cover",
-                      }}
-                    />
-                  }
                 >
-                  <h3>{item.title}</h3>
-                  <p style={{ marginBottom: "10px", color: 'black' }}> {item.location} <span style={{ color: 'gray', fontSize: '12px' }}>(location)</span></p>
-                  <p style={{ marginBottom: "30px", color: 'gray', fontSize: '12px' }}>{item.description}</p>
-                  <Link to={`/virtualTour/${item._id}`}>
-                    <button className="headerBtn" style={{ width: '100%' }}>Explore More</button>
-                  </Link>
-                </Card>
-              </div>
-            ))}
+                  <Card
+                    hoverable
+                    style={{
+                      width: "75%",
+                      marginTop: "20px",
+                      marginLeft: "50px",
+                      marginRight: "50px",
+                      boxSizing: "5px"
+                    }}
+                    cover={
+                      <img
+                        src={item.photos[0]}
+                        style={{
+                          width: "100%",
+                          height: "200px",
+                          objectFit: "cover",
+                        }}
+                      />
+                    }
+                  >
+                    <h3>{item.title}</h3>
+                    <p style={{ marginBottom: "10px", color: 'black' }}> {item.location} <span style={{ color: 'gray', fontSize: '12px' }}>(location)</span></p>
+                    <p style={{ marginBottom: "30px", color: 'gray', fontSize: '12px' }}>{item.description}</p>
+                    <Link to={`/virtualTour/${item._id}`}>
+                      <button className="headerBtn" style={{ width: '100%' }}>Explore More</button>
+                    </Link>
+                  </Card>
+                </div>
+              ))
+            )}
           </div>
         </Spin>
       </div>
-      <div className ="centered-maillist">
-      <MailList />
+      <div className="centered-maillist">
+        <MailList />
       </div>
-      <div className ="centered-footer">
-      <Footer />
-    </div>
-     
+      <div className="centered-footer">
+        <Footer />
+      </div>
     </div>
   );
 }
