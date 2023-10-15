@@ -43,14 +43,16 @@
 }
 
 .postContent {
-  margin: 20px 0;
+  margin: 20px 10px;
 }
 
 .postImg {
-  margin-top: 20px;
-  width: 100%;
+  margin-top: -15px;
+  width: 95%;
+  margin-left: 10px;
   max-height: 500px;
   object-fit: contain;
+  border-radius: 5px;
 }
 
 .postBottom {

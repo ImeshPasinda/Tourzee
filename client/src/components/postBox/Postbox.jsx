@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { Button, Modal } from 'antd';
+import Avatar from '@mui/material/Avatar';
 import "./postbox.css";
 import { PermMedia, Label, Room, EmojiEmotions } from "@mui/icons-material"
+import { useContext } from "react";
+import axios from 'axios';
+import { AuthContext } from '../../context/AuthContext';
 import CreatePost from '../CreatePost/CreatePost'; // Import your CreatePost component
 
-const Postbox = () => {
+const Postbox = ( ) => {
+
+  const { user } = useContext(AuthContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [authorData, setAuthorData] = useState("");
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -15,13 +22,34 @@ const Postbox = () => {
     setIsModalOpen(false);
   };
 
+  //  Fetch user data for the post's author
+  //  useEffect(() => {
+  //   async function fetchAuthorData() {
+  //     try {
+  //       // Assuming you have an API endpoint to fetch user data by user ID
+  //       const response = await axios.get(`/users/${user._id}`);
+  //       if (response.status === 200) {
+  //         setAuthorData(response.data);
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching author data:', error);
+  //     }
+  //   }
+
+  //   fetchAuthorData();
+  // }, [user]); 
+
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src="" alt="" />
+        <div className="shareProfileImg">
+            <Avatar style={{ backgroundColor: '#003580' }} aria-label="recipe">
+            {user ? user.username[0].toUpperCase() : ''}
+            </Avatar>
+          </div>
           <div className="shareInput">
-            <p>What's in your mind Safak?</p>
+          <p className="shareLargeFont">What's on your mind {user ? user.username : ''}?</p>
           </div>
         </div>
         <hr className="shareHr" />
@@ -77,7 +105,7 @@ const ShareModal = ({ isModalOpen, handleCancel }) => {
         </Button>
       ]}
     >
-      <div style={{ height: '500px' }}> {/* Adjust the height as needed */}
+      <div style={{ height: '600px' }}> {/* Adjust the height as needed */}
         <CreatePost />
       </div>
     </Modal>

@@ -151,23 +151,52 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Like or dislike a post
+// router.put("/:id/like", async (req, res) => {
+//   try {
+//     const post = await Post.findById(req.params.id);
+    
+//     if (!post) {
+//       return res.status(404).json({ error: 'Post not found' });
+//     }
+
+//     const userId = req.body.userId;
+    
+//     if (post.likes.includes(userId)) {
+//       // User already liked the post, so remove the like
+//       await post.updateOne({ $pull: { likes: userId } });
+//       res.status(200).json("The post has been disliked");
+//     } else {
+//       // User has not liked the post, so add the like
+//       await post.updateOne({ $push: { likes: userId } });
+//       res.status(200).json("The post has been liked");
+//     }
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
+// });
+
 router.put("/:id/like", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    
+
     if (!post) {
       return res.status(404).json({ error: 'Post not found' });
     }
 
     const userId = req.body.userId;
-    
+
     if (post.likes.includes(userId)) {
       // User already liked the post, so remove the like
       await post.updateOne({ $pull: { likes: userId } });
+      // Update the likes count in the database
+      await post.updateOne({ _id: post._id }, { $inc: { likeCount: -1 } });
       res.status(200).json("The post has been disliked");
     } else {
       // User has not liked the post, so add the like
       await post.updateOne({ $push: { likes: userId } });
+      // Update the likes count in the database
+      await post.updateOne({ _id: post._id }, { $inc: { likeCount: 1 } });
       res.status(200).json("The post has been liked");
     }
   } catch (err) {

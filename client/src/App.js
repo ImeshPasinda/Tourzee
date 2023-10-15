@@ -20,6 +20,7 @@ import VirtualTourMap from "./pages/virtualTourMap/VirtualTourMap"
 import Register from "./pages/register/Register";
 import SocialSharing from "./pages/SocialSharing/SocialSharing";
 import SocialSharingMain from "./pages/SocialSharingMain/SocialSharingMain";
+import CommentSection from "./pages/CommentSection/CommentSection";
 
 function App() {
   return (
@@ -42,6 +43,8 @@ function App() {
         <Route path="/virtualTour/:id" element={<VirtualTourMap />} />
         <Route path="/socialsharing" element={<SocialSharing />} />
         <Route path="/socialmain" element={<SocialSharingMain />} />
+        <Route path="/comments/:id" element={<CommentSection />} />
+
 
       </Routes>
     </BrowserRouter>

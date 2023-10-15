@@ -14,11 +14,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import { MoreVert } from "@mui/icons-material";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { useState } from 'react';
+import { useContext } from "react";
+import { AuthContext } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 import "./postcard.css";
 
 const PostCard = ({ post }) => {
+  const { user } = useContext(AuthContext);
   const [like, setLike] = useState(post.likes)
   const [isLiked, setIsLiked] = useState(false)
   const [comments, setComments] = useState([]);
@@ -30,19 +34,17 @@ const PostCard = ({ post }) => {
 
   // const [users, setUsers] = useState([]);
 
-  const handleLike = () => {
-    setLike(isLiked ? like - 1 : like + 1)
-    setIsLiked(!isLiked)
-  }
+  const handleLike = async () => {
+    try {
+      const response = await axios.put(`/posts/${post._id}/like`, { userId: user._id });
 
-  const handleCloseEditModal = () => {
-    setIsEditModalOpen(false);
-    setAnchorEl(null);
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEditedPost({ ...editedPost, [name]: value });
+      if (response.status === 200) {
+        setLike(isLiked ? like - 1 : like + 1);
+        setIsLiked(!isLiked);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleUpdatePost = async () => {
@@ -51,9 +53,11 @@ const PostCard = ({ post }) => {
       if (response.status === 200) {
         setIsEditModalOpen(true);
         setEditedPost(response.data);
+        toast.success('Post updated successfully', { position: 'top-right' });
       }
     } catch (error) {
       console.error(error);
+      toast.error('Failed to update the post', { position: 'top-right' });
     }
   };
 
@@ -64,6 +68,15 @@ const PostCard = ({ post }) => {
 
   const handleCloseMenu = () => {
     setAnchorEl(null);
+  };
+
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedPost({ ...editedPost, [name]: value });
   };
 
   const handleOpenDeleteDialog = () => {
@@ -81,6 +94,7 @@ const PostCard = ({ post }) => {
       await axios.delete(`/posts/${post._id}`);
       console.log('Post deleted successfully');
       handleCloseMenu();
+      toast.success('Post deleted successfully', { position: 'top-right' });
       // You can add logic here to update your UI, such as removing the deleted post from the list of posts.
     } catch (error) {
       console.error(error);
@@ -90,9 +104,9 @@ const PostCard = ({ post }) => {
 
  
 
-  function getFirstLetter(username) {
-    return username.charAt(0).toUpperCase();
-  }
+  // function getFirstLetter(username) {
+  //   return username.charAt(0).toUpperCase();
+  // }
   // const [Users, setUser] = useState(null);
 
   // useEffect(() => {
@@ -117,7 +131,7 @@ const PostCard = ({ post }) => {
                 </Avatar>
               }
               title={<span style={{ fontSize: '20px' }}>{post.title}</span>}
-              username={<span style={{ fontSize: '20px' }}>{post.title}</span>}
+              username={<span style={{ fontSize: '12px' }}>{post.username}</span>}
 
             />
             {/* <img
@@ -128,7 +142,7 @@ const PostCard = ({ post }) => {
             <span className="postUsername">
               {Users.filter((u) => u.id === post?.userId)[0].username}
             </span> */}
-            <span className="postDate">{post?.date}</span>
+            <span className="postDate">{post.date}</span>
           </div>
           <div className="postTopRight">
             <Box>
