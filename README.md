@@ -52,7 +52,7 @@ Tourzee is the brainchild of a dedicated team of developers and visionaries:
 6. Explore and enjoy your Sri Lankan adventure!
 
 ## License
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg), so feel free to use and modify it as needed.
+This project is licensed under the [MIT License](https://github.com/ImeshPasinda/Tourzee/blob/dev/LICENSE) ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg), so feel free to use and modify it as needed.
 
 Start your journey with Tourzee today and make the most of your Sri Lankan tour! 🌞🌴
 
