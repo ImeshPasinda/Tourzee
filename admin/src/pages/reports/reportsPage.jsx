@@ -90,6 +90,7 @@ const userPostsColumns = [
     title: 'Likes',
     dataIndex: 'likes',
     key: 'likes',
+    render: (likes) => likes.length,
   },
 ];
 
@@ -263,7 +264,7 @@ const Reports = () => {
   const fetchUserPosts = () => {
     axios.get('http://localhost:8800/api/posts/') // Replace with your API endpoint for user posts
       .then((response) => {
-        setUserPosts(response.data);
+        setUserPosts(response.data.posts);
         setUserPostsLoading(false);
       })
       .catch((error) => {
@@ -379,7 +380,6 @@ const Reports = () => {
         <hr></hr>
         <br></br>
         <Table columns={userPostsColumns} dataSource={userPosts} loading={userPostsLoading} />
-
       </Modal>
 
       {/* Virtual Tour Report Modal */}
@@ -422,8 +422,8 @@ const Reports = () => {
             OK
           </Button>,
         ]}
-      > Tourzee-Interactive Tour Guide 
-       <br></br>2023
+      > Tourzee-Interactive Tour Guide
+        <br></br>2023
         <br></br>
         <hr></hr>
         <br></br>

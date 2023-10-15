@@ -249,7 +249,7 @@ const PostCard = ({ post }) => {
               </IconButton>
             )}
             {/* {post.likes.length} Like(s) */}
-            <span className="postLikeCounter"> {like} people like it</span>
+            <span className="postLikeCounter"> {post.likes.length} people like it</span>
           </div>
           <div className="postBottomRight">
             <span className="postCommentText">
