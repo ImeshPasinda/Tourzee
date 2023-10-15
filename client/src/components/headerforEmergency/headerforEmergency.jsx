@@ -107,7 +107,7 @@ const HeaderForEmergency = ({ type }) => {
                             "Explore Your Travel Experience Safe and Secure"
                         </p>
                         {!user && <Link to="/register" className="linkStyle"><button className="headerBtn">Sign in / Register</button></Link>}
-                        <div className="headerSearch">
+                        {/* <div className="headerSearch">
                             <div className="headerSearchItem">
                                 <FontAwesomeIcon icon={faPerson} className="headerIcon" />
                                 <input
@@ -124,7 +124,7 @@ const HeaderForEmergency = ({ type }) => {
                                     Search
                                 </button>
                             </div>
-                        </div>
+                        </div> */}
                     </>
                 )}
             </div>
