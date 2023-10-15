@@ -261,7 +261,7 @@ const Reports = () => {
 
   // Fetch user posts from your API endpoint
   const fetchUserPosts = () => {
-    axios.get('http://localhost:8800/api/Post/') // Replace with your API endpoint for user posts
+    axios.get('http://localhost:8800/api/posts/') // Replace with your API endpoint for user posts
       .then((response) => {
         setUserPosts(response.data);
         setUserPostsLoading(false);

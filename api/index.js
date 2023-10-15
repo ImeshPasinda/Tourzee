@@ -11,6 +11,7 @@ import emergencyContactRoute from './routes/emergencyContactRoute.js'; // Import
 import tripsRoute from "./routes/trips.js";
 import virtualToursRoute from "./routes/virtualTours.js" // Import the new route
 import postsRoute from "./routes/postRoute.js";
+import commentsRoute from "./routes/commentRoute.js";
 
 import cookieParser from "cookie-parser";
 
@@ -47,6 +48,8 @@ app.use('/api/emergencyContacts', emergencyContactRoute); // Add the new route
 app.use('/api/trips', tripsRoute); // Add the new route
 app.use('/api/virtualTour',virtualToursRoute);// Add the new route
 app.use('/api/posts', postsRoute); // Add the posts route
+app.use('/api/comments', commentsRoute); // Add the comments route
+
 
 
 app.use((err, req, res, next) => {

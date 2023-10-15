@@ -52,6 +52,8 @@ const CreatePost = () => {
             try {
                 // Sanitize the rich text content to remove HTML tags
                 const sanitizedContent = sanitize(values.content);
+
+                // console.log('Submit values:', values);
         
                 // Update the 'content' field with sanitized content
                 values.content = sanitizedContent;

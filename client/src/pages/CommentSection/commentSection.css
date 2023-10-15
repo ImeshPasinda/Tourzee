@@ -1,0 +1,125 @@
+/* CommentSection.css */
+
+/* Style for the form container */
+.form-container {
+    max-width: 800px;
+    margin: auto; /* Center the form on the page */
+  }
+  
+  /* Style for the comment textarea */
+  .comment-textarea {
+    width: 100%;
+    height:fit-content;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border-color: black;
+  }
+  
+  .comment-textarea::placeholder {
+    font-size: 16px; /* Adjust the font size as needed */
+    color: #999; /* Adjust the color as needed */
+  }
+  
+  /* Style for the comment button */
+  .comment-button {
+    padding: 30px, 20px, 30px,20px;
+    font-size: 15px;
+    
+  }
+  
+  
+  
+  /* // */
+
+  .post {
+    width: 100%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    margin: 30px 0px;
+  }
+  
+  .postWrapper {
+    padding: 10px;
+  }
+  
+  .postTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .postTopLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .postProfileImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .postUsername {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 10px;
+  }
+  
+  .postDate {
+    font-size: 12px;
+  }
+  
+  .postCenter {
+    margin: 20px 0;
+  }
+  
+  .postCommentContent {
+    margin: 25px 0;
+    margin-left: 20px;
+  }
+  
+  .postCommentImg {
+    margin-top: 20px;
+    margin-left: 20px ;
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+  }
+  
+  .postBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .postBottomLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .likeIcon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .postLikeCounter {
+    font-size: 15px;
+  }
+  
+  .postCommentText {
+    cursor: pointer;
+    
+    font-size: 15px;
+    margin-right: 15px;
+  }
+  
+  .comment-icon {
+    color: #003580; /* Change the color to blue */
+  }
+  
+  
