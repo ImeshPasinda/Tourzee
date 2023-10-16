@@ -18,13 +18,13 @@ The tourism industry in Sri Lanka is a vital contributor to the country's econom
 ## Key Features
 Tourzee offers the following key features to make your journey memorable:
 
-1. 🚑 Safety First: Safety and emergency assistance are paramount. Tourists can use our app to quickly find nearby hospitals, police stations, and fire stations.
+1. 🏞️ **Virtual Tour of Important Places**: Explore essential attractions virtually, gaining insights and inspiration for your visit.
 
-2. 🗺️ Geolocation Magic: Tourzee leverages the Geolocation API to pinpoint your exact location and provide tailored recommendations.
+2. 🌐 **Social Sharing and Community Engagement**: Share your experiences, connect with fellow travelers, and enhance your journey through community engagement.
 
-3. 🏥 Emergency Services: With the power of Google Maps API, Tourzee can not only find your location but also display nearby hospitals, police stations, and fire stations, ensuring your safety.
+3. 🌟 **Personalized Recommendations**: Receive tailored recommendations and suggestions to make the most of your adventure.
 
-4. 📍 Interactive Maps: Tourzee places markers on the map to represent the locations of nearby hospitals, police stations, and fire stations for your convenience.
+4. 🚑 **Safety and Emergency Assistance**: Prioritize safety with easy access to nearby hospitals, police stations, and fire stations for emergency assistance.
 
 ## Technologies Used
 Tourzee is built using the following technologies:
