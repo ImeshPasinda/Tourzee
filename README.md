@@ -1,4 +1,4 @@
-# Tourzee - Your Ultimate Tour Guide Web Application 🌍📱
+# Tourzee - Your Ultimate Tour Guide Web Application 🌍
 
 ![Tourzee Logo](https://github.com/ImeshPasinda/Tourzee/blob/dev/logo.png)
 
