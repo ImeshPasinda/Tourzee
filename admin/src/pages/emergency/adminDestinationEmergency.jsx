@@ -26,7 +26,7 @@ function AdminDestinationEmergency() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://localhost:8800/api/destinationsafetytips/');
+        const response = await axios.get('https://tourzee-backend.onrender.com/api/destinationsafetytips/');
         if (response.status !== 200) {
           throw new Error('API request failed');
         }
@@ -60,7 +60,7 @@ function AdminDestinationEmergency() {
       const formData = form.getFieldsValue();
 
       // Send a POST request to your server
-      const response = await axios.post('http://localhost:8800/api/destinationsafetytips/', formData);
+      const response = await axios.post('https://tourzee-backend.onrender.com/api/destinationsafetytips/', formData);
 
       if (response.status === 201) {
         // Reset the form and close the modal
@@ -86,7 +86,7 @@ function AdminDestinationEmergency() {
       const formData = form.getFieldsValue();
 
       // Send a PUT request to your server to update the safety tip
-      const response = await axios.put(`http://localhost:8800/api/destinationsafetytips/${editingTip._id}`, formData);
+      const response = await axios.put(`https://tourzee-backend.onrender.com/api/destinationsafetytips/${editingTip._id}`, formData);
 
       if (response.status === 200) {
         // Reset the form, close the modal, and clear the editingTip state
@@ -106,7 +106,7 @@ function AdminDestinationEmergency() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8800/api/destinationsafetytips/');
+      const response = await axios.get('https://tourzee-backend.onrender.com/api/destinationsafetytips/');
       if (response.status === 200) {
         // If the request is successful (status code 200), update the safetyTips state with the data.
         setSafetyTips(response.data.safetyTips);
@@ -141,7 +141,7 @@ function AdminDestinationEmergency() {
   const handleDeleteClick = async (tipId) => {
     try {
       // Make a DELETE request to your API to delete the safety tip
-      const response = await axios.delete(`http://localhost:8800/api/destinationsafetytips/${tipId}`);
+      const response = await axios.delete(`https://tourzee-backend.onrender.com/api/destinationsafetytips/${tipId}`);
 
       if (response.status === 200) {
         // Remove the deleted safety tip from the local state

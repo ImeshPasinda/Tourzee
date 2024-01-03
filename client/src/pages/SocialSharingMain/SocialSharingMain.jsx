@@ -15,7 +15,7 @@ const SocialSharingMain = () => {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const response = await axios.get('http://localhost:8800/api/posts/'); // Replace with your actual API URL
+        const response = await axios.get('https://tourzee-backend.onrender.com/api/posts/'); // Replace with your actual API URL
         if (response.status !== 200) {
           throw new Error('API request failed');
         }

@@ -26,7 +26,7 @@ const CommentSection = () => {
 
         if (form) {
             try {
-                const response = await axios.post(`http://localhost:8800/api/comments/${id}`, {
+                const response = await axios.post(`https://tourzee-backend.onrender.com/api/comments/${id}`, {
                     comment: comment,
                     username: user.username, // You can replace this with the actual username if available
                 });
@@ -58,7 +58,7 @@ const CommentSection = () => {
     useEffect(() => {
         async function fetchPostData() {
             try {
-                const response = await axios.get(`http://localhost:8800/api/posts/${id}`);
+                const response = await axios.get(`https://tourzee-backend.onrender.com/api/posts/${id}`);
                 if (response.status !== 200) {
                     throw new Error('API request failed');
                 }
@@ -76,7 +76,7 @@ const CommentSection = () => {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await axios.get(`http://localhost:8800/api/comments/pid/${id}`);
+                const response = await axios.get(`https://tourzee-backend.onrender.com/api/comments/pid/${id}`);
                 if (response.status === 200) {
                     setComments(response.data);
                     setCommentCount(response.data.length);
