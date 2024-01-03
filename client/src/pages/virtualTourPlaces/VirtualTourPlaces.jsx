@@ -18,7 +18,7 @@ const VirtualTourPlaces = () => {
 
   useEffect(() => {
     axios
-      .get("https://tourzee-backend.onrender.com/api/virtualTour/")
+      .get("http://localhost:8800/api/virtualTour/")
       .then((response) => {
         setData(response.data);
         setLoading(false); // Set loading to false when data is fetched

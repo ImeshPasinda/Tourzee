@@ -29,7 +29,7 @@ const DestinationsEmergency = () => {
     // Fetch data from your API endpoint using axios
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://tourzee-backend.onrender.com/api/destinationsafetytips/'); // Replace with your actual API URL
+        const response = await axios.get('http://localhost:8800/api/destinationsafetytips/'); // Replace with your actual API URL
         if (response.status !== 200) {
           throw new Error('API request failed');
         }

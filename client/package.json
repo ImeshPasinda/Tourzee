@@ -57,5 +57,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://tourzee-backend.onrender.com/api"
+  "proxy": "http://localhost:8800/api"
 }

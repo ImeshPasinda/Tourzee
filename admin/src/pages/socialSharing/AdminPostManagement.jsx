@@ -23,7 +23,7 @@
 //   useEffect(() => {
 //     async function fetchData() {
 //       try {
-//         const response = await axios.get('https://tourzee-backend.onrender.com/api/posts/'); // Replace with your actual API URL
+//         const response = await axios.get('http://localhost:8800/api/posts/'); // Replace with your actual API URL
 //         if (response.status !== 200) {
 //           throw new Error('API request failed');
 //         }
@@ -142,7 +142,7 @@
 //   useEffect(() => {
 //     async function fetchData() {
 //       try {
-//         const response = await axios.get('https://tourzee-backend.onrender.com/api/posts/'); // Replace with your actual API URL
+//         const response = await axios.get('http://localhost:8800/api/posts/'); // Replace with your actual API URL
 //         if (response.status !== 200) {
 //           throw new Error('API request failed');
 //         }
@@ -255,7 +255,7 @@ function AdminPostManagement() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('https://tourzee-backend.onrender.com/api/posts/'); // Replace with your actual API URL
+        const response = await axios.get('http://localhost:8800/api/posts/'); // Replace with your actual API URL
         if (response.status !== 200) {
           throw new Error('API request failed');
         }
@@ -280,7 +280,7 @@ function AdminPostManagement() {
   const handleDeleteClick = async (postId) => {
     try {
       // Send a request to delete the post by its ID
-      const response = await axios.delete(`https://tourzee-backend.onrender.com/api/posts/${postId}`);
+      const response = await axios.delete(`http://localhost:8800/api/posts/${postId}`);
 
       if (response.status === 200) {
         // Post deleted successfully, remove it from the state

@@ -216,7 +216,7 @@ const Reports = () => {
 
   useEffect(() => {
     // Fetch user data from your API endpoint
-    axios.get('https://tourzee-backend.onrender.com/api/users/') // Replace with your API endpoint
+    axios.get('http://localhost:8800/api/users/') // Replace with your API endpoint
       .then((response) => {
         setData(response.data);
         setLoading(false);
@@ -228,7 +228,7 @@ const Reports = () => {
   }, []);
   // Function to fetch Trip data
   const fetchTripData = () => {
-    axios.get('https://tourzee-backend.onrender.com/api/trips/') // Replace with your API endpoint for trips
+    axios.get('http://localhost:8800/api/trips/') // Replace with your API endpoint for trips
       .then((response) => {
         setTripData(response.data);
         setTripLoading(false);
@@ -244,7 +244,7 @@ const Reports = () => {
 
   // Function to fetch virtual tour data
   const fetchVirtualTourData = () => {
-    axios.get('https://tourzee-backend.onrender.com/api/virtualTour/') // Replace with your API endpoint for virtual tours
+    axios.get('http://localhost:8800/api/virtualTour/') // Replace with your API endpoint for virtual tours
       .then((response) => {
         setVirtualTourData(response.data);
 
@@ -262,7 +262,7 @@ const Reports = () => {
 
   // Fetch user posts from your API endpoint
   const fetchUserPosts = () => {
-    axios.get('https://tourzee-backend.onrender.com/api/posts/') // Replace with your API endpoint for user posts
+    axios.get('http://localhost:8800/api/posts/') // Replace with your API endpoint for user posts
       .then((response) => {
         setUserPosts(response.data.posts);
         setUserPostsLoading(false);
