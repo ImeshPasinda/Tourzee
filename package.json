@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "react-scripts": "^5.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-client": "cd client && npm install && npm run build",
+    "build-admin": "cd admin && npm install && npm run build",
+    "build": "npm build-client && npm build-admin"
   }
 }
